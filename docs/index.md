@@ -49,7 +49,7 @@ Module_5
 
 # How to cite us
 
-If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
+If you use PBH-{math}`\beta`, please cite its pre-print, arXiv:.
 
 
 # Acknowledgements

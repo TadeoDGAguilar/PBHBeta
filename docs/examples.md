@@ -4,7 +4,7 @@
 
 ```{code-block} python
 :lineno-start: 1
-from betaPBH import functions, constants, constraints, BfN, BfS
+from PBHBeta import *
 import matplotlib.pyplot as plt
 import numpy as np
 ```
@@ -54,7 +54,7 @@ $\beta_{PBH} = \beta(N_{\rm reh}, \omega, \gamma_{\rm reh})$
 
 ```{code-block} python
 :lineno-start: 1
-from betaPBH import functions, constants, constraints, BfN, BfS
+from PBHBeta import *
 import matplotlib.pyplot as plt
 import numpy as np
 ```
@@ -93,7 +93,7 @@ $\beta_{PBH} = \beta(N_{\rm stiff}, \omega, \gamma_{\rm stiff})$
 
 ```{code-block} python
 :lineno-start: 1
-from betaPBH import functions, constants, constraints, BfN, BfS
+from PBHBeta import *
 import matplotlib.pyplot as plt
 import numpy as np
 ```

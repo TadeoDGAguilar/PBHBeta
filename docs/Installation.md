@@ -39,3 +39,4 @@ emphasize-lines: 1
 ---
 pip3 install PBHBeta
 ```
+Please read the section where you can see the requirements and a simple quick start. In the tutorials section you can find several examples of SimpleMC functions.

@@ -46,7 +46,8 @@ You can find in the documentation of the {py:func}`PBHBeta.functions.Betas_DM(M_
 If the user wants to manipulate those arrays, they can simply invoke `functions.Betas_DM(M_tot)[number]`, where `number` can be 0, 1, 2, or 3, corresponding to each output array respectively.
 ```
 
-Es posible graficar estas salidas haciendo uso de matplotlib:
+It is possible to plot these outputs using matplotlib.
+
 
 ```{code-block} python
 :lineno-start: 3
@@ -71,3 +72,4 @@ plt.show()
 :align: center
 ```
 
+If you successfully obtained the example image, congratulations! Now you are ready to use `PBHBeta`.

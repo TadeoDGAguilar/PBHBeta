@@ -55,4 +55,4 @@ If you use PBH-{math}`\beta`, please cite its pre-print, arXiv:.
 # Acknowledgements
 
 
-I want to express my sincere gratitude to Dr. Isidro Gomez, Dr. Luis Padilla, and Dr. Gabriela Arroyo for their valuable support and dedication in the development of this project. Their time, knowledge, and experience have been essential in achieving the proposed objectives. Thanks to their guidance and advice, we have achieved a level of quality and scientific rigor that has been fundamental to the success of this work. I deeply appreciate their patience, kindness, and commitment in each of our meetings and conversations. Without a doubt, this collaboration has been an enriching experience and an honor for me. Thank you very much for everything!
+I want to express my sincere gratitude to ...

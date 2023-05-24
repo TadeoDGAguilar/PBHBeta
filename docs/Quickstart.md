@@ -41,9 +41,9 @@ functions.Betas_DM(M_tot)
 ```
 
 ```{note}
-You can find in the documentation of the {py:func}`PBHBeta.functions.Betas_DM(M_tot)` that this function stores the values of total abundance in an array called `betas_DM_tot` within the `constraints.py` module. On the other hand, the function returns 4 arrays named:`M_n`, `betas`, `M_relic`, `betas_relic`.
+You can find in the documentation of the {py:func}`PBHBeta.functions.Betas_DM()` that this function stores the values of total abundance in an array called `betas_DM_tot` within the `constraints.py` module. On the other hand, the function returns 4 arrays named:`M_n`, `betas`, `M_relic`, `betas_relic`.
 
-If the user wants to manipulate those arrays, they can simply invoke `functions.Betas_DM(M_tot)[number]`, where `number` can be 0, 1, 2, or 3, corresponding to each output array respectively.
+If the user wants to manipulate those arrays, they can simply invoke `functions.Betas_DM(M_tot)`[number], where `number` can be 0, 1, 2, or 3, corresponding to each output array respectively.
 ```
 
 It is possible to plot these outputs using matplotlib.

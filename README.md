@@ -1,4 +1,4 @@
-# PBHBeta
+# PBH-Beta
 ## Warning this project is a beta version
 
 ### Authors

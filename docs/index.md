@@ -1,6 +1,6 @@
 # PBH-{math}`\beta`
 
-betaPBH is a Python library for **computing abundances of primordial black holes (PBHs) in Early Universe.** 
+`PBHBeta` is a Python library for **computing abundances of primordial black holes (PBHs) in Early Universe.** In the repository and here you can find an example of a jupyter-notebook using `PBHBeta` in Google Colab.
 
 
 ```{warning}

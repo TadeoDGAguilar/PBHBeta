@@ -14,10 +14,10 @@ import numpy as np
 
 def put_M_array(Mass_end_val):
     """
-    This function generates an array of masses from 1e-3 solar masses to 1e20 solar masses with a given resolution.
+    This function generates an array of masses from a parameter of mass in grams.
 
     Parameters:
-    Mass_end_val (float): End value for build array of masses.
+    Mass_end_val (float): Maximum value for build array of masses.
 
     Returns:
     M_tot (array): Array of masses.
@@ -201,10 +201,10 @@ ln_den_end = np.log(constants.rho_end)
 def Betas_DM(M_tot):
 
     """
-    Calculates the beta parameter for dark matter constraints given the total mass of dark matter.
+    Calculates the beta parameter for dark matter constraints from array of mass.
 
     Parameters:
-        - M_tot (array-like): Total mass of dark matter.
+        - M_tot (array-like): Array of mass in grams.
 
     Returns:
         A tuple containing four numpy arrays:

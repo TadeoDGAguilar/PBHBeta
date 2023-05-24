@@ -11,7 +11,7 @@ On the other hand, you can visit the GitHub code repository, download the source
 ---
 emphasize-lines: 1
 ---
-git clone https://github.com/TadeoDGAguilar/PBHbeta.git
+git clone https://github.com/TadeoDGAguilar/PBHBeta.git
 ```
 
 Then, you can install it:
@@ -28,7 +28,7 @@ Also, you can install `PBHBeta` without clonning:
 ---
 emphasize-lines: 1
 ---
-$ install -e git+https://github.com/TadeoDGAguilar/PBHbeta.git
+$ install -e git+https://github.com/TadeoDGAguilar/PBHBeta.git
 ```
 
 If you prefer the most popular installation, use:

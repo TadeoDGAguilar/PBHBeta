@@ -63,3 +63,11 @@ plt.legend()
 plt.show()
 ```
 
+`out:`
+```{figure} img/IMG_DM.png
+:alt: fishy
+:class: bg-primary
+:width: 500px
+:align: center
+```
+

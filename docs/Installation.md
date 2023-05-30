@@ -30,7 +30,7 @@ emphasize-lines: 1
 ---
 pip3 install PBHBeta
 ```
-  This will install the latest version of PBHBeta from PyPI.
+&nbsp; This will install the latest version of PBHBeta from PyPI.
 
 
 4. Installation without cloning:
@@ -41,10 +41,10 @@ emphasize-lines: 1
 ---
 $ install -e git+https://github.com/TadeoDGAguilar/PBHBeta.git
 ```
-\t This will directly install PBHBeta from the GitHub repository.
+&nbsp; This will directly install PBHBeta from the GitHub repository.
 
 
 
 Please make sure to review the requirements and the quick start section in the documentation for detailed information. Additionally, the tutorials section provides several examples of how to use PBHBeta functions.
 
-We appreciate your interest in PBHBeta and hope you find it helpful for your project. If you have any questions or encounter any issues during the installation process, please don't hesitate to reach out to us for suppo
+We appreciate your interest in PBHBeta and hope you find it helpful for your project. If you have any questions or encounter any issues during the installation process, please don't hesitate to reach out to us for support.

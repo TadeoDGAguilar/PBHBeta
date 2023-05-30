@@ -1,12 +1,12 @@
 # Quickstar
 
-One way to verify that the betaPBH library has been installed correctly is to immediately import the library and all its modules.
+## Importing Modules
 
-```{code-block}
-from PBHBeta import *
+```{note}
+One way to verify that the betaPBH library has been installed correctly is to immediately import the library and all its modules.
 ```
 
-Additionally, it is recommended for the user to import numpy and matplotlib.pyplot, so the main code header would be written as follows:
+1. Import the PBHBeta library and any required modules:
 
 ```{code-block}
 from PBHBeta import *
@@ -14,15 +14,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-The first function we will execute is {py:func}`PBHBeta.functions.put_M_array`, which contains the instruction to generate an array of masses from a maximum value of mass in grams.
+
+2. Generate an array of masses using the put_M_array function:
+
+The first function to execute is {py:func}`PBHBeta.functions.put_M_array`, which contains the instruction to generate an array of masses from a maximum value of mass in grams.
 
 ```{code-block}
 PBHBeta.functions.put_M_array(1e20)
 ```
-
 ```{note}
 The library contains a module called `constraints.py`, where the `return` of {py:func}`PBHBeta.functions.put_M_array` will be stored.
 ```
+
+3. Access the generated masses stored in the `constraints.M_tot` variable:
 
 You can retrieve the values stored in `constraint.M_tot` and store them in a variable to perform operations within the PBHBeta functions. 
 
@@ -33,7 +37,7 @@ Here's an example:
 M_tot = constraints.M_tot
 ```
 
-To obtain the abundances (betas) considering the DM constraints, we will use `M_tot` into {py:func}`PBHBeta.functions.Betas_DM()`
+4. Calculate the abundances (betas) considering the dark matter (DM) constraints using the Betas_DM function {py:func}`PBHBeta.functions.Betas_DM()` with input `M_tot`:
 
 ```{code-block} python
 :lineno-start: 2
@@ -41,13 +45,13 @@ functions.Betas_DM(M_tot)
 ```
 
 ```{note}
-You can find in the documentation of the {py:func}`PBHBeta.functions.Betas_DM()` that this function stores the values of total abundance in an array called `betas_DM_tot` within the `constraints.py` module. On the other hand, the function returns 4 arrays named:`M_n`, `betas`, `M_relic`, `betas_relic`.
+The documentation of the `PBHBeta.functions.Betas_DM()` function specifies that it stores the values of the total abundance in an array called `betas_DM_tot` within the `constraints.py` module. Additionally, the function returns four arrays, namely `M_n`, `betas`, `M_relic`, and `betas_relic`.
 
-If the user wants to manipulate those arrays, they can simply invoke `functions.Betas_DM(M_tot)`[number], where `number` can be 0, 1, 2, or 3, corresponding to each output array respectively.
+To manipulate these arrays, you can directly access them by invoking `functions.Betas_DM(M_tot)`[number], where `number` can be 0, 1, 2, or 3, corresponding to each output array respectively.
+
 ```
 
-It is possible to plot these outputs using matplotlib.
-
+5. Plot the calculated abundances using matplotlib:
 
 ```{code-block} python
 :lineno-start: 3
@@ -72,4 +76,4 @@ plt.show()
 :align: center
 ```
 
-If you successfully obtained the example image, congratulations! Now you are ready to use `PBHBeta`.
+Congratulations! You have successfully installed and used `PBHBeta`. You can explore more functionalities and examples in the library's documentation.

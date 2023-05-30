@@ -1,12 +1,10 @@
 # Installation
 
-There are 4 options to install, or use, `PBHBeta`:
+To install PBHBeta, you have the following options:
 
-You can use `PBHBeta` in Google Colab, please see the Section Using Google Colab in Requirements.
+1. Using PBHBeta in Google Colab: Please refer to the "Using Google Colab" section in the Requirements documentation for instructions on how to use PBHBeta within the Google Colab environment.
 
-
-On the other hand, you can visit the GitHub code repository, download the source code here or clone it as follows:
-
+2. Cloning the GitHub Repository:
 ```{code-block}
 ---
 emphasize-lines: 1
@@ -14,24 +12,17 @@ emphasize-lines: 1
 git clone https://github.com/TadeoDGAguilar/PBHBeta.git
 ```
 
-Then, you can install it:
-
+After cloning the repository, navigate to the PBHBeta directory:
 ```{code-block}
 cd PBHBeta
+```
 
+Install PBHBeta using pip:
+```{code-block}
 pip3 install -e .
 ```
 
-Also, you can install `PBHBeta` without clonning:
-
-```{code-block}
----
-emphasize-lines: 1
----
-$ install -e git+https://github.com/TadeoDGAguilar/PBHBeta.git
-```
-
-If you prefer the most popular installation, use:
+3. Installation via pip:
 
 ```{code-block}
 ---
@@ -39,4 +30,21 @@ emphasize-lines: 1
 ---
 pip3 install PBHBeta
 ```
-Please read the section where you can see the requirements and a simple quick start. In the tutorials section you can find several examples of SimpleMC functions.
+  This will install the latest version of PBHBeta from PyPI.
+
+
+4. Installation without cloning:
+
+```{code-block}
+---
+emphasize-lines: 1
+---
+$ install -e git+https://github.com/TadeoDGAguilar/PBHBeta.git
+```
+\t This will directly install PBHBeta from the GitHub repository.
+
+
+
+Please make sure to review the requirements and the quick start section in the documentation for detailed information. Additionally, the tutorials section provides several examples of how to use PBHBeta functions.
+
+We appreciate your interest in PBHBeta and hope you find it helpful for your project. If you have any questions or encounter any issues during the installation process, please don't hesitate to reach out to us for suppo

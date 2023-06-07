@@ -50,7 +50,7 @@ If this not happend, you need install manually to use `betaPBH`
   plt.show()
 ```
 
-![Descripción de la imagen](https://betapbh.readthedocs.io/en/latest/_images/BfS.png)
+![Descripción de la imagen](https://pbhbeta.readthedocs.io/en/latest/_images/BfN.png)
 
 # How to cite us
 

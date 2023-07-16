@@ -167,7 +167,7 @@ def get_betas_reh_tot(N_re, omega, gam_reh):
                 betas_reh_tot.append(beta0)
         else:
             beta_try = Omegas_full[i]/(1+(rho_end_reh/rho_end)**(1./4))
-            beta0, = fsolve(objective_reh,beta_try)#,xtol=1e-5)
+            beta0, = fsolve(objective_reh,beta_try)
             betas_reh_tot.append(beta0)
             
     return betas_reh_tot

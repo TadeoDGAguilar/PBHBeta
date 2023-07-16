@@ -25,6 +25,12 @@ from .constants import H_end
 from .constants import rho_end
 from .constants import ev1
 from .constants import ev2
+from .constants import GeV
+from .constants import metter_m1
+from .constants import rho_c
+from .constants import Om_r0
+from .constants import rho_r0
+from .constants import A
 
 from .constraints import data_mass
 from .constraints import data_abundances
@@ -45,3 +51,9 @@ from .constraints import M_tot
 from .BfN import get_betas_reh_tot
 
 from .BfS import get_betas_stiff_tot
+
+from .KfN import get_k_Nreh
+from .KfN import k_MD
+
+from .KfS import k_rad
+from .KfS import get_k_SD

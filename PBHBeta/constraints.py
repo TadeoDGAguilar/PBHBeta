@@ -3,9 +3,6 @@
 ### module that contain arrays
 
 
-
-
-
 betas_DM_tot = []
 betas_BBN_tot = []
 betas_SD_tot = []

@@ -14,10 +14,10 @@ import numpy as np
 
 def put_M_array(Mass_end_val):
     """
-    This function generates an array of masses from a parameter of mass in grams.
+    This function generates an array of masses from 1e-3 solar masses to 1e20 solar masses with a given resolution.
 
     Parameters:
-    Mass_end_val (float): Maximum value for build array of masses.
+    Mass_end_val (float): End value for build array of masses.
 
     Returns:
     M_tot (array): Array of masses.
@@ -201,10 +201,10 @@ ln_den_end = np.log(constants.rho_end)
 def Betas_DM(M_tot):
 
     """
-    Calculates the beta parameter for dark matter constraints from array of mass.
+    Calculates the beta parameter for dark matter constraints given the total mass of dark matter.
 
     Parameters:
-        - M_tot (array-like): Array of mass in grams.
+        - M_tot (array-like): Total mass of dark matter.
 
     Returns:
         A tuple containing four numpy arrays:
@@ -643,7 +643,7 @@ def Omegas_LSP(M_tot, omega):
                 Omegas_lsp_pbbn.append(y)
                 M_lsp_pbbn.append(M_tot[i])
             else:
-                Delta_t = t_pl*(M_tot[i]/constants.M_pl_g)**3
+                Delta_t = constants.t_pl*(M_tot[i]/constants.M_pl_g)**3
                 y = beta*sol_try.y[0][-1]*(1.-sol_try.y[1][-1]/Delta_t)**(1./3)
                 Omegas_lsp.append(y)
                 M_lsp_bbn.append(M_tot[i])
@@ -709,3 +709,20 @@ def get_Omegas_full(M_tot):
     for i in range(len(M_tot)):
         constraints.Omegas_full[i] = min(DM_tot[i], BBN_tot[i], SD_tot[i], CMB_tot[i], GRB_tot[i], Reio_tot[i], LSP_tot[i])
     return constraints.Omegas_full
+
+def inverse_error(betas, delta_c):
+    aux = []
+    for i in range(len(betas)):
+        aux.append(delta_c/(np.sqrt(2)*special.erfcinv(betas[i])))
+    return aux
+
+def a_endre(rho_r0, rho_end_re):
+    return (rho_r0 / rho_end_re) ** (1. / 4)
+
+def k_rad(M):
+    a_end_inf_rad = (constants.rho_r0 / constants.rho_end_inf) ** (1. / 4)
+    k_end = a_end_inf_rad * constants.H_end
+    k_end_over_k_rad = (M/(7.1*10**-2*constants.gam_rad*(1.8*10**15/constants.H_end)))**(1/2)
+    k = (k_end/k_end_over_k_rad)*constants.GeV*constants.metter_m1
+    k = np.array(k)
+    return k

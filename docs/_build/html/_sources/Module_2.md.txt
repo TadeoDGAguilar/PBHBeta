@@ -42,4 +42,28 @@
 * - `ev2`
   - `float`
   - Energy scale in GeV
+* - `GeV`
+  - `float`
+  - GeV value in m^-1
+* - `metter_m1`
+  - `float`
+  - Meter value in Mpc^-1
+* - `rho_c`
+  - `float`
+  - Critical energy density in GeV^4
+* - `Om_r0`
+  - `float`
+  - Present-day radiation density parameter
+* - `rho_r0`
+  - `float`
+  - Present-day radiation energy density in GeV^4
+* - `A`
+  - `float`
+  - A value
+* - `B`
+  - `float`
+  - B value
+* - `C`
+  - `float`
+  - C value
 ```

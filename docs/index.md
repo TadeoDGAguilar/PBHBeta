@@ -1,6 +1,6 @@
 # PBH-{math}`\beta`
 
-`PBHbeta` is a Python library for **computing abundances of primordial black holes 
+betaPBH is a Python library for **computing abundances of primordial black holes 
 (PBHs) in Early Universe.** 
 
 
@@ -13,7 +13,7 @@ This project is under heavy development.
 1. **Python 3.6 or later:** The betaPBH library requires Python 3.6 or later to be installed on your system.
 
 ```{note}
-This code runs both in Python 3x. However, we highly recommend Python 3.9. The GitHub repository and PyPI package for betaPBH provide the necessary libraries to run the software. However, these dependencies must be imported into your notebook or console for the functions to be available.
+This code runs both in Python 2x and 3x. However, we highly recommend Python 3x. In the github repository and pypi package contains the basic libraries to run `betaPBH`, but this dependences need import into notebook or in the console to functions be available.
 ```
 
 2. **pip package manager:** The pip package manager is used to install betaPBH and its dependencies. It should be included with your Python installation by default.
@@ -36,6 +36,14 @@ examples
 
 ```{toctree}
 ---
+caption: CLASS REFERENCE
+maxdepth: 1 
+---
+Classes
+```
+
+```{toctree}
+---
 caption: MODULES AND COMPONENTS
 maxdepth: 1
 ---
@@ -54,9 +62,3 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 
 
 # Acknowledgements
-
-We would like to express our deepest gratitude to Dr. Juan Carlos Hidalgo for his invaluable guidance, support, and expertise as our advisor throughout the project "Constraints on primordial black holes for nonstandard cosmologies." His insightful feedback and dedication have greatly contributed to the success of this research.
-
-We would also like to extend our appreciation to Dr. Encieh Erfani and Dr. Luis Padilla for their collaboration and valuable contributions to the project. Their knowledge, expertise, and insightful discussions have significantly enhanced our understanding and the quality of our work. Furthermore, we would like to thank the entire research team and colleagues for their assistance, suggestions, and encouragement during the development of the PBHbeta library. Their contributions have been instrumental in the creation and refinement of this software.
-
-Lastly, we are grateful to the institutions that have supported this research endeavor, enabling us to pursue our scientific investigations and contribute to the field of cosmology.

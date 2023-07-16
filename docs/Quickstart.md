@@ -17,7 +17,8 @@ import numpy as np
 
 2. Generate an array of masses using the put_M_array function:
 
-The first function to execute is {py:func}`PBHBeta.functions.put_M_array`, which contains the instruction to generate an array of masses from a maximum value of mass in grams.
+The first function to execute is {py:func}`PBHBeta.functions.put_M_array`, which contains the instruction to generate an array of masses from a maximum value of mass in 
+grams.
 
 ```{code-block}
 PBHBeta.functions.put_M_array(1e20)
@@ -45,9 +46,11 @@ functions.Betas_DM(M_tot)
 ```
 
 ```{note}
-The documentation of the `PBHBeta.functions.Betas_DM()` function specifies that it stores the values of the total abundance in an array called `betas_DM_tot` within the `constraints.py` module. Additionally, the function returns four arrays, namely `M_n`, `betas`, `M_relic`, and `betas_relic`.
+The documentation of the `PBHBeta.functions.Betas_DM()` function specifies that it stores the values of the total abundance in an array called `betas_DM_tot` within the 
+`constraints.py` module. Additionally, the function returns four arrays, namely `M_n`, `betas`, `M_relic`, and `betas_relic`.
 
-To manipulate these arrays, you can directly access them by invoking `functions.Betas_DM(M_tot)`[number], where `number` can be 0, 1, 2, or 3, corresponding to each output array respectively.
+To manipulate these arrays, you can directly access them by invoking `functions.Betas_DM(M_tot)`[number], where `number` can be 0, 1, 2, or 3, corresponding to each output 
+array respectively.
 
 ```
 
@@ -77,3 +80,4 @@ plt.show()
 ```
 
 Congratulations! You have successfully installed and used `PBHBeta`. You can explore more functionalities and examples in the library's documentation.
+

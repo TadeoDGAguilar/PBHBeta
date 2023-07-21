@@ -6,6 +6,8 @@
 [tadeodaguilar](https://www.linkedin.com/in/tadeodaguilar/) & [Luis E. Padilla](https://www.linkedin.com/in/luis-enrique-padilla-albores-052087199/)
 
 
+**License:** [LGPL](https://www.gnu.org/licenses/lgpl-3.0.en.html) + mandatory bug reporting asap + mandatory [arXiv'ing](https://arxiv.org) of publications using it (see [LICENCE.txt](https://github.com/TadeoDGAguilar/PBHBeta/blob/main/LICENSE) for exceptions). The documentation is licensed under the [GFDL](https://www.gnu.org/licenses/fdl-1.3.en.html).
+
 
 ## Prerequisites
 

@@ -5,6 +5,8 @@
 
 [tadeodaguilar](https://www.linkedin.com/in/tadeodaguilar/) & [Luis E. Padilla](https://www.linkedin.com/in/luis-enrique-padilla-albores-052087199/)
 
+[![Build Status](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta.svg?branch=main)](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta)
+
 ## Prerequisites
 
 The betaPBH library requires Python 3.10 or later to be installed on your system.

@@ -70,3 +70,24 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 :width: 150px
 ```
 
+```{figure} img/ICF.png
+:alt: Instituto de Ciencias Físicas
+:target: https://www.fis.unam.mx/
+:height: 150px
+:width: 150px
+```
+
+```{figure} img/ICTP.svg
+:alt: Instituto de Ciencias Físicas
+:target: International Centre for Theoretical Physics
+:height: 150px
+:width: 150px
+```
+
+```{figure} img/CONAHCYT.svg
+:alt: Consejo Nacional de Humanidades Ciencias y Tecnologías
+:target: https://conahcyt.mx/
+:height: 150px
+:width: 200px
+```
+

@@ -67,7 +67,7 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 <img src="img/UNAM.png" alt="UNAM" height="130px" width="130px" class="bg-primary">
 </a>
 <a href="https://www.fis.unam.mx/" target="_blank">
-<img src="img/ICF.png" alt="ICF" height="130px" width="190px" class="bg-primary">
+<img src="img/ICF.png" alt="ICF" height="130px" width="200px" class="bg-primary">
 </a>
 <a href="https://www.ictp.it/" target="_blank">
 <img src="img/ICTP.svg" target="" alt="ICTP" height="130px" width="130px" class="bg-primary">

@@ -62,3 +62,11 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 
 
 # Acknowledgements
+
+<p>
+    <img src="img/UNAM.png" alt="Imagen 1" style="display: inline-block; width: 25%;" />
+    <img src="img/ICF.png" alt="Imagen 2" style="display: inline-block; width: 25%;" />
+    <img src="img/ICTP.svg" alt="Imagen 3" style="display: inline-block; width: 25%;" />
+    <img src="img/CONAHCYT.svg" alt="Imagen 4" style="display: inline-block; width: 25%;" />
+</p>
+

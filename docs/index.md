@@ -1,11 +1,11 @@
 # PBH-{math}`\beta`
 
-betaPBH is a Python library for **computing abundances of primordial black holes 
-(PBHs) in Early Universe.** 
+`PBHBeta` is a Python library for **computing abundances of primordial black holes 
+(PBHs).** 
 
 
 ```{warning}
-This project is under heavy development.
+This project is under development.
 ```
 
 ## Requeriments
@@ -13,7 +13,7 @@ This project is under heavy development.
 1. **Python 3.6 or later:** The betaPBH library requires Python 3.6 or later to be installed on your system.
 
 ```{note}
-This code runs both in Python 2x and 3x. However, we highly recommend Python 3x. In the github repository and pypi package contains the basic libraries to run `betaPBH`, but this dependences need import into notebook or in the console to functions be available.
+This code runs in any Python 2x and 3x. However, we highly recommend Python 3x. In the GitHub repository and PyPI package for PBHBeta contains the basic libraries to run `betaPBH`, but this dependences need import into notebook or in the console to functions be available.
 ```
 
 2. **pip package manager:** The pip package manager is used to install betaPBH and its dependencies. It should be included with your Python installation by default.

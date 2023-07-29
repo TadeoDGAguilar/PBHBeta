@@ -63,9 +63,15 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 
 # Acknowledgements
 
-<img src="img/UNAM.png" target="https://www.unam.mx/" alt="UNAM" height="130px" width="130px" class="bg-primary">
-<img src="img/ICF.png" target="https://www.fis.unam.mx/" alt="ICF" height="130px" width="190px" class="bg-primary">
-<img src="img/ICTP.svg" target="https://www.ictp.it/" alt="ICTP" height="130px" width="130px" class="bg-primary">
+<a href="https://www.unam.mx/" target="_blank">
+<img src="img/UNAM.png" alt="UNAM" height="130px" width="130px" class="bg-primary">
+</a>
+<a href="https://www.fis.unam.mx/" target="_blank">
+<img src="img/ICF.png" alt="ICF" height="130px" width="190px" class="bg-primary">
+</a>
+<a href="https://www.ictp.it/" target="_blank">
+<img src="img/ICTP.svg" target="" alt="ICTP" height="130px" width="130px" class="bg-primary">
+</a>
 <a href="https://conahcyt.mx/" target="_blank">
 <img src="img/CONAHCYT.svg" alt="CONAHCYT" height="130px" width="190px" class="bg-primary">
 </a>

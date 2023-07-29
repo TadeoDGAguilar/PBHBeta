@@ -63,5 +63,10 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 
 # Acknowledgements
 
-[![University of Sussex](img/UNAM.png)](https://www.unam.mx/){:height="150px" width="150px" alt="UNAM"}
+```{figure} img/UNAM.png
+:alt: Universidad Nacional Autónoma de México
+:target: https://www.unam.mx/
+:height: 150px
+:width: 150px
+```
 

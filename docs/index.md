@@ -63,6 +63,9 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 
 # Acknowledgements
 
+![UNAM](img/UNAM.png)(https://conahcyt.mx/){.bg-warning w=100px align=center}
+
+
 <a href="https://www.unam.mx/" target="_blank">
 <img src="img/UNAM.png" alt="UNAM" height="130px" width="130px" class="bg-primary">
 </a>
@@ -76,3 +79,19 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 <img src="img/CONAHCYT.svg" alt="CONAHCYT" height="130px" width="190px" class="bg-primary">
 </a>
 
+.. image:: https://raw.githubusercontent.com/CobayaSampler/cobaya/master/img/Sussex_white.svg
+   :alt: University of Sussex
+   :target: https://www.sussex.ac.uk/astronomy/
+   :height: 150px
+   :width: 150px
+
+.. image:: ./img/logo_ttk.png
+   :alt: RWTH Aachen
+   :target: https://www.particle-theory.rwth-aachen.de/
+   :height: 150px
+
+.. image:: https://raw.githubusercontent.com/CobayaSampler/cobaya/master/img/ERC_white.svg
+   :alt: European Research Council
+   :target: https://erc.europa.eu/
+   :height: 150px
+   :width: 150px

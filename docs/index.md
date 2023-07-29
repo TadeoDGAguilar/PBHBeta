@@ -100,7 +100,7 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
     </td>
     <td>
       <a href="https://www.fis.unam.mx/" target="_blank">
-        <img src="img/ICF.png" alt="Instituto de Ciencias Físicas" height="150px" width="200px">
+        <img src="img/ICF.png" alt="Instituto de Ciencias Físicas" height="150px" width="240px">
       </a>
     </td>
   </tr>

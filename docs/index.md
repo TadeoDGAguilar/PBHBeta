@@ -63,6 +63,8 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 
 # Acknowledgements
 
+<img src="img/UNAM.png" alt="UNAM" height="150px" width="200px" class="bg-primary">
+
 ![UNAM](img/UNAM.png){.bg-warning h=150px w=100px}
 ![UNAM](img/UNAM.png){.bg-warning h=150px w=100px}
 ![UNAM](img/UNAM.png){.bg-warning h=150px w=100px}

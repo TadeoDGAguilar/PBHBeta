@@ -72,7 +72,5 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 
 ![CONAHCYT](img/CONAHCYT.svg)(https://conahcyt.mx/){.bg-warning width=100px target=https://conahcyt.mx/ align=center}
 
-[![CONAHCYT](img/CONAHCYT.svg)](https://conahcyt.mx/){:target="_blank"}
-
-[![CONAHCYT](img/CONAHCYT.svg){:height="130px" width="190px"}](https://conahcyt.mx/){:target="_blank"}
+[![CONAHCYT](img/CONAHCYT.svg)](https://conahcyt.mx/){:target="_blank" height="130px" width="190px"}
 

@@ -64,36 +64,6 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 # Acknowledgements
 
 <img src="img/UNAM.png" target="https://www.unam.mx/" alt="UNAM" height="130px" width="130px" class="bg-primary">
-<img src="img/ICF.png" target=(https://www.unam.mx/) alt="UNAM" height="130px" width="190px" class="bg-primary">
-<img src="img/ICTP.svg" target=https://www.unam.mx/ alt="UNAM" height="130px" width="130px" class="bg-primary">
-<img src="img/CONAHCYT.png" target="https://www.unam.mx/" alt="UNAM" height="130px" width="190px" class="bg-primary">
-
-
-
-```{figure} img/UNAM.png
-:alt: Universidad Nacional Autónoma de México
-:target: https://www.unam.mx/
-:height: 150px
-:width: 150px
-```
-
-```{figure} img/ICF.png
-:alt: Instituto de Ciencias Físicas
-:target: https://www.fis.unam.mx/
-:height: 145px
-:width: 200px
-```
-
-```{figure} img/ICTP.svg
-:alt: International Centre for Theoretical Physics
-:target: https://www.ictp.it/
-:height: 140px
-:width: 140px
-```
-
-```{figure} img/CONAHCYT.svg
-:alt: Consejo Nacional de Humanidades Ciencias y Tecnologías
-:target: https://conahcyt.mx/
-:height: 150px
-:width: 200px
-```
+<img src="img/ICF.png" target="https://www.fis.unam.mx/" alt="ICF" height="130px" width="190px" class="bg-primary">
+<img src="img/ICTP.svg" target="https://www.ictp.it/" alt="ICTP" height="130px" width="130px" class="bg-primary">
+<img src="img/CONAHCYT.png" (target)="https://conahcyt.mx/" alt="CONAHCYT" height="130px" width="190px" class="bg-primary">

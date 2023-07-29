@@ -63,6 +63,11 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 
 # Acknowledgements
 
+![UNAM](img/UNAM.png){.bg-warning h=150px w=100px}
+![UNAM](img/UNAM.png){.bg-warning h=150px w=100px}
+![UNAM](img/UNAM.png){.bg-warning h=150px w=100px}
+![UNAM](img/UNAM.png){.bg-warning h=150px w=100px}
+
 ```{figure} img/UNAM.png
 :alt: Universidad Nacional Autónoma de México
 :target: https://www.unam.mx/
@@ -73,15 +78,15 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 ```{figure} img/ICF.png
 :alt: Instituto de Ciencias Físicas
 :target: https://www.fis.unam.mx/
-:height: 150px
-:width: 150px
+:height: 145px
+:width: 200px
 ```
 
 ```{figure} img/ICTP.svg
-:alt: Instituto de Ciencias Físicas
-:target: International Centre for Theoretical Physics
-:height: 150px
-:width: 200px
+:alt: International Centre for Theoretical Physics
+:target: https://www.ictp.it/
+:height: 140px
+:width: 140px
 ```
 
 ```{figure} img/CONAHCYT.svg
@@ -90,31 +95,3 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 :height: 150px
 :width: 200px
 ```
-
-<table>
-  <tr>
-    <td>
-      <a href="https://www.unam.mx/" target="_blank">
-        <img src="img/UNAM.png" alt="Universidad Nacional Autónoma de México" height="150px" width="150px">
-      </a>
-    </td>
-    <td>
-      <a href="https://www.fis.unam.mx/" target="_blank">
-        <img src="img/ICF.png" alt="Instituto de Ciencias Físicas" height="150px" width="240px">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="https://www.ictp.it/" target="_blank">
-        <img src="img/ICTP.svg" alt="International Centre for Theoretical Physics" height="150px" width="150px">
-      </a>
-    </td>
-    <td>
-      <a href="https://conahcyt.mx/" target="_blank">
-        <img src="img/CONAHCYT.svg" alt="Consejo Nacional de Humanidades Ciencias y Tecnologías" height="150px" width="200px">
-      </a>
-    </td>
-  </tr>
-</table>
-

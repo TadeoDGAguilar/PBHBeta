@@ -70,7 +70,3 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 <img src="img/CONAHCYT.svg" alt="CONAHCYT" height="130px" width="190px" class="bg-primary">
 </a>
 
-![CONAHCYT](img/CONAHCYT.svg)(https://conahcyt.mx/){.bg-warning width=100px target=https://conahcyt.mx/ align=center}
-
-[![CONAHCYT](img/CONAHCYT.svg)](https://conahcyt.mx/){.bg-warning height=130px width=190px}
-

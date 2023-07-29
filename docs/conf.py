@@ -36,7 +36,7 @@ extensions = [
     'sphinx.ext.autosummary',
     ]
 
-myst_enable_extensions = ["dollarmath", "amsmath", "deflist", "html_image", "colon_fence",]
+myst_enable_extensions = ["dollarmath", "attrs_inline", "amsmath", "deflist", "html_image", "colon_fence",]
 
 myst_number_code_blocks = ["typescript"]
 

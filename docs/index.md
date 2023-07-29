@@ -64,6 +64,10 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 # Acknowledgements
 
 <img src="img/UNAM.png" target="https://www.unam.mx/" alt="UNAM" height="130px" width="130px" class="bg-primary">
+<img src="img/ICF.png" target=(https://www.unam.mx/) alt="UNAM" height="130px" width="190px" class="bg-primary">
+<img src="img/ICTP.svg" target=https://www.unam.mx/ alt="UNAM" height="130px" width="130px" class="bg-primary">
+<img src="img/CONAHCYT.png" target="https://www.unam.mx/" alt="UNAM" height="130px" width="190px" class="bg-primary">
+
 
 
 ```{figure} img/UNAM.png

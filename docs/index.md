@@ -63,12 +63,7 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 
 # Acknowledgements
 
-[![UNAM](img/UNAM.png)]{.bg-warning w=100px h=130px}
-[![UNAM](img/ICF.png)]{.bg-warning w=250px h=130px}
-[![UNAM](img/ICTP.svg)]{.bg-warning w=130px h=130px}
-[![UNAM](img/CONAHCYT.svg){.bg-warning w=190px h=130px}](https://www.unam.mx/)
-
-
-
-<img src="img/UNAM.png" alt="UNAM" height="130px" width="130px" target="https://www.unam.mx/" class="bg-primary">
-
+[![UNAM](img/UNAM.png){.bg-warning w=100px h=130px}](https://www.unam.mx/)
+[![UNAM](img/ICF.png){.bg-warning w=250px h=130px}](https://www.fis.unam.mx/)
+[![UNAM](img/ICTP.svg){.bg-warning w=130px h=130px}](https://www.ictp.it/)
+[![UNAM](img/CONAHCYT.svg){.bg-warning w=190px h=130px}](https://conahcyt.mx/)

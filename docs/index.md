@@ -66,7 +66,7 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 [![UNAM](img/UNAM.png)]{.bg-warning w=100px h=130px}
 [![UNAM](img/ICF.png)]{.bg-warning w=250px h=130px}
 [![UNAM](img/ICTP.svg)]{.bg-warning w=130px h=130px}
-[![UNAM](img/CONAHCYT.svg){.bg-warning w=190px h=130px}]
+![![UNAM](img/CONAHCYT.svg){.bg-warning w=190px h=130px}]
 
 
 

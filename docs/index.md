@@ -63,8 +63,9 @@ If you use {math}`\beta`-PBH, please cite its pre-print, arXiv:.
 
 # Acknowledgements
 
-![UNAM](img/UNAM.png)(https://conahcyt.mx/){.bg-warning w=100px align=center}
+![fishy](img/UNAM.png){#https://www.unam.mx/ .bg-warning h=130px w=100px https://www.unam.mx/}
 
+[![fishy](img/UNAM.png){.bg-warning h=130px w=100px https://www.unam.mx/}](https://www.unam.mx/)
 
 
 <img src="img/UNAM.png" alt="UNAM" height="130px" width="130px" class="bg-primary">

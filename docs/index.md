@@ -25,10 +25,10 @@ This code runs in any Python 2x and 3x. However, we highly recommend Python 3x. 
 
 ```{toctree}
 ---
-caption: INSTALLATION AND QUICKSTART
+caption: FIRST STEPS
 maxdepth: 1
 ---
-
+Requeriments
 Installation
 Quickstart
 examples

@@ -19,7 +19,7 @@ pip install numpy
 
 To install copy-paste this:
 
-```{code}
+```{code-block}
 ---
 emphasize-lines: 1
 ---
@@ -31,16 +31,21 @@ pip install scipy
 To install copy-paste this:
 
 ```{code-block}
+---
+emphasize-lines: 1
+---
 pip install matplotlib
 ```
 
 If you prefer, you can use all in one copy-paste line:
 
 ```{tip}
----
-emphasize-lines: 1
----
-pip install numpy scipy matplotlib
+    ---
+    emphasize-lines: 1
+    ---
+    ```bash
+    pip install numpy scipy matplotlib
+    ```
 ```
 
 ## Using Google Colab

@@ -34,10 +34,9 @@ To install copy-paste this:
 pip install matplotlib
 ```
 
-If you prefer, you can use:
+If you prefer, you can use all in one copy-paste line:
 
 ```{tip}
-All in one copy-paste line:
 ---
 emphasize-lines: 1
 ---

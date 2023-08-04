@@ -8,7 +8,7 @@ Imperative libraries are:
 
 To install copy-paste this:
 
-```{code}
+```{code-block}
 ---
 emphasize-lines: 1
 ---

@@ -43,7 +43,6 @@ If you prefer, you can use all in one copy-paste line:
 :class: myclass1,myclass2
 :name: a-tip-reference
 ```{code-block} python
-:caption: This is a caption
 :emphasize-lines: 1
 pip install matplotlib numpy scipy
 ```

@@ -42,7 +42,11 @@ If you prefer, you can use all in one copy-paste line:
 :::{tip}
 :class: myclass1,myclass2
 :name: a-tip-reference
-Let's give readers a helpful hint!
+```{code-block} python
+:caption: This is a caption
+:emphasize-lines: 1
+pip install matplotlib numpy scipy
+```
 :::
 
 ## Using Google Colab

@@ -8,6 +8,14 @@
 This project is under development.
 ```
 
+**Python 3.9 or later:** The betaPBH library requires Python 3.9 or later to be installed on your system.
+
+```{note}
+This code runs in any Python 2x and 3x. However, we highly recommend Python 3x. In the GitHub repository and PyPI package for PBHBeta contains the basic libraries to run `PBHBeta`, but this dependences need import into notebook or in the console to functions be available.
+```
+
+1. **pip package manager:** The pip package manager is used to install `PBHBeta` and its dependencies. It should be included with your Python installation by default.
+
 
 ```{toctree}
 ---

@@ -39,14 +39,11 @@ pip install matplotlib
 
 If you prefer, you can use all in one copy-paste line:
 
-```{tip}
-    ---
-    emphasize-lines: 1
-    ---
-    ```bash
-    pip install numpy scipy matplotlib
-    ```
-```
+:::{tip}
+:class: myclass1,myclass2
+:name: a-tip-reference
+Let's give readers a helpful hint!
+:::
 
 ## Using Google Colab
 

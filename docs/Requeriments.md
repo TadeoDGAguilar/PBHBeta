@@ -8,7 +8,10 @@ Imperative libraries are:
 
 To install copy-paste this:
 
-```{block-code}
+```{code}
+---
+emphasize-lines: 1
+---
 pip install numpy
 ```
 
@@ -16,7 +19,10 @@ pip install numpy
 
 To install copy-paste this:
 
-```{block-code}
+```{code}
+---
+emphasize-lines: 1
+---
 pip install scipy
 ```
 
@@ -24,7 +30,10 @@ pip install scipy
 
 To install copy-paste this:
 
-```{block-code}
+```{code}
+---
+emphasize-lines: 1
+---
 pip install matplotlib
 ```
 

@@ -30,10 +30,7 @@ pip install scipy
 
 To install copy-paste this:
 
-```{code}
----
-emphasize-lines: 1
----
+```{code-block}
 pip install matplotlib
 ```
 

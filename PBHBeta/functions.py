@@ -14,7 +14,7 @@ import numpy as np
 
 def put_M_array(Mass_end_val):
     """
-    This function generates an array of masses from 1e-3 solar masses to 1e20 solar masses with a given resolution.
+    This function generates an array of masses.
 
     Parameters:
     Mass_end_val (float): End value for build array of masses.

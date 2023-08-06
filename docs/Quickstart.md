@@ -1,12 +1,12 @@
-# Quickstar
+# Quickstart
 
 ## Importing Modules
 
 ```{note}
-One way to verify that the betaPBH library has been installed correctly is to immediately import the library and all its modules.
+One way to verify that the `PBHBeta` library has been installed correctly is to immediately import the library and all its modules.
 ```
 
-1. Import the PBHBeta library and any required modules:
+1. Import the `PBHBeta` library and any required modules:
 
 ```{code-block}
 from PBHBeta import *
@@ -15,7 +15,7 @@ import numpy as np
 ```
 
 
-2. Generate an array of masses using the put_M_array function:
+2. Generate an array of masses using the `put_M_array`{l=python} function:
 
 The first function to execute is {py:func}`PBHBeta.functions.put_M_array`, which contains the instruction to generate an array of masses from a maximum value of mass in 
 grams.

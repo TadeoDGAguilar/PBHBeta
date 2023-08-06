@@ -40,7 +40,6 @@ pip install matplotlib
 If you prefer, you can use all in one copy-paste line:
 
 :::{tip}
-:class: myclass1,myclass2
 :name: a-tip-reference
 ```{code-block} python
 :emphasize-lines: 1
@@ -52,7 +51,7 @@ pip install matplotlib numpy scipy
 
 For easy and immediate use, we recommend using Google Colab. Within it, it is necessary to install some libraries and `PBHBeta` in the first cells.
 
-```{code}
+```{code-block}
 %pip install numpy matplotlib scipy
 !pip install -e git+https://github.com/TadeoDGAguilar/PBHBeta#egg=PBHBeta
 %cd /content/src/pbhbeta

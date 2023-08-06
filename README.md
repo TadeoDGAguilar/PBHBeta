@@ -7,6 +7,11 @@
 
 [![Build Status](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta.svg?branch=main)](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta)
 
+[![Documentation Status](https://readthedocs.org/projects/pbhbeta/badge/?version=latest)](https://pbhbeta.readthedocs.io/en/latest/?badge=latest)
+
+
+
+
 ## Prerequisites
 
 The betaPBH library requires Python 3.10 or later to be installed on your system.

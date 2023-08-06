@@ -14,7 +14,7 @@ import numpy as np
 
 def put_M_array(Mass_end_val):
     """
-    This function generates an array of masses.
+    This function generates an array of masses from 1e-3 solar masses to 1e20 solar masses with a given resolution.
 
     Parameters:
     Mass_end_val (float): End value for build array of masses.
@@ -54,13 +54,11 @@ def put_M_array(Mass_end_val):
 
 
 def diff_rad_rel(ln_rho,initial,M,beta0):
-    """
-    In the scenario where PBHs evaporate before reaching the energy scale of interest (as is the case, for example, 
-    before reaching the energy scale of BBN), we calculate the PBH abundance by assuming the existence of remnants with 
-    a mass equal to the Planck mass. Instead of simultaneously solving Eqs.(10) and (11) with the constraint Eq. (8), we 
-    focus on solving Eq.(10) with the constraint $\Omega_{PBH} = (m_{Pl}/M_{PBH})\beta(M_{PBH})$.
-    """
 
+    """In the scenario where PBHs evaporate before reaching the energy scale of interest (as is the case, for example,
+    before reaching the energy scale of BBN), we calculate the PBH abundance by assuming the existence of remnants with
+    a mass equal to the Planck mass. Instead of simultaneously solving Eqs.(10) and (11) with the constraint Eq. (8), we
+    focus on solving Eq.(10) with the constraint $\Omega_{PBH} = (m_{Pl}/M_{PBH})\beta(M_{PBH})$."""
 
     # Extract initial scale factor b and calculate Om_0
     b = initial[0]
@@ -73,10 +71,9 @@ def diff_rad_rel(ln_rho,initial,M,beta0):
 
 
 def diff_rad(ln_rho,initial,M,beta0):
-    """
-    This function corresponds to Eqs.(10) and (11) with the constraint Eq.(8) in our reference paper. It is employed 
-    to calculate the abundance of PBHs in a radiation-dominated universe as a function of total energy density.
-    """
+    """This function corresponds to Eqs.(10) and (11) with the constraint Eq.(8) in our reference paper. It is employed
+    to calculate the abundance of PBHs in a radiation-dominated universe as a function of total energy density."""
+
     # Initialize dy array
     dy = np.zeros(initial.shape)
 
@@ -96,14 +93,11 @@ def diff_rad(ln_rho,initial,M,beta0):
 
 
 def end_evol(ln_rho,initial,M,beta0):
-	
- """
- This function is used to determine whether a PBH reaches the Planck mass (thus becoming a Planck relic) or not. 
- By solving the system of equations (10) and (11) with the constraint (8) from our reference article, this function 
- is used as a stopping condition for the evolution of the system. In the event that the evolution is halted before 
- reaching the desired energy scale (such as the scale of BBN), the evolution of PBHs is carried out considering them 
- as Planck mass relics.
- """
+    """This function is used to determine whether a PBH reaches the Planck mass (thus becoming a Planck relic) or not.
+    By solving the system of equations (10) and (11) with the constraint (8) from our reference article, this function
+    is used as a stopping condition for the evolution of the system. In the event that the evolution is halted before
+    reaching the desired energy scale (such as the scale of BBN), the evolution of PBHs is carried out considering them
+    as Planck mass relics."""
     # Calculate Delta_t and Mass_end
     Delta_t = constants.t_pl * (M / constants.M_pl_g) ** 3
     Mass_end = M * (1. - diff_rad(ln_rho,initial,M,beta0)[1] / Delta_t) ** (1. / 3)
@@ -113,7 +107,6 @@ def end_evol(ln_rho,initial,M,beta0):
 
 
 def k_end_over_k(Mpbh, omega):
-	
     """
     Calculates the ratio of k_end/k for a given PBH mass and radiation energy density parameter.
 
@@ -162,6 +155,8 @@ def rho_f(Mpbh, omega):
 
     return rho
 
+####calcular betas es una funcion que unicamente debe
+####depender de la masa
 
 ln_den_end = np.log(constants.rho_end)
 

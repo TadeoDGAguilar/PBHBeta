@@ -55,23 +55,12 @@ def put_M_array(Mass_end_val):
 
 def diff_rad_rel(ln_rho,initial,M,beta0):
     """
-    Calculates the derivative of the scale factor for the radiation-dominated era, assuming a dark matter particle with mass M
-    and a beta parameter value of beta0.
-
-    Parameters:
-        - ln_rho (float): The natural logarithm of the density of radiation.
-        - initial (numpy.ndarray): An array with the initial values of the scale factor b and time.
-        - M (float): The mass of the dark matter particle, in units of grams.
-        - beta0 (float): The beta parameter value.
-
-    Returns:
-        - dy (float): The derivative of the scale factor b.
-
-    Notes:
-        - This function calculates the derivative of the scale factor b for the radiation-dominated era, using the formula:
-          dy/dln(a) = -(Om_0 - 1) * b / (Om_0 - 4), where Om_0 = beta0 * b * (M_pl / M).
-        - Here, M_pl is the Planck mass, defined as sqrt(hbar*c/G), where hbar is the reduced Planck constant, c is the speed of light, and G is the gravitational constant.
+    In the scenario where PBHs evaporate before reaching the energy scale of interest (as is the case, for example, 
+    before reaching the energy scale of BBN), we calculate the PBH abundance by assuming the existence of remnants with 
+    a mass equal to the Planck mass. Instead of simultaneously solving Eqs.(10) and (11) with the constraint Eq. (8), we 
+    focus on solving Eq.(10) with the constraint $\Omega_{PBH} = (m_{Pl}/M_{PBH})\beta(M_{PBH})$.
     """
+
 
     # Extract initial scale factor b and calculate Om_0
     b = initial[0]
@@ -85,20 +74,8 @@ def diff_rad_rel(ln_rho,initial,M,beta0):
 
 def diff_rad(ln_rho,initial,M,beta0):
     """
-    Calculates the derivative of the scale factor b and the time derivative of the density of radiation for a given dark matter particle mass.
-
-    Parameters:
-        - ln_rho (float): The natural logarithm of the density of radiation.
-        - initial (numpy.ndarray): An array containing the initial values of the scale factor b and time.
-        - M (float): The mass of the dark matter particle, in units of solar masses.
-        - beta0 (float): The initial value of the beta parameter.
-
-    Returns:
-        - dy (numpy.ndarray): An array containing the derivatives of the scale factor b and the density of radiation with respect to time.
-
-    Notes:
-        - The function calculates the derivative of the scale factor b and the time derivative of the density of radiation for a given dark matter particle mass using the initial conditions and the beta parameter value.
-        - The function assumes a radiation-dominated universe.
+    This function corresponds to Eqs.(10) and (11) with the constraint Eq.(8) in our reference paper. It is employed 
+    to calculate the abundance of PBHs in a radiation-dominated universe as a function of total energy density.
     """
     # Initialize dy array
     dy = np.zeros(initial.shape)
@@ -119,21 +96,13 @@ def diff_rad(ln_rho,initial,M,beta0):
 
 
 def end_evol(ln_rho,initial,M,beta0):
-    """
-    Calculates the difference between the final mass of a dark matter system and the Planck mass.
-
-    Parameters:
-        - ln_rho (float): The natural logarithm of the radiation density.
-        - initial (numpy.ndarray): The initial values of the scale factor and time, given as a numpy array with shape (2,).
-        - M (float): The total mass of the dark matter system, in units of solar masses.
-        - beta0 (float): The initial value of the beta parameter.
-
-    Returns:
-        - float: The difference between the final mass of the dark matter system and the Planck mass.
-
-    Notes:
-        - The function calculates the difference between the final mass of a dark matter system and the Planck mass by calculating the mass evolution of the system as a function of time and radiation density, and then solving for the time when the mass of the system becomes equal to the Planck mass.
-    """
+ """
+ This function is used to determine whether a PBH reaches the Planck mass (thus becoming a Planck relic) or not. 
+ By solving the system of equations (10) and (11) with the constraint (8) from our reference article, this function 
+ is used as a stopping condition for the evolution of the system. In the event that the evolution is halted before 
+ reaching the desired energy scale (such as the scale of BBN), the evolution of PBHs is carried out considering them 
+ as Planck mass relics.
+ """
     # Calculate Delta_t and Mass_end
     Delta_t = constants.t_pl * (M / constants.M_pl_g) ** 3
     Mass_end = M * (1. - diff_rad(ln_rho,initial,M,beta0)[1] / Delta_t) ** (1. / 3)
@@ -191,8 +160,6 @@ def rho_f(Mpbh, omega):
 
     return rho
 
-####calcular betas es una funcion que unicamente debe
-####depender de la masa
 
 ln_den_end = np.log(constants.rho_end)
 

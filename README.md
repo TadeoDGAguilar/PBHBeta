@@ -65,8 +65,8 @@ If you use $\beta$-PBH, please cite its pre-print, arXiv:.
 We would also like to extend our appreciation to [Encieh Erfani](https://globalyoungacademy.net/eerfani/) and [Juan Carlos Hidalgo](https://www.fis.unam.mx/directorio/540/juan-carlos-strong-hidalgo-strong-cuellar) for their collaboration and valuable contributions to the project. Furthermore, we would like to thanks our colleagues for their assistance, suggestions, and encouragement during the development of the PBHbeta library, with a special mention to [Isidro Gomez](https://igomezv.github.io/).
 Lastly, we are grateful to the institutions that have supported this research, enabling us to pursue our scientific investigations and contribute to the field of cosmology. We would like to extend our appreciation to the Universidad Nacional Autónoma de México (UNAM), Instituto de Ciencias Físicas (ICF), International Centre For Theoretical Physics (ICTP), and the Consejo Nacional de Humanidades, Ciencias y Tecnologías (CONAHCYT) for their invaluable support and resources, which have been crucial in carrying out this research.
 
-[![UNAM](docs/img/UNAM.png){.bg-warning w=100px h=130px}](https://www.unam.mx/)
-[![ICF](docs/img/ICF.png){.bg-warning w=250px h=130px}](https://www.fis.unam.mx/)
-[![ICTP](docs/img/ICTP.svg){.bg-warning w=130px h=130px}](https://www.ictp.it/)
-[![CONAHCYT](docs/img/CONAHCYT.svg){.bg-warning w=190px h=130px}](https://conahcyt.mx/)
+[![UNAM](docs/img/UNAM.png)]{.bg-warning w=100px h=130px}
+[![ICF](docs/img/ICF.png)]{.bg-warning w=250px h=130px}
+[![ICTP](docs/img/ICTP.svg)]{.bg-warning w=130px h=130px}
+[![CONAHCYT](docs/img/CONAHCYT.svg)]{.bg-warning w=190px h=130px}
 

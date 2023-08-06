@@ -96,6 +96,7 @@ def diff_rad(ln_rho,initial,M,beta0):
 
 
 def end_evol(ln_rho,initial,M,beta0):
+	
  """
  This function is used to determine whether a PBH reaches the Planck mass (thus becoming a Planck relic) or not. 
  By solving the system of equations (10) and (11) with the constraint (8) from our reference article, this function 
@@ -112,6 +113,7 @@ def end_evol(ln_rho,initial,M,beta0):
 
 
 def k_end_over_k(Mpbh, omega):
+	
     """
     Calculates the ratio of k_end/k for a given PBH mass and radiation energy density parameter.
 

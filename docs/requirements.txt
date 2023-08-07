@@ -1,3 +1,4 @@
 renku
 myst-parser
+myst-nb
 sphinx

@@ -1,4 +1,14 @@
 # Jupyter notebooks
+
+```{toctree}
+---
+maxdepth: 2
+caption: Contents:
+---
+notebooks/PBHBeta_(notebook)
+``` 
+
+
 ## Example 1
 
 

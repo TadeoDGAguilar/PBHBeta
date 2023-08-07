@@ -34,7 +34,6 @@ extensions = [
 	'myst_parser',
 	'sphinx.ext.autodoc',
 	'sphinx.ext.autosummary',
-	'myst_nb',
     ]
 
 myst_enable_extensions = ["dollarmath", "attrs_inline", "amsmath", "deflist", "html_image", "colon_fence",]

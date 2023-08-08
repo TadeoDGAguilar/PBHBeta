@@ -13,7 +13,7 @@ import numpy as np
 ```
 
 Constraints on the abundance of PBHs as a function of their mass.
-`{math}N_{MD}` is the total number of e-folds that the MD epoch lasted.
+$N_{MD}$ is the total number of e-folds that the MD epoch lasted.
 
 `out`
 ```{figure} /img/Beta_EMD_note1.png
@@ -23,7 +23,7 @@ Constraints on the abundance of PBHs as a function of their mass.
 :align: center
 ```
 
-Constraints on $\mathcal{P}_{\Zeta}(k)$ as a function of $k$ for different values of $N_{MD}$.
+Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for different values of $N_{MD}$.
 
 `out`
 ```{figure} img/PofK_EMD_note1.png

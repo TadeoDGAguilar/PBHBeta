@@ -14,13 +14,13 @@
 ```
 
 
-## K from Number of Reheating (KfN) 
+## Power Spectrum Constraints from N e-folds of Reheating   (KfN) 
 
 ```{eval-rst}
 .. autofunction:: PBHBeta.KfN.get_k_Nreh
 ```
 
-## K from Stiff Fluid-Dominated (KfS) 
+## Power Spectrum Constraints from Stiff Fluid-Domination (KfS) 
 
 ```{eval-rst}
 .. autofunction:: PBHBeta.KfS.get_k_SD

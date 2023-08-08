@@ -33,7 +33,7 @@ release = '1.0'
 extensions = [
 	'myst_parser',
 	'sphinx.ext.autodoc',
-	'sphinx.ext.autosummary',
+    'sphinx.ext.autosummary',
     ]
 
 myst_enable_extensions = ["dollarmath", "attrs_inline", "amsmath", "deflist", "html_image", "colon_fence",]

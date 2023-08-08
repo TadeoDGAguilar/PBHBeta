@@ -155,19 +155,17 @@ ln_den_end = np.log(constants.rho_end)
 def Betas_DM(M_tot):
 
     """
-    Calculates the beta parameter for dark matter constraints given the total mass of dark matter.
+    Calculates the abundance of PBHs for dark matter constraints. See equations (13) and (19)
 
     Parameters:
-        - M_tot (array-like): Total mass of dark matter.
+        - M_tot (array-like): Array of masses in grams.
 
     Returns:
         A tuple containing four numpy arrays:
-            - M_primary (numpy.ndarray): Masses of the primary dark matter components.
-            - beta_primary (numpy.ndarray): Beta parameters for the primary dark matter components.
+            - M_n (numpy.ndarray): Represents the masses of PBHs can be considered candidates for Dark Matter (DM).
+            - beta (numpy.ndarray): Corresponds to the abundance obtained from M_n.
             - M_relic (numpy.ndarray): Masses of the relic dark matter components.
-            - beta_relic (numpy.ndarray): Beta parameters for the relic dark matter components.
-    Raises:
-        - If there is no primary or relic component, the corresponding arrays will be empty.
+            - beta_relic_prim (numpy.ndarray): Corresponds to abundance obtained from M_relic.
     """
 
     M_n = []

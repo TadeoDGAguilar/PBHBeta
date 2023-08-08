@@ -7,7 +7,7 @@
 **Licence:** [GNU General Public License v2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html). The documentation is licensed under the [GFDL](https://www.gnu.org/licenses/fdl-1.3.en.html).
 
 
-[![Build Status](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta.svg?branch=main)](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta) [![PyPI version](https://badge.fury.io/py/simplemc.svg)](https://badge.fury.io/py/simplemc) [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) [![Documentation Status](https://readthedocs.org/projects/pbhbeta/badge/?version=latest)](https://pbhbeta.readthedocs.io/en/latest/?badge=latest) [![arXiv](https://img.shields.io/badge/arXiv-1234.56789-f9f107.svg)](https://arxiv.org/abs/1234.56789)
+[![Build Status](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta.svg?branch=main)](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta) [![Documentation Status](https://readthedocs.org/projects/pbhbeta/badge/?version=latest)](https://pbhbeta.readthedocs.io/en/latest/?badge=latest) [![arXiv](https://img.shields.io/badge/arXiv-1234.56789-f9f107.svg)](https://arxiv.org/abs/1234.56789) [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ---
 
@@ -17,13 +17,12 @@
 This project is under development.
 ```
 
-**Python 3.9 or later:** The `PBHBeta` library requires Python 3.9 or later to be installed on your system.
-
-**pip package manager:** The pip package manager is used to install `PBHBeta` and its dependencies. It should be included with your Python installation by default. 
-
 ```{note}
-This code has only been tested in Python version 3.9, and we highly recommend testing it in versions higher than this (Python 3.x and above). The GitHub repository and PyPI package for PBHBeta contain the basic libraries required to run `PBHBeta`. However, these dependencies need to be imported into the notebook or console for the functions to be available.
+This code has only been tested in Python version 3.9, and we highly recommend testing it in versions higher than this (Python 3.x and above).
 ```
+
+The GitHub repository and PyPI package for PBHBeta contain the basic libraries required to run `PBHBeta`. However, these dependencies need to be imported into the notebook or console for the functions to be available, see and [requeriments](../Requeriments.md) and [installation](../Installation.md) sections.
+
 
 # How to cite us
 
@@ -36,7 +35,7 @@ If you use PBH-{math}`\beta`, please cite arXiv:.
 - **1.0 (05/08/2023)** Initial version.
 
 
-# To do
+# TO-Do
 - Complete the description to modules and components
 
 
@@ -49,7 +48,6 @@ Lastly, we are grateful to the institutions that have supported this research, e
 
 [![UNAM](img/UNAM.png){.bg-warning w=100px h=130px}](https://www.unam.mx/)
 [![ICF](img/ICF.png){.bg-warning w=250px h=130px}](https://www.fis.unam.mx/)
-[![ICTP](img/ICTP.svg){.bg-warning w=130px h=130px}](https://www.ictp.it/)
 [![CONAHCYT](img/CONAHCYT.svg){.bg-warning w=190px h=130px}](https://conahcyt.mx/)
 
 ---
@@ -61,6 +59,7 @@ Lastly, we are grateful to the institutions that have supported this research, e
 caption: FIRST STEPS
 maxdepth: 2
 ---
+
 Requeriments
 Installation
 Quickstart
@@ -72,6 +71,7 @@ examples
 caption: CLASS REFERENCE
 maxdepth: 2 
 ---
+
 Classes
 ```
 
@@ -84,8 +84,6 @@ maxdepth: 1
 Module_1
 Module_2
 Module_3
-Module_4
-Module_5
 ```
 
 

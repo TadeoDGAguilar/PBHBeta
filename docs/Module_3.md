@@ -13,5 +13,4 @@
     PBHBeta.constraints.betas_LSP_tot
     PBHBeta.constraints.betas_full
     PBHBeta.constraints.Omegas_full
-
 ```

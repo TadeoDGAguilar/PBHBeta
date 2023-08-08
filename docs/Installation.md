@@ -45,6 +45,6 @@ $ install -e git+https://github.com/TadeoDGAguilar/PBHBeta.git
 &nbsp; This will directly install `PBHBeta` from the GitHub repository.
 
 
-Please make sure to review the requirements and the quick start section in the documentation for detailed information. Additionally, the tutorials section provides several 
+Please make sure to review the [requirements](../Requeriments.md) and the [quickstart](../Quickstart) sections in the documentation for detailed information. Additionally, the tutorials section provides several 
 examples of how to use `PBHBeta` functions.
 

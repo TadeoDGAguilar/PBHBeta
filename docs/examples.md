@@ -1,16 +1,16 @@
 # Jupyter notebooks
 
-```{toctree}
----
-maxdepth: 2
-caption: Contents:
----
-notebooks/PBHBeta_(notebook)
-``` 
+## Primordial Black Holes in non-standard cosmology
+
+### Early matter dominated scenario
 
 
-## Example 1
+Constraints on the abundance of PBHs as a function of their mass.
+`{math}$N_{MD}$ is the total number of e-folds that the MD epoch lasted.
 
+### Scalar field dominated scenario
+
+### Stiff fluid dominated scenario
 
 ```{code-block} python
 :lineno-start: 1
@@ -236,8 +236,6 @@ plt.ylim([6.5e-3,2e-2])
 plt.xlim([4.3e12,1e26])
 plt.ylabel(r"$\mathcal{P}_\zeta(k)$")
 plt.legend(ncol=2,bbox_to_anchor=(0.85, 1.25))
-
-plt.show()
 
 plt.show()
 ```

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Classes &mdash; PBHBeta 0.1.1 documentation</title>
+  <title>Classes &mdash; PBHBeta 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -40,15 +40,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">INSTALLATION AND QUICKSTART</span></p>
+              <p class="caption" role="heading"><span class="caption-text">FIRST STEPS</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Requeriments.html">Requeriments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Jupyter notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">CLASS REFERENCE</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#beta-from-number-of-reheating-bfn">Beta from Number of Reheating (BfN)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#PBHBeta.BfN.get_betas_reh_tot"><code class="docutils literal notranslate"><span class="pre">get_betas_reh_tot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beta-from-stiff-fluid-dominated-bfs">Beta from Stiff Fluid- Dominated (BfS)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#PBHBeta.BfS.get_betas_stiff_tot"><code class="docutils literal notranslate"><span class="pre">get_betas_stiff_tot()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#k-from-number-of-reheating-kfn">K from Number of Reheating (KfN)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#PBHBeta.KfN.get_k_Nreh"><code class="docutils literal notranslate"><span class="pre">get_k_Nreh()</span></code></a></li>
 </ul>
@@ -65,8 +74,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Module_1.html">functions.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module_2.html">constants.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module_3.html">constraints.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Module_4.html">BfN.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Module_5.html">BfS.py</a></li>
 </ul>
 
         </div>
@@ -93,8 +100,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="classes">
+  <section id="classes">
 <h1>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h1>
+<section id="beta-from-number-of-reheating-bfn">
+<h2>Beta from Number of Reheating (BfN)<a class="headerlink" href="#beta-from-number-of-reheating-bfn" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="PBHBeta.BfN.get_betas_reh_tot">
+<span class="sig-prename descclassname"><span class="pre">PBHBeta.BfN.</span></span><span class="sig-name descname"><span class="pre">get_betas_reh_tot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N_re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gam_reh</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PBHBeta.BfN.get_betas_reh_tot" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the values of betas_reh_tot for a given set of parameters.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>N_re (float): The number of efolds during reheating.</p></li>
+<li><p>omega (float): The equation of state parameter during reheating.</p></li>
+<li><p>gam_reh (float): The ratio of the radiation energy density to the inflaton energy density at the end of reheating..</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>betas_reh_tot (list): A list of values of betas_reh_tot.</p></li>
+</ul>
+</dd>
+<dt>Raises:</dt><dd><ul class="simple">
+<li><p>ValueError: If the end of reheating happens after BBN.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="beta-from-stiff-fluid-dominated-bfs">
+<h2>Beta from Stiff Fluid- Dominated (BfS)<a class="headerlink" href="#beta-from-stiff-fluid-dominated-bfs" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="PBHBeta.BfS.get_betas_stiff_tot">
+<span class="sig-prename descclassname"><span class="pre">PBHBeta.BfS.</span></span><span class="sig-name descname"><span class="pre">get_betas_stiff_tot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N_stiff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gam_stiff</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PBHBeta.BfS.get_betas_stiff_tot" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the betas for the stiff era.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>N_stiff (float): Number of e-folds during the stiff era.</p></li>
+<li><p>omega (float): Parameter value.</p></li>
+<li><p>gam_stiff (float): Stiff parameter value.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>betas_stiff (list): List of beta values for the stiff era.</p></li>
+</ul>
+</dd>
+<dt>Raises:</dt><dd><ul class="simple">
+<li><p>ValueError: If the end of the stiff era happens after BBN.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <section id="k-from-number-of-reheating-kfn">
 <h2>K from Number of Reheating (KfN)<a class="headerlink" href="#k-from-number-of-reheating-kfn" title="Permalink to this heading"></a></h2>
 <dl class="py function">

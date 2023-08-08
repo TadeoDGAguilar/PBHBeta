@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>functions.py &mdash; PBHBeta 0.1.1 documentation</title>
+  <title>functions.py &mdash; PBHBeta 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -40,10 +40,11 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">INSTALLATION AND QUICKSTART</span></p>
+              <p class="caption" role="heading"><span class="caption-text">FIRST STEPS</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Requeriments.html">Requeriments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Jupyter notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">CLASS REFERENCE</span></p>
@@ -58,8 +59,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#PBHBeta.functions.diff_rad_rel"><code class="docutils literal notranslate"><span class="pre">diff_rad_rel()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#PBHBeta.functions.diff_rad"><code class="docutils literal notranslate"><span class="pre">diff_rad()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#PBHBeta.functions.end_evol"><code class="docutils literal notranslate"><span class="pre">end_evol()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#PBHBeta.functions.k_end_over_k"><code class="docutils literal notranslate"><span class="pre">k_end_over_k()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#PBHBeta.functions.rho_f"><code class="docutils literal notranslate"><span class="pre">rho_f()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#main-functions">Main functions</a><ul>
@@ -77,8 +76,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Module_2.html">constants.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module_3.html">constraints.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Module_4.html">BfN.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Module_5.html">BfS.py</a></li>
 </ul>
 
         </div>
@@ -105,7 +102,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="functions-py">
+  <section id="functions-py">
 <h1>functions.py<a class="headerlink" href="#functions-py" title="Permalink to this heading"></a></h1>
 <section id="basic-functions">
 <h2>Basic functions<a class="headerlink" href="#basic-functions" title="Permalink to this heading"></a></h2>
@@ -122,120 +119,27 @@ M_tot (array): Array of masses.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="PBHBeta.functions.diff_rad_rel">
 <span class="sig-prename descclassname"><span class="pre">PBHBeta.functions.</span></span><span class="sig-name descname"><span class="pre">diff_rad_rel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ln_rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PBHBeta.functions.diff_rad_rel" title="Permalink to this definition"></a></dt>
-<dd><p>Calculates the derivative of the scale factor for the radiation-dominated era, assuming a dark matter particle with mass M
-and a beta parameter value of beta0.</p>
-<dl class="simple">
-<dt>Parameters:</dt><dd><ul class="simple">
-<li><p>ln_rho (float): The natural logarithm of the density of radiation.</p></li>
-<li><p>initial (numpy.ndarray): An array with the initial values of the scale factor b and time.</p></li>
-<li><p>M (float): The mass of the dark matter particle, in units of grams.</p></li>
-<li><p>beta0 (float): The beta parameter value.</p></li>
-</ul>
-</dd>
-<dt>Returns:</dt><dd><ul class="simple">
-<li><p>dy (float): The derivative of the scale factor b.</p></li>
-</ul>
-</dd>
-<dt>Notes:</dt><dd><ul class="simple">
-<li><p>This function calculates the derivative of the scale factor b for the radiation-dominated era, using the formula:
-dy/dln(a) = -(Om_0 - 1) * b / (Om_0 - 4), where Om_0 = beta0 * b * (M_pl / M).</p></li>
-<li><p>Here, M_pl is the Planck mass, defined as sqrt(hbar*c/G), where hbar is the reduced Planck constant, c is the speed of light, and G is the gravitational constant.</p></li>
-</ul>
-</dd>
-</dl>
+<dd><p>In the scenario where PBHs evaporate before reaching the energy scale of interest (as is the case, for example,
+before reaching the energy scale of BBN), we calculate the PBH abundance by assuming the existence of remnants with
+a mass equal to the Planck mass. Instead of simultaneously solving Eqs.(10) and (11) with the constraint Eq. (8), we
+focus on solving Eq.(10) with the constraint $Omega_{PBH} = (m_{Pl}/M_{PBH})eta(M_{PBH})$.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="PBHBeta.functions.diff_rad">
 <span class="sig-prename descclassname"><span class="pre">PBHBeta.functions.</span></span><span class="sig-name descname"><span class="pre">diff_rad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ln_rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PBHBeta.functions.diff_rad" title="Permalink to this definition"></a></dt>
-<dd><p>Calculates the derivative of the scale factor b and the time derivative of the density of radiation for a given dark matter particle mass.</p>
-<dl class="simple">
-<dt>Parameters:</dt><dd><ul class="simple">
-<li><p>ln_rho (float): The natural logarithm of the density of radiation.</p></li>
-<li><p>initial (numpy.ndarray): An array containing the initial values of the scale factor b and time.</p></li>
-<li><p>M (float): The mass of the dark matter particle, in units of solar masses.</p></li>
-<li><p>beta0 (float): The initial value of the beta parameter.</p></li>
-</ul>
-</dd>
-<dt>Returns:</dt><dd><ul class="simple">
-<li><p>dy (numpy.ndarray): An array containing the derivatives of the scale factor b and the density of radiation with respect to time.</p></li>
-</ul>
-</dd>
-<dt>Notes:</dt><dd><ul class="simple">
-<li><p>The function calculates the derivative of the scale factor b and the time derivative of the density of radiation for a given dark matter particle mass using the initial conditions and the beta parameter value.</p></li>
-<li><p>The function assumes a radiation-dominated universe.</p></li>
-</ul>
-</dd>
-</dl>
+<dd><p>This function corresponds to Eqs.(10) and (11) with the constraint Eq.(8) in our reference paper. It is employed
+to calculate the abundance of PBHs in a radiation-dominated universe as a function of total energy density.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="PBHBeta.functions.end_evol">
 <span class="sig-prename descclassname"><span class="pre">PBHBeta.functions.</span></span><span class="sig-name descname"><span class="pre">end_evol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ln_rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PBHBeta.functions.end_evol" title="Permalink to this definition"></a></dt>
-<dd><p>Calculates the difference between the final mass of a dark matter system and the Planck mass.</p>
-<dl class="simple">
-<dt>Parameters:</dt><dd><ul class="simple">
-<li><p>ln_rho (float): The natural logarithm of the radiation density.</p></li>
-<li><p>initial (numpy.ndarray): The initial values of the scale factor and time, given as a numpy array with shape (2,).</p></li>
-<li><p>M (float): The total mass of the dark matter system, in units of solar masses.</p></li>
-<li><p>beta0 (float): The initial value of the beta parameter.</p></li>
-</ul>
-</dd>
-<dt>Returns:</dt><dd><ul class="simple">
-<li><p>float: The difference between the final mass of the dark matter system and the Planck mass.</p></li>
-</ul>
-</dd>
-<dt>Notes:</dt><dd><ul class="simple">
-<li><p>The function calculates the difference between the final mass of a dark matter system and the Planck mass by calculating the mass evolution of the system as a function of time and radiation density, and then solving for the time when the mass of the system becomes equal to the Planck mass.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="PBHBeta.functions.k_end_over_k">
-<span class="sig-prename descclassname"><span class="pre">PBHBeta.functions.</span></span><span class="sig-name descname"><span class="pre">k_end_over_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Mpbh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PBHBeta.functions.k_end_over_k" title="Permalink to this definition"></a></dt>
-<dd><p>Calculates the ratio of k_end/k for a given PBH mass and radiation energy density parameter.</p>
-<dl class="simple">
-<dt>Parameters:</dt><dd><ul class="simple">
-<li><p>Mpbh (float): The mass of the PBH, in grams.</p></li>
-<li><p>omega (float): The energy density parameter for radiation.</p></li>
-</ul>
-</dd>
-<dt>Returns:</dt><dd><ul class="simple">
-<li><p>ratio (float): The ratio of k_end/k for the given PBH mass and radiation energy density parameter.</p></li>
-</ul>
-</dd>
-<dt>Notes:</dt><dd><ul class="simple">
-<li><p>The function calculates the ratio of k_end/k for a primordial black hole (PBH) of mass Mpbh using the formula:
-(Mpbh * H_end / (gam_rad * 3 * M_pl)) ** ((1 + 3 * omega) / (3 * (1 + omega)))
-where H_end is the Hubble parameter at the end of inflation, gam_rad is the effective number of
-relativistic degrees of freedom for radiation, and M_pl is the Planck mass.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="PBHBeta.functions.rho_f">
-<span class="sig-prename descclassname"><span class="pre">PBHBeta.functions.</span></span><span class="sig-name descname"><span class="pre">rho_f</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Mpbh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PBHBeta.functions.rho_f" title="Permalink to this definition"></a></dt>
-<dd><p>Calculates the final density of black holes after evaporation.</p>
-<dl class="simple">
-<dt>Parameters:</dt><dd><ul class="simple">
-<li><p>Mpbh (float): The initial mass of a black hole, in grams.</p></li>
-<li><p>omega (float): The ratio of the energy density of dark matter to the critical density of the universe.</p></li>
-</ul>
-</dd>
-<dt>Returns:</dt><dd><ul class="simple">
-<li><p>rho (float): The final density of black holes, in grams per cubic centimeter.</p></li>
-</ul>
-</dd>
-<dt>Notes:</dt><dd><ul class="simple">
-<li><p>The function calculates the final density of black holes after evaporation using the formula rho = rho_end_inf / (k_end_over_k(Mpbh,omega)) ** exp,
-where rho_end_inf is a constant defined in the constants module, k_end_over_k is a function defined in this module, and exp is calculated from the given formula.</p></li>
-</ul>
-</dd>
-</dl>
+<dd><p>This function is used to determine whether a PBH reaches the Planck mass (thus becoming a Planck relic) or not.
+By solving the system of equations (10) and (11) with the constraint (8) from our reference article, this function
+is used as a stopping condition for the evolution of the system. In the event that the evolution is halted before
+reaching the desired energy scale (such as the scale of BBN), the evolution of PBHs is carried out considering them
+as Planck mass relics.</p>
 </dd></dl>
 
 </section>

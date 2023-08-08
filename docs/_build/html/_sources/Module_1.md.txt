@@ -6,8 +6,6 @@
 .. autofunction:: PBHBeta.functions.diff_rad_rel
 .. autofunction:: PBHBeta.functions.diff_rad
 .. autofunction:: PBHBeta.functions.end_evol
-.. autofunction:: PBHBeta.functions.k_end_over_k
-.. autofunction:: PBHBeta.functions.rho_f
 ```
 
 ## Main functions
@@ -21,4 +19,5 @@
 .. autofunction:: PBHBeta.functions.Betas_Reio
 .. autofunction:: PBHBeta.functions.Betas_LSP
 .. autofunction:: PBHBeta.functions.get_Betas_full
+
 ```

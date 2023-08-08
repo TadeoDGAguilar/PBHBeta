@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quickstar &mdash; PBHBeta 0.1.1 documentation</title>
+  <title>Quickstart &mdash; PBHBeta 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -40,11 +40,16 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">INSTALLATION AND QUICKSTART</span></p>
+              <p class="caption" role="heading"><span class="caption-text">FIRST STEPS</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Requeriments.html">Requeriments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstar</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#importing-modules">Importing Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#call-a-basic-function">Call a basic function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-data-from-a-module">Import data from a module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-a-main-function">Use a main function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outputs-and-plot">Outputs and plot</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Jupyter notebooks</a></li>
@@ -58,8 +63,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Module_1.html">functions.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module_2.html">constants.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module_3.html">constraints.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Module_4.html">BfN.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Module_5.html">BfS.py</a></li>
 </ul>
 
         </div>
@@ -76,7 +79,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Quickstar</li>
+      <li class="breadcrumb-item active">Quickstart</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/Quickstart.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -86,24 +89,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="quickstar">
-<h1>Quickstar<a class="headerlink" href="#quickstar" title="Permalink to this heading"></a></h1>
+  <section id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading"></a></h1>
+<p>Let us present here a simple example, without explaining much about it — each of its aspects will be broken down in the following sections.</p>
 <section id="importing-modules">
 <h2>Importing Modules<a class="headerlink" href="#importing-modules" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>One way to verify that the betaPBH library has been installed correctly is to immediately import the library and all its modules.</p>
+<p>One way to verify that the <code class="docutils literal notranslate"><span class="pre">PBHBeta</span></code> library has been installed correctly is to immediately import the library and all its modules.</p>
 </div>
 <ol class="arabic simple">
-<li><p>Import the PBHBeta library and any required modules:</p></li>
+<li><p>Import the <code class="docutils literal notranslate"><span class="pre">PBHBeta</span></code> library and any required modules:</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PBHBeta</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
+</section>
+<section id="call-a-basic-function">
+<h2>Call a basic function<a class="headerlink" href="#call-a-basic-function" title="Permalink to this heading"></a></h2>
+<p>The basic functions have the main task of assisting the user in constructing the input data array, as well as solving ODEs
+(see <a class="reference external" href="https://pbhbeta.readthedocs.io/en/latest/Module_1.html#basic-functions">Basic functions</a> section).</p>
 <ol class="arabic simple" start="2">
-<li><p>Generate an array of masses using the put_M_array function:</p></li>
+<li><p>Generate an array of masses using the <code class="docutils literal notranslate"><span class="pre">put_M_array</span></code>{l=python} function:</p></li>
 </ol>
 <p>The first function to execute is <a class="reference internal" href="Module_1.html#PBHBeta.functions.put_M_array" title="PBHBeta.functions.put_M_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">PBHBeta.functions.put_M_array()</span></code></a>, which contains the instruction to generate an array of masses from a maximum value of mass in
 grams.</p>
@@ -114,6 +123,13 @@ grams.</p>
 <p class="admonition-title">Note</p>
 <p>The library contains a module called <code class="docutils literal notranslate"><span class="pre">constraints.py</span></code>, where the <code class="docutils literal notranslate"><span class="pre">return</span></code> of <a class="reference internal" href="Module_1.html#PBHBeta.functions.put_M_array" title="PBHBeta.functions.put_M_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">PBHBeta.functions.put_M_array()</span></code></a> will be stored.</p>
 </div>
+</section>
+<section id="import-data-from-a-module">
+<h2>Import data from a module<a class="headerlink" href="#import-data-from-a-module" title="Permalink to this heading"></a></h2>
+<p>It is important to say that the PBHBeta library has a dedicated module (<code class="docutils literal notranslate"><span class="pre">constraints.py</span></code>) for storing data that has been calculated
+using both the basic and main functions (see <a class="reference external" href="https://pbhbeta.readthedocs.io/en/latest/Module_1.html">functions.py</a>).
+This is done to provide greater convenience when accessing and reading such
+data for use as inputs in classes. Some examples more detailed are presented in the <a class="reference internal" href="examples.html"><span class="doc std std-doc">Jupyter notebooks</span></a> section.</p>
 <ol class="arabic simple" start="3">
 <li><p>Access the generated masses stored in the <code class="docutils literal notranslate"><span class="pre">constraints.M_tot</span></code> variable:</p></li>
 </ol>
@@ -122,6 +138,11 @@ grams.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">M_tot</span> <span class="o">=</span> <span class="n">constraints</span><span class="o">.</span><span class="n">M_tot</span>
 </pre></div>
 </div>
+</section>
+<section id="use-a-main-function">
+<h2>Use a main function<a class="headerlink" href="#use-a-main-function" title="Permalink to this heading"></a></h2>
+<p>The <a class="reference external" href="https://pbhbeta.readthedocs.io/en/latest/Module_1.html#main-functions">main functions</a> within the <code class="docutils literal notranslate"><span class="pre">functions.py</span></code>
+module aim to perform specific calculations on the constraints of PBH abundance.</p>
 <ol class="arabic simple" start="4">
 <li><p>Calculate the abundances (betas) considering the dark matter (DM) constraints using the Betas_DM function <a class="reference internal" href="Module_1.html#PBHBeta.functions.Betas_DM" title="PBHBeta.functions.Betas_DM"><code class="xref py py-func docutils literal notranslate"><span class="pre">PBHBeta.functions.Betas_DM()</span></code></a> with input <code class="docutils literal notranslate"><span class="pre">M_tot</span></code>:</p></li>
 </ol>
@@ -135,6 +156,10 @@ grams.</p>
 <p>To manipulate these arrays, you can directly access them by invoking <code class="docutils literal notranslate"><span class="pre">functions.Betas_DM(M_tot)</span></code>[number], where <code class="docutils literal notranslate"><span class="pre">number</span></code> can be 0, 1, 2, or 3, corresponding to each output
 array respectively.</p>
 </div>
+</section>
+<section id="outputs-and-plot">
+<h2>Outputs and plot<a class="headerlink" href="#outputs-and-plot" title="Permalink to this heading"></a></h2>
+<p>Lastly, it only remains to retrieve the data and plot them. In this case, we will obtain the constraints on the abundance of monochromatic PBHs as a function of mass in the standard Big Bang scenario.</p>
 <ol class="arabic simple" start="5">
 <li><p>Plot the calculated abundances using matplotlib:</p></li>
 </ol>
@@ -155,7 +180,8 @@ array respectively.</p>
 <figure class="align-center">
 <a class="bg-primary reference internal image-reference" href="_images/IMG_DM.png"><img alt="fishy" class="bg-primary" src="_images/IMG_DM.png" style="width: 500px;" /></a>
 </figure>
-<p>Congratulations! You have successfully installed and used <code class="docutils literal notranslate"><span class="pre">PBHBeta</span></code>. You can explore more functionalities and examples in the library’s documentation.</p>
+<p>If you have obtained the displayed graph
+congratulations! You have successfully installed and used <code class="docutils literal notranslate"><span class="pre">PBHBeta</span></code>. You can explore more functionalities and examples into <a class="reference internal" href="examples.html"><span class="doc std std-doc">Jupyter notebooks</span></a> section.</p>
 </section>
 </section>
 

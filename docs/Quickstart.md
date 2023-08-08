@@ -27,8 +27,11 @@ The first function to execute is {py:func}`PBHBeta.functions.put_M_array`, which
 grams.
 
 ```{code-block}
-PBHBeta.functions.put_M_array(1e20)
+PBHBeta.functions.put_M_array(constants.M_pl_g, 1e20)
 ```
+
+Also, we use the `constants.py` module to import the `constants.M_pl_g` value, that is Mass of Planck in grams and use it like a input of the function to define the Mass_min.
+
 ```{note}
 The library contains a module called `constraints.py`, where the `return` of {py:func}`PBHBeta.functions.put_M_array` is stored.
 ```

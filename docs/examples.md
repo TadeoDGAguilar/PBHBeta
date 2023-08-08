@@ -22,14 +22,14 @@ Constraints on the abundance of PBHs as a function of their mass.
 :align: center
 ```
 
-Constraints on $\mathcal{P}_{\Zeta}(k)$ as a function of $k$ for different values of $N_{MD}$.
-
-```{figure} img/PofK_EMD.png
-:alt: Pofk_md
+`out:`
+```{figure} img/KfS.png
+:alt: fishy
 :class: bg-primary
 :width: 500px
 :align: center
 ```
+
 
 :Downloadable Notebook with this example: [Notebook_1](PBHBeta_(notebook).ipynb)
 
@@ -276,13 +276,6 @@ plt.ylabel(r"$\mathcal{P}_\zeta(k)$")
 plt.legend(ncol=2,bbox_to_anchor=(0.85, 1.25))
 
 plt.show()
-```
-`out:`
-```{figure} img/KfS.png
-:alt: fishy
-:class: bg-primary
-:width: 500px
-:align: center
 ```
 
 

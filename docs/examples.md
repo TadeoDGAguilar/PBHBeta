@@ -2,13 +2,48 @@
 
 ## Primordial Black Holes in non-standard cosmology
 
+
 ### Early matter dominated scenario
 
+```{code-block} python
+:lineno-start: 1
+from PBHBeta import *
+import matplotlib.pyplot as plt
+import numpy as np
+```
 
 Constraints on the abundance of PBHs as a function of their mass.
-`{math}$N_{MD}$ is the total number of e-folds that the MD epoch lasted.
+`{math}N_{MD}` is the total number of e-folds that the MD epoch lasted.
+
+```{figure} img/Beta_EMD.png
+:alt: Beta_emd
+:class: bg-primary
+:width: 500px
+:align: center
+```
+
+Constraints on $\mathcal{P}_{\Zeta}(k)$ as a function of $k$ for different values of $N_{MD}$.
+
+```{figure} img/PofK_EMD.png
+:alt: Pofk_md
+:class: bg-primary
+:width: 500px
+:align: center
+```
+
+:Downloadable Notebook with this example: [Notebook_1]()
+
 
 ### Scalar field dominated scenario
+
+```{code-block} python
+:lineno-start: 1
+from PBHBeta import *
+import matplotlib.pyplot as plt
+import numpy as np
+```
+
+:Downloadable Notebook with this example: [Notebook_2]()
 
 ### Stiff fluid dominated scenario
 
@@ -18,6 +53,9 @@ from PBHBeta import *
 import matplotlib.pyplot as plt
 import numpy as np
 ```
+
+:Downloadable Notebook with this example: [Notebook_3]()
+
 
 ```{code-block} python
 :lineno-start: 4

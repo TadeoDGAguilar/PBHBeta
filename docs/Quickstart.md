@@ -30,7 +30,7 @@ grams.
 PBHBeta.functions.put_M_array(1e20)
 ```
 ```{note}
-The library contains a module called `constraints.py`, where the `return` of {py:func}`PBHBeta.functions.put_M_array` will be stored.
+The library contains a module called `constraints.py`, where the `return` of {py:func}`PBHBeta.functions.put_M_array` is stored.
 ```
 
 ## Import data from a module

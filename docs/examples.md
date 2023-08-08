@@ -15,23 +15,25 @@ import numpy as np
 Constraints on the abundance of PBHs as a function of their mass.
 `{math}N_{MD}` is the total number of e-folds that the MD epoch lasted.
 
-```{figure} img/Beta_EMD.png
+`out`
+```{figure} /img/Beta_EMD_note1.png
 :alt: Beta_emd
 :class: bg-primary
 :width: 500px
 :align: center
 ```
 
-`out:`
-```{figure} img/KfS.png
-:alt: fishy
+Constraints on $\mathcal{P}_{\Zeta}(k)$ as a function of $k$ for different values of $N_{MD}$.
+
+`out`
+```{figure} img/PofK_EMD_note1.png
+:alt: Pofk_emd
 :class: bg-primary
 :width: 500px
 :align: center
 ```
 
-
-:Downloadable Notebook with this example: [Notebook_1](PBHBeta_(notebook).ipynb)
+:Downloadable Notebook with this example: [Notebook_1](../notebooks/PBHBeta_(notebook).ipynb)
 
 
 ### Scalar field dominated scenario

@@ -66,11 +66,14 @@ functions.Betas_DM(M_tot)
 
 ```{note}
 The documentation of the `PBHBeta.functions.Betas_DM()` function specifies that it stores the values of the total abundance in an array called `betas_DM_tot` within the 
-`constraints.py` module. Additionally, the function returns four arrays, namely `M_n`, `betas`, `M_relic`, and `betas_relic`.
+`constraints.py` module. Additionally, the function returns four arrays, namely `M_n`, `betas`, `M_relic`, and `betas_relic`. Where M_n refers to the masses of PBHs that are currently present and could be candidates for dark matter, while M_relic refers to the masses of PBHs that might have left behind stable relics as a potential contribution to dark matter after their evolution and evaporation. 
 
-To manipulate these arrays, you can directly access them by invoking `functions.Betas_DM(M_tot)`[number], where `number` can be 0, 1, 2, or 3, corresponding to each output 
+To manipulate these arrays, you can directly access them by invoking `functions.Betas_DM(M_tot)`[number], where `number` is 0, 1, 2, or 3, corresponding to each output 
 array respectively.
+```
 
+```{hint}
+If you wish to view more information about the parameters and outputs of each of the highlighted functions, you can click on the bolded declared functions.
 ```
 
 ## Outputs and plot

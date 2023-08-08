@@ -31,7 +31,7 @@ Constraints on $\mathcal{P}_{\Zeta}(k)$ as a function of $k$ for different value
 :align: center
 ```
 
-:Downloadable Notebook with this example: [Notebook_1]()
+:Downloadable Notebook with this example: [Notebook_1](PBHBeta_(notebook).ipynb)
 
 
 ### Scalar field dominated scenario
@@ -43,7 +43,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-:Downloadable Notebook with this example: [Notebook_2]()
+:Downloadable Notebook with this example: [Notebook_2](PBHBeta_(notebook).ipynb)
 
 ### Stiff fluid dominated scenario
 
@@ -54,7 +54,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-:Downloadable Notebook with this example: [Notebook_3]()
+:Downloadable Notebook with this example: [Notebook_3](PBHBeta_(notebook).ipynb)
 
 
 ```{code-block} python

@@ -12,38 +12,38 @@ from PBHBeta import constants
 from PBHBeta import constraints
 import numpy as np
 
-def put_M_array(Mass_end_val):
+def put_M_array(Mass_min, Mass_max):
     """
-    This function generates an array of masses from 1e-3 solar masses to 1e20 solar masses with a given resolution.
+    Generate an array of primordial black hole (PBH) masses in grams based on specified limits.
 
     Parameters:
-    Mass_end_val (float): End value for build array of masses.
+        Mass_min (float): The minimum PBH mass value in grams.
+        Mass_max (float): The maximum PBH mass value in grams.
 
     Returns:
-    M_tot (array): Array of masses.
+        np.ndarray: An array of calculated PBH masses.
     """
-    
-    # Initialize the variables
     i = 0
     M = 0
     delta_M = 0.0123
     M_tot_try = []
+    num_values = 20
 
-    # Calculate the total mass with given constraints
+    mass_array = np.geomspace(Mass_min, 10**(i*delta_M) , num_values)
+
     while M < constraints.data_mass[0]:
         M = 10**(i*delta_M)
         M_tot_try.append(M)
         i = i+1
 
-    # Append data_mass to the constraints.M_tot array
-    M_tot_try = np.concatenate((M_tot_try, constraints.data_mass))
+    M_tot_try = np.concatenate((mass_array, M_tot_try, constraints.data_mass))
+    M_tot_try = np.unique(M_tot_try)
     M = M_tot_try[-1]
 
-    # Calculate the masses
     A = M
     j = 0
 
-    while M < Mass_end_val:
+    while M < Mass_max:
         j = j+1
         M = A*10**(j*delta_M)
         M_tot_try = np.append(M_tot_try,[M])
@@ -116,12 +116,6 @@ def k_end_over_k(Mpbh, omega):
 
     Returns:
         - ratio (float): The ratio of k_end/k for the given PBH mass and radiation energy density parameter.
-
-    Notes:
-        - The function calculates the ratio of k_end/k for a primordial black hole (PBH) of mass Mpbh using the formula:
-          (Mpbh * H_end / (gam_rad * 3 * M_pl)) ** ((1 + 3 * omega) / (3 * (1 + omega)))
-          where H_end is the Hubble parameter at the end of inflation, gam_rad is the effective number of
-          relativistic degrees of freedom for radiation, and M_pl is the Planck mass.
     """
     # Calculate the exponent for the ratio of k_end/k
     exp = (1 + 3 * omega) / (3 * (1 + omega))
@@ -142,10 +136,6 @@ def rho_f(Mpbh, omega):
 
     Returns:
         - rho (float): The final density of black holes, in grams per cubic centimeter.
-
-    Notes:
-        - The function calculates the final density of black holes after evaporation using the formula rho = rho_end_inf / (k_end_over_k(Mpbh,omega)) ** exp,
-          where rho_end_inf is a constant defined in the constants module, k_end_over_k is a function defined in this module, and exp is calculated from the given formula.
     """
     # Calculate the exponent for the final density
     exp = (6 * (1 + omega)) / (1 + (3 * omega))

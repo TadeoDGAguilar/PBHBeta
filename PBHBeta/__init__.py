@@ -59,8 +59,8 @@ from .BfN import get_betas_reh_tot
 
 from .BfS import get_betas_stiff_tot
 
-from .KfN import get_k_Nreh
+from .KfN import get_P_k_MD
 from .KfN import k_MD
 
 from .KfS import k_rad
-from .KfS import get_k_SD
+from .KfS import get_P_k_SD

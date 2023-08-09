@@ -196,24 +196,7 @@ def Betas_DM(M_tot):
     return M_n, betas, M_relic, betas_relic
 
 
-def Omegas_DM(M_tot, w):
-    betas_tot = constraints.betas_DM_tot
-    M_pl_g = 2.17645e-5
-    M_pl = 1.22089 * 10**19
-
-    t_pl_s = 5.39 * 10**-44
-    s_to_evm1 = (1./6.5823) * 10**25
-    t_pl = t_pl_s * s_to_evm1
-
-    gam_rad = (1./3)**(3./2)
-    H_end = 4.44 * 10**13.
-    rho_end_inf = 3. * M_pl**2. * H_end**2.
-
-    k_end_over_k_rad = (M_tot * H_end / (gam_rad * 3 * M_pl))**(1 + 3 * w) / (3 * (1 + w))
-    rho_form_rad = rho_end_inf / (k_end_over_k_rad)**((6 * (1 + w)) / (1 + (3 * w)))
-
-    rho_end = (1e-2)**4
-    ln_den_end = np.log(rho_end)
+def Omegas_DM(M_tot):
 
     Omegas_tot = []
     Omegas = []
@@ -223,39 +206,55 @@ def Omegas_DM(M_tot, w):
     M_dm = []
     M_dm_rel_pbbn = []
     M_dm_rel = []
+
+    ev1 = 1e-5
+    ev2 = 1e-2
+    M_pl = 1.22089*10**19
+    M_pl_g = 2.17645e-5
+
+    t_pl_s = 5.39 * 10**-44
+    s_to_evm1 = (1./6.5823) * 10**25
+    t_pl = t_pl_s * s_to_evm1
+
+    gam_rad = (1./3)**(3./2)
+    H_end = 4.44 * 10**13.
+    rho_end_inf = 3. * M_pl**2. * H_end**2
+
+    k_end_over_k_rad = (M_tot/(7.1*10**-2*gam_rad*(1.8*10**15/H_end)))**(1/2)
+    rho_form_rad = rho_end_inf/(k_end_over_k_rad)**4
+    rho_end = (1e-2)**4
+    ln_den_end = np.log(rho_end)
+
+    betas_tot = constraints.betas_DM_tot
+
     for i in range(len(M_tot)):
         ln_den_f = np.log(rho_form_rad[i])
         if ln_den_f <= ln_den_end:
             continue
         ln_den = np.linspace(ln_den_f, ln_den_end, 10000)
+
         sol_try = solve_ivp(diff_rad, (ln_den_f, ln_den_end), np.array([1., 0.]), events=end_evol, t_eval=ln_den, args=(M_tot[i], betas_tot[i]), method="DOP853")
+
         if sol_try.t[-1] > ln_den_end:
             sol_try = solve_ivp(diff_rad_rel, (ln_den_f, ln_den_end), np.array([1.]), t_eval=ln_den, args=(M_tot[i], betas_tot[i]), method="DOP853")
             y = betas_tot[i] * sol_try.y[0][-1] * (M_pl_g / M_tot[i])
-            if M_tot[i] < 10**11 * M_pl_g:
+            if M_tot[i] < 10 ** 11 * M_pl_g:
                 Omegas_relic_pbbn.append(y)
                 M_dm_rel_pbbn.append(M_tot[i])
         else:
-            Delta_t = t_pl * (M_tot[i] / M_pl_g)**3
-            y = betas_tot[i] * sol_try.y[0][-1] * (1. - sol_try.y[1][-1] / Delta_t)**(1./3)
-            if M_tot[i] > 4.1 * 10**14:
+            Delta_t = t_pl * (M_tot[i] / M_pl_g) ** 3
+            y = betas_tot[i] * sol_try.y[0][-1] * (1. - sol_try.y[1][-1] / Delta_t) ** (1. / 3)
+            if M_tot[i] > 4.1 * 10 ** 14:
                 Omegas.append(y)
                 M_dm.append(M_tot[i])
-            elif M_tot[i] < 10**11 * M_pl_g:
+            elif M_tot[i] < 10 ** 11 * M_pl_g:
                 Omegas_relic.append(y)
                 M_dm_rel.append(M_tot[i])
         Omegas_tot.append(y)
 
-    Omegas_tot = np.array(Omegas_tot)
-    constraints.Omega_DM_tot = Omegas_tot
-    Omegas = np.array(Omegas)
-    Omegas_relic_pbbn = np.array(Omegas_relic_pbbn)
-    Omegas_relic = np.array(Omegas_relic)
-    M_dm = np.array(M_dm)
-    M_dm_rel_pbbn = np.array(M_dm_rel_pbbn)
-    M_dm_rel = np.array(M_dm_rel)
+    constraints.Omega_DM_tot = np.array(Omegas_tot)
+    return Omegas_tot
 
-    return Omegas_tot, Omegas, Omegas_relic_pbbn, Omegas_relic, M_dm, M_dm_rel_pbbn, M_dm_rel
 
 
 

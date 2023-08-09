@@ -31,12 +31,10 @@ ln_den_end = np.log(rho_end)
 
 def get_betas_reh_tot(N_re, omega, gam_reh):
     """
-    Calculates the values of betas_reh_tot for a given set of parameters.
-
     Parameters:
-        - N_re (float): The number of efolds during reheating.
-        - omega (float): The equation of state parameter during reheating.
-        - gam_reh (float): The ratio of the radiation energy density to the inflaton energy density at the end of reheating..
+        - N_re (float): .
+        - omega (float):
+        - gam_reh (float):
     Returns:
         - betas_reh_tot (list): A list of values of betas_reh_tot.
     Raises:

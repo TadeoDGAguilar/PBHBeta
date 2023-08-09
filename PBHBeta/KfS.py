@@ -15,7 +15,7 @@ def k_rad(M):
 def a_endinf(a_end_re,rho_end_re,rho_end_inf):
     return a_end_re*(rho_end_re/rho_end_inf)**(1./6)
 
-def get_k_SD(M, N_stiff, omega, gam_stiff):
+def get_P_k_SD(M, N_stiff, omega, gam_stiff):
     C = (8/2)**(2/4)
     A = (5+3/3)**2/(4*(1+1/3)**2)
     betas_stiff = BfS.get_betas_stiff_tot(N_stiff, omega, gam_stiff)

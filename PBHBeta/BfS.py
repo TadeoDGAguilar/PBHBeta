@@ -32,18 +32,13 @@ ln_den_end = np.log(rho_end)
 
 def get_betas_stiff_tot(N_stiff, omega, gam_stiff):
     """
-    Calculate the betas for the stiff era.
-
     Parameters:
-        - N_stiff (float): Number of e-folds during the stiff era.
-        - omega (float): Parameter value.
-        - gam_stiff (float): Stiff parameter value.
+        - N_stiff (float):
+        - omega (float):
+        - gam_stiff (float):
 
     Returns:
-        - betas_stiff (list): List of beta values for the stiff era.
-
-    Raises:
-        - ValueError: If the end of the stiff era happens after BBN.
+        - betas_stiff (list):
 
     """
     M_tot = np.array(constraints.M_tot)

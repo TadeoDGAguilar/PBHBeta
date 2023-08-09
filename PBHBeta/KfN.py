@@ -19,7 +19,7 @@ def k_MD(M):
 def a_endinf(a_end_re, rho_end_re, rho_end_inf):
   return a_end_re * (rho_end_re / rho_end_inf) ** (1. / 3)
 
-def get_k_Nreh(M, N_re, omega, gam_reh):
+def get_P_k_MD(M, N_re, omega, gam_reh):
 
 
   def equation(p):

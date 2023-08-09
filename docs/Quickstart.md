@@ -51,9 +51,10 @@ The [main functions](https://pbhbeta.readthedocs.io/en/latest/Module_1.html#main
 
 **4. Calculate abundances (betas) considering dark matter (DM) constraints using the {py:func}`PBHBeta.functions.Betas_DM()` function:**
 
+
 ```{code-block} python
 :lineno-start: 2
-functions.Betas_DM(M_tot)
+M_n, betas, M_relic, betas_relic = functions.Betas_DM(M_tot)
 ```
 
 ```{note}
@@ -79,16 +80,15 @@ For more information on parameters and outputs, click the bolded declared functi
 
 ```{code-block} python
 :lineno-start: 3
-plt.loglog(functions.Betas_DM(M_tot)[0],functions.Betas_DM(M_tot)[1], "k:",label=r"$\Omega_{DM}$")
-plt.fill_between(functions.Betas_DM(M_tot)[0],functions.Betas_DM(M_tot)[1], functions.Betas_DM(M_tot)[1]*0+10, color='grey',alpha=0.2)
-plt.loglog(functions.Betas_DM(M_tot)[2],functions.Betas_DM(M_tot)[3], "k:",label=r"$\Omega_{DM}$")
-plt.fill_between(functions.Betas_DM(M_tot)[2],functions.Betas_DM(M_tot)[3], functions.Betas_DM(M_tot)[3]*0+10, color='grey',alpha=0.2)
+plt.loglog(M_n, betas, "k:",label=r"$\Omega_{DM}$")
+plt.fill_between(M_n, betas, betas*0+10, color='grey',alpha=0.2)
+plt.loglog(M_relic, betas_relic, "k--",label=r"$\Omega_{DM}$")
+plt.fill_between(M_relic, betas_relic, betas_relic*0+10, color='grey',alpha=0.2)
+
 plt.xlabel(r"$M_{\rm PBH}~[\rm{g}]$")
 plt.ylabel(r"$\beta$")
-plt.xlim([1,1e20])
-plt.ylim([1e-30,1])
 
-plt.legend()
+plt.legend(ncol=1)
 plt.show()
 ```
 

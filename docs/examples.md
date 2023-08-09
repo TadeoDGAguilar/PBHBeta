@@ -94,7 +94,7 @@ Abundance of PBHs as function of their mass, where NSD is the total number of $e
 
 `out`
 ```{figure} img/Beta_SFD_note2.png
-:alt: Pofk_emd
+:alt: img3
 :class: bg-primary
 :width: 500px
 :align: center
@@ -104,7 +104,7 @@ Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for the extended SD
 
 `out`
 ```{figure} img/PofK_SFD_note2.png
-:alt: Pofk_emd
+:alt: img4
 :class: bg-primary
 :width: 500px
 :align: center

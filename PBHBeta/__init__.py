@@ -10,6 +10,7 @@ from .functions import Betas_CMB_AN
 from .functions import Betas_GRB
 from .functions import Betas_Reio
 from .functions import Betas_LSP
+from .functions import Omegas_DM
 from .functions import get_Betas_full
 from .functions import put_M_array
 from .functions import get_Omegas_full

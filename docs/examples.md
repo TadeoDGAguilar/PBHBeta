@@ -33,7 +33,7 @@ Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for different value
 :align: center
 ```
 
-Downloadable Notebook with this example: {download}`Notebook 1 <PBHBeta_(notebook).ipynb>`
+Downloadable Notebook with this example: {download}`Notebook 1 <https://github.com/TadeoDGAguilar/PBHBeta/blob/main/docs/notebooks/PBHBeta_(notebook).ipynb?raw=true>`
 
 ### Scalar field dominated scenario
 

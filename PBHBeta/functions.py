@@ -596,9 +596,9 @@ def Betas_LSP(M_tot, w):
             if ln_den_f <= ln_den_end:
                 continue
             ln_den = np.linspace(ln_den_f, ln_den_end, 10000)
-            sol_try = solve_ivp(functions.diff_rad, (ln_den_f, ln_den_end), np.array([1., 0.]), events=functions.end_evol, t_eval=ln_den, args=(M_tot[i], beta), method="DOP853")
+            sol_try = solve_ivp(diff_rad, (ln_den_f, ln_den_end), np.array([1., 0.]), events=end_evol, t_eval=ln_den, args=(M_tot[i], beta), method="DOP853")
             if sol_try.t[-1] > ln_den_end:
-                sol_try = solve_ivp(functions.diff_rad_rel, (ln_den_f, ln_den_end), np.array([1.]), t_eval=ln_den, args=(M_tot[i], beta), method="DOP853")
+                sol_try = solve_ivp(diff_rad_rel, (ln_den_f, ln_den_end), np.array([1.]), t_eval=ln_den, args=(M_tot[i], beta), method="DOP853")
                 y = beta * sol_try.y[0][-1] * (constants.M_pl_g / M_tot[i])
                 Omegas_lsp_pbbn.append(y)
                 M_lsp_pbbn.append(M_tot[i])

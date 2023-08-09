@@ -1,14 +1,14 @@
 # Quickstart
 
-Let us present here a simple example, without explaining much about it — each of its aspects will be broken down in the following sections.
+Here's a simple example of using `PBHBeta`. Each aspect will be explained in subsequent sections.
 
 ## Importing Modules
 
 ```{note}
-One way to verify that the `PBHBeta` library has been installed correctly is to immediately import the library and all its modules.
+You can verify the correct installation of the `PBHBeta` library by immediately importing it and its modules.
 ```
 
-1. Import the `PBHBeta` library and any required modules:
+**1. Import the PBHBeta library and necessary modules:**
 
 ```{code-block}
 from PBHBeta import *
@@ -16,51 +16,40 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-## Call a basic function
+## Using Basic Functions
 
-The basic functions have the main task of assisting the user in constructing the input data array, as well as solving ODEs
-(see [Basic functions](https://pbhbeta.readthedocs.io/en/latest/Module_1.html#basic-functions) section).
+Basic functions assist in creating input data arrays and solving ODEs. See [Basic functions](https://pbhbeta.readthedocs.io/en/latest/Module_1.html#basic-functions) for details.
 
-2. Generate an array of masses using the `put_M_array`{l=python} function:
-
-The first function to execute is {py:func}`PBHBeta.functions.put_M_array`, which contains the instruction to generate an array of masses from a maximum value of mass in 
-grams.
+**2. Generate an array of masses using the `put_M_array`{l=python} function:** The initial function to execute is {py:func}`PBHBeta.functions.put_M_array`, which generates an array of masses from a specified minimum and maximum mass value in grams.
 
 ```{code-block}
 PBHBeta.functions.put_M_array(constants.M_pl_g, 1e20)
 ```
 
-Also, we use the `constants.py` module to import the `constants.M_pl_g` value, that is Mass of Planck in grams and use it like a input of the function to define the Mass_min.
+Note that we use the `constants.py` module to import `constants.M_pl_g` (the Planck mass in grams) for defining the minimum mass used in this example.
 
 ```{note}
-The library contains a module called `constraints.py`, where the `return` of {py:func}`PBHBeta.functions.put_M_array` is stored.
+The `constraints.py` module stores the return value of {py:func}`PBHBeta.functions.put_M_array`.
 ```
 
-## Import data from a module
+## Importing data
 
-It is important to say that the PBHBeta library has a dedicated module (`constraints.py`) for storing data that has been calculated 
-using both the basic and main functions (see [functions.py](https://pbhbeta.readthedocs.io/en/latest/Module_1.html)). 
-This is done to provide greater convenience when accessing and reading such 
-data for use as inputs in classes. Some examples more detailed are presented in the [Jupyter notebooks](../examples.md) section.
+The PBHBeta library has a dedicated module `constraints.py` for storing calculated data from basic and main functions (see [functions.py](https://pbhbeta.readthedocs.io/en/latest/Module_1.html)). 
+This facilitates convenient access to data for use as inputs in classes. Detailed examples are in the [Jupyter notebooks](../examples.md) section.
 
-3. Access the generated masses stored in the `constraints.M_tot` variable:
-
-You can retrieve the values stored in `constraint.M_tot` and store them in a variable to perform operations within the PBHBeta functions. 
-
-Here's an example:
+**3. Access generated masses stored in the `constraints.M_tot`:** Retrieve values from `constraint.M_tot` and store them for operations within `PBHBeta` functions.
 
 ```{code-block} python
 :lineno-start: 1
 M_tot = constraints.M_tot
 ```
 
-## Use a main function
+## Using Main Functions
 
-The [main functions](https://pbhbeta.readthedocs.io/en/latest/Module_1.html#main-functions) within the `functions.py`
-module aim to perform specific calculations on the constraints of PBH abundance.
+The [main functions](https://pbhbeta.readthedocs.io/en/latest/Module_1.html#main-functions) in `functions.py` calculate specific PBH abundance constraints.
 
 
-4. Calculate the abundances (betas) considering the dark matter (DM) constraints using the Betas_DM function {py:func}`PBHBeta.functions.Betas_DM()` with input `M_tot`:
+**4. Calculate abundances (betas) considering dark matter (DM) constraints using the {py:func}`PBHBeta.functions.Betas_DM()` function:
 
 ```{code-block} python
 :lineno-start: 2
@@ -68,22 +57,25 @@ functions.Betas_DM(M_tot)
 ```
 
 ```{note}
-The documentation of the `PBHBeta.functions.Betas_DM()` function specifies that it stores the values of the total abundance in an array called `betas_DM_tot` within the 
-`constraints.py` module. Additionally, the function returns four arrays, namely `M_n`, `betas`, `M_relic`, and `betas_relic`. Where M_n refers to the masses of PBHs that are currently present and could be candidates for dark matter, while M_relic refers to the masses of PBHs that might have left behind stable relics as a potential contribution to dark matter after their evolution and evaporation. 
+`PBHBeta.functions.Betas_DM()` stores the total abundance values in an array named `betas_DM_tot` within the `constraints.py` module. Additionally, the function returns several arrays:
+
+    `M_n`: Masses of PBHs that are currently present and could be potential candidates for dark matter.
+    `betas`: Corresponding abundance values for the PBHs mentioned in `M_n`.
+    `M_relic`: Masses of PBHs that might have left behind stable relics, which could contribute to dark matter after undergoing evolution and evaporation.
+    `betas_relic`: Associated abundance values for the PBHs referred to in `M_relic`. 
 
 To manipulate these arrays, you can directly access them by invoking `functions.Betas_DM(M_tot)`[number], where `number` is 0, 1, 2, or 3, corresponding to each output 
-array respectively.
+array, respectively.
 ```
 
 ```{hint}
-If you wish to view more information about the parameters and outputs of each of the highlighted functions, you can click on the bolded declared functions.
+For more information on parameters and outputs, click the bolded declared functions.
 ```
 
-## Outputs and plot
+## Outputs and plots
 
-Lastly, it only remains to retrieve the data and plot them. In this case, we will obtain the constraints on the abundance of monochromatic PBHs as a function of mass in the standard Big Bang scenario.
+**5. Plot the calculated abundances using matplotlib:** Here, we show constraints on monochromatic PBH abundance as a function of mass in the standard Big Bang scenario.
 
-5. Plot the calculated abundances using matplotlib:
 
 ```{code-block} python
 :lineno-start: 3
@@ -108,6 +100,5 @@ plt.show()
 :align: center
 ```
 
-If you have obtained the displayed graph
- congratulations! You have successfully installed and used `PBHBeta`. You can explore more functionalities and examples into [Jupyter notebooks](../examples.md) section.
+If the displayed graph is obtained, congratulations! You have successfully installed and used `PBHBeta`. Explore more functionalities and examples in the [Jupyter notebooks](../examples.md) section.
 

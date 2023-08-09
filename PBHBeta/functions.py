@@ -286,6 +286,7 @@ def Betas_BBN(M_tot, omega):
     M_bbn = []
     M_bbn_bbn = []
     Omegas_bbn = []
+    Omegas_bbn_tot = []
     Omegas_bbn_pbbn = []
     M_bbn_pbbn = []
 
@@ -333,72 +334,19 @@ def Betas_BBN(M_tot, omega):
             beta = constants.ev1
             y = constants.ev2
         constraints.betas_BBN_tot.append(beta)
-        constraints.Omega_BBN_tot.append(y)
-    
+        Omegas_bbn_tot.append(y)
+
     betas_bbn = np.array(betas_bbn)
+    Omegas_bbn_tot = np.array(Omegas_bbn_tot)
     M_bbn = np.array(M_bbn)
     M_bbn_bbn = np.array(M_bbn_bbn)
     M_bbn_pbbn = np.array(M_bbn_pbbn)
     Omegas_bbn = np.array(Omegas_bbn)
     Omegas_bbn_pbbn = np.array(Omegas_bbn_pbbn)
+    constraints.Omega_BBN_tot = Omegas_bbn_tot
     
-    return M_bbn, betas_bbn, M_bbn_bbn, M_bbn_pbbn, Omegas_bbn, Omegas_bbn_pbbn
+    return M_bbn, betas_bbn, M_bbn_bbn, M_bbn_pbbn, Omegas_bbn, Omegas_bbn_pbbn, Omegas_bbn_tot
 
-
-def Omegas_BBN(M_tot, omega):
-    M_bbn_bbn = []
-    Omegas_bbn = []
-    M_bbn_pbbn = []
-    Omegas_bbn_pbbn = []
-
-    rho_form_rad = rho_f(M_tot, omega)
-    j = 0
-
-    for i in range(len(M_tot)):
-        if M_tot[i] >= constraints.data_mass[0] and M_tot[i] < constraints.data_mass[76]:
-            ln_den_f = np.log(rho_form_rad[i])
-            if ln_den_f <= constraints.ln_den_end:
-                continue
-            ln_den = np.linspace(ln_den_f, constraints.ln_den_end, 10000)
-            sol_try = solve_ivp(diff_rad, (ln_den_f, constraints.ln_den_end), np.array([1., 0.]), events=end_evol,
-                                t_eval=ln_den, args=(M_tot[i], constraints.data_abundances[j]), method="DOP853")
-
-            if sol_try.t[-1] > constraints.ln_den_end:
-                sol_try = solve_ivp(diff_rad_rel, (ln_den_f, constraints.ln_den_end), np.array([1.]), t_eval=ln_den,
-                                    args=(M_tot[i], constraints.data_abundances[j]), method="DOP853")
-                y = constraints.data_abundances[j] * sol_try.y[0][-1] * (constants.M_pl_g / M_tot[i])
-                Omegas_bbn_pbbn.append(y)
-                M_bbn_pbbn.append(M_tot[i])
-            else:
-                Delta_t = constraints.t_pl * (M_tot[i] / constants.M_pl_g) ** 3
-                y = constraints.data_abundances[j] * sol_try.y[0][-1] * (1. - sol_try.y[1][-1] / Delta_t) ** (1. / 3)
-                Omegas_bbn.append(y)
-                M_bbn_bbn.append(M_tot[i])
-            j = j + 1
-        elif M_tot[i] >= constraints.data_mass[76] and M_tot[i] < 2.5 * 10 ** 13:
-            ln_den_f = np.log(rho_form_rad[i])
-            if ln_den_f <= constraints.ln_den_end:
-                continue
-            ln_den = np.linspace(ln_den_f, constraints.ln_den_end, 10000)
-            sol_try = solve_ivp(diff_rad, (ln_den_f, constraints.ln_den_end), np.array([1., 0.]), events=end_evol,
-                                t_eval=ln_den, args=(M_tot[i], constraints.data_abundances[76]), method="DOP853")
-            Delta_t = constraints.t_pl * (M_tot[i] / constants.M_pl_g) ** 3
-            y = constraints.data_abundances[76] * sol_try.y[0][-1] * (1. - sol_try.y[1][-1] / Delta_t) ** (1. / 3)
-            Omegas_bbn.append(y)
-            M_bbn_bbn.append(M_tot[i])
-            j = j + 1
-        else:
-            y = constraints.ev2
-
-        Omegas_bbn_pbbn.append(y)
-        M_bbn_pbbn.append(M_tot[i])
-
-    M_bbn_bbn = np.array(M_bbn_bbn)
-    Omegas_bbn = np.array(Omegas_bbn)
-    M_bbn_pbbn = np.array(M_bbn_pbbn)
-    Omegas_bbn_pbbn = np.array(Omegas_bbn_pbbn)
-
-    return M_bbn_bbn, Omegas_bbn, M_bbn_pbbn, Omegas_bbn_pbbn
 
 
 def Betas_SD(M_tot, omega):

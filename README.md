@@ -21,7 +21,7 @@ This project is under development.
 This code has been tested exclusively with Python version 3.9, and we strongly recommend using it with versions higher than this (Python 3.x and above).
 ```
 
-The GitHub repository and PyPI package for `PBHBeta` include the essential libraries necessary to run `PBHBeta`. However, these dependencies must be imported into the notebook or console for the functions to become accesible. Refer to the [requeriments](../Requeriments.md) and [installation](../Installation.md) sections.
+The GitHub repository and PyPI package for `PBHBeta` include the essential libraries necessary to run `PBHBeta`. However, these dependencies must be imported into the notebook or console for the functions to become accesible. Refer to the [../Requeriments.md](https://pbhbeta.readthedocs.io/en/latest/Requeriments.html) and [installation](https://pbhbeta.readthedocs.io/en/latest/Installation.html) sections.
 
 # How to cite us
 

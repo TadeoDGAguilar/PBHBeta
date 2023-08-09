@@ -155,7 +155,7 @@ ln_den_end = np.log(constants.rho_end)
 def Betas_DM(M_tot):
 
     """
-    Calculates the abundance of PBHs for dark matter constraints. See equations (13) and (19)
+    Calculates the abundance of PBHs for dark matter constraints. See equations (13) and (19).
 
     Parameters:
         - M_tot (array-like): Array of masses in grams.
@@ -198,10 +198,11 @@ def Betas_DM(M_tot):
     
 def Betas_BBN(M_tot, omega):
     """
-    Calculates the beta parameters and relic abundances for dark matter particles formed during BBN.
+    Calculates the abundance of PBHs for Big Bang Nucleosynthesis constraints.
+
 
     Parameters:
-        - M_tot (array-like): The total mass of dark matter, in units of solar masses.
+        - M_tot (array-like): Array of masses in grams.
         - omega (float): The baryon-to-photon ratio.
 
     Returns:
@@ -538,76 +539,129 @@ def Betas_Reio(M_tot, omega):
     
     return M_reio, betas_reio, M_reio_bbn, Omegas_reio
 
-def Betas_LSP(M_tot):
-    """
-    Calculates the beta parameters for dark matter particles in the lightest supersymmetric particle (LSP) scenario.
+#def Betas_LSP(M_tot):
 
-    Parameters:
-        - M_tot (array-like): The total mass of dark matter, in units of solar masses.
+#    betas_lsp = []
+#    M_lsp = []
+    
+#    for i in range(len(M_tot)):
+#        if M_tot[i]< 10**11:
+#            M_lsp.append(M_tot[i])
+#            beta = 10**(-18)*(M_tot[i]/(10**11))**(-1/2)/constants.gam_rad**(1/2)
+#            betas_lsp.append(beta)
+#        else:
+#            beta = constants.ev1
+#        constraints.betas_LSP_tot.append(beta)
+    
+#    betas_lsp = np.array(betas_lsp)
+#    M_lsp = np.array(M_lsp)
+    
+#   return M_lsp, betas_lsp
 
-    Returns:
-        - M_lsp (numpy.ndarray): The masses of dark matter particles in the LSP scenario, in solar masses.
-        - betas_lsp (numpy.ndarray): The corresponding beta parameter values for dark matter particles in the LSP scenario.
 
-    Notes:
-        - The function assumes that the total mass of dark matter consists of only one type of particle.
-        - The returned arrays are sorted in increasing order of mass.
-        - The values for beta for M_tot outside the range (0, 1e11) solar masses are set to constants.ev1.
-    """
+def Betas_LSP(M_tot, w):
+    ev1 = 1e-5
+    ev2 = 1e-2
+    M_pl = 1.22089*10**19
+
+    t_pl_s = 5.39 * 10**-44
+    s_to_evm1 = (1./6.5823) * 10**25
+    t_pl = t_pl_s * s_to_evm1
+
+    gam_rad = (1./3)**(3./2)
+    H_end = 4.44 * 10**13.
+    rho_end_inf = 3. * M_pl**2. * H_end**2.
 
     betas_lsp = []
+    betas_lsp_tot = []
     M_lsp = []
-    
-    for i in range(len(M_tot)):
-        if M_tot[i]< 10**11:
-            M_lsp.append(M_tot[i])
-            beta = 10**(-18)*(M_tot[i]/(10**11))**(-1/2)/constants.gam_rad**(1/2)
-            betas_lsp.append(beta)
-        else:
-            beta = constants.ev1
-        constraints.betas_LSP_tot.append(beta)
-    
-    betas_lsp = np.array(betas_lsp)
-    M_lsp = np.array(M_lsp)
-    
-    return M_lsp, betas_lsp
-
-def Omegas_LSP(M_tot, omega):
     M_lsp_bbn = []
     Omegas_lsp = []
     M_lsp_pbbn = []
     Omegas_lsp_pbbn = []
-    M_tot = np.array(M_tot)
-    
-    rho_form_rad = rho_f(M_tot, omega)
-    
+    Omegas_lsp_tot = []
+
+    k_end_over_k_rad = (M_tot * H_end / (gam_rad * 3 * M_pl))**(1 + 3 * w) / (3 * (1 + w))
+    rho_form_rad = rho_end_inf / (k_end_over_k_rad)**((6 * (1 + w)) / (1 + (3 * w)))
+    rho_end = (1e-2)**4
+    ln_den_end = np.log(rho_end)
+
     for i in range(len(M_tot)):
-        if M_tot[i]<1e11:
-            beta = 1e-18*(M_tot[i]/1e11)**(-1/2)/constants.gam_rad**(1/2)
+        if M_tot[i] < 10**11:
+            M_lsp.append(M_tot[i])
+            beta = 10**(-18) * (M_tot[i] / (10**11))**(-1/2) / gam_rad**(1/2)
+            betas_lsp.append(beta)
+
             ln_den_f = np.log(rho_form_rad[i])
             if ln_den_f <= ln_den_end:
                 continue
-            ln_den = np.linspace(ln_den_f,ln_den_end,10000)
-            sol_try = solve_ivp(diff_rad,(ln_den_f,ln_den_end),np.array([1.,0.]),events=end_evol,t_eval=ln_den,args=(M_tot[i],beta),method = "DOP853")
+            ln_den = np.linspace(ln_den_f, ln_den_end, 10000)
+            sol_try = solve_ivp(functions.diff_rad, (ln_den_f, ln_den_end), np.array([1., 0.]), events=functions.end_evol, t_eval=ln_den, args=(M_tot[i], beta), method="DOP853")
             if sol_try.t[-1] > ln_den_end:
-                sol_try = solve_ivp(diff_rad_rel,(ln_den_f,ln_den_end),np.array([1.]),t_eval=ln_den,args=(M_tot[i],beta),method = "DOP853")
-                y = beta*sol_try.y[0][-1]*(constants.M_pl_g/M_tot[i])
+                sol_try = solve_ivp(functions.diff_rad_rel, (ln_den_f, ln_den_end), np.array([1.]), t_eval=ln_den, args=(M_tot[i], beta), method="DOP853")
+                y = beta * sol_try.y[0][-1] * (constants.M_pl_g / M_tot[i])
                 Omegas_lsp_pbbn.append(y)
                 M_lsp_pbbn.append(M_tot[i])
             else:
-                Delta_t = constants.t_pl*(M_tot[i]/constants.M_pl_g)**3
-                y = beta*sol_try.y[0][-1]*(1.-sol_try.y[1][-1]/Delta_t)**(1./3)
+                Delta_t = t_pl * (M_tot[i] / constants.M_pl_g)**3
+                y = beta * sol_try.y[0][-1] * (1. - sol_try.y[1][-1] / Delta_t)**(1./3)
                 Omegas_lsp.append(y)
                 M_lsp_bbn.append(M_tot[i])
         else:
-            y = constants.ev2
-            constraints.Omega_LSP_tot.append(y)
-            
+            beta = ev1
+            y = ev2
+        constraints.betas_LSP_tot.append(beta)
+        constraints.Omega_LSP_tot.append(y)
+        #betas_lsp_tot.append(beta)
+        #Omegas_lsp_tot.append(y)
+
+    betas_lsp = np.array(betas_lsp)
+    betas_lsp_tot = np.array(betas_lsp_tot)
+    M_lsp = np.array(M_lsp)
     M_lsp_bbn = np.array(M_lsp_bbn)
     Omegas_lsp = np.array(Omegas_lsp)
     M_lsp_pbbn = np.array(M_lsp_pbbn)
     Omegas_lsp_pbbn = np.array(Omegas_lsp_pbbn)
-    return M_lsp_bbn, Omegas_lsp, M_lsp_pbbn, Omegas_lsp_pbbn
+
+    return M_lsp, betas_lsp, betas_lsp_tot, Omegas_lsp, Omegas_lsp_tot, M_lsp_bbn, Omegas_lsp_pbbn, M_lsp_pbbn
+
+#def Omegas_LSP_try(M_tot, omega):
+#    M_lsp_bbn = []
+#    Omegas_lsp = []
+#    M_lsp_pbbn = []
+#    Omegas_lsp_pbbn = []
+#    M_tot = np.array(M_tot)
+#    ln_den_end = np.log(constants.rho_end)
+
+#    rho_form_rad = rho_f(M_tot, omega)
+
+#    for i in range(len(M_tot)):
+#        if M_tot[i]<1e11:
+#            beta = 1e-18*(M_tot[i]/1e11)**(-1/2)/constants.gam_rad**(1/2)
+#            ln_den_f = np.log(rho_form_rad[i])
+#            if ln_den_f <= ln_den_end:
+#                continue
+#            ln_den = np.linspace(ln_den_f,ln_den_end,10000)
+#            sol_try = solve_ivp(diff_rad,(ln_den_f,ln_den_end),np.array([1.,0.]),events=end_evol,t_eval=ln_den,args=(M_tot[i],beta),method = "DOP853")
+#            if sol_try.t[-1] > ln_den_end:
+#                sol_try = solve_ivp(diff_rad_rel,(ln_den_f,ln_den_end),np.array([1.]),t_eval=ln_den,args=(M_tot[i],beta),method = "DOP853")
+#                y = beta*sol_try.y[0][-1]*(constants.M_pl_g/M_tot[i])
+#               Omegas_lsp_pbbn.append(y)
+#                M_lsp_pbbn.append(M_tot[i])
+#            else:
+#                Delta_t = constants.t_pl*(M_tot[i]/constants.M_pl_g)**3
+#                y = beta*sol_try.y[0][-1]*(1.-sol_try.y[1][-1]/Delta_t)**(1./3)
+#                Omegas_lsp.append(y)
+#                M_lsp_bbn.append(M_tot[i])
+#        else:
+#            y = constants.ev2
+#            constraints.Omega_LSP_tot.append(y)
+
+#    M_lsp_bbn = np.array(M_lsp_bbn)
+#    Omegas_lsp = np.array(Omegas_lsp)
+#    M_lsp_pbbn = np.array(M_lsp_pbbn)
+#    Omegas_lsp_pbbn = np.array(Omegas_lsp_pbbn)
+#    return M_lsp_bbn, Omegas_lsp, M_lsp_pbbn, Omegas_lsp_pbbn
 
 def get_Betas_full(M_tot):
 
@@ -637,7 +691,6 @@ def get_Betas_full(M_tot):
 
 
 def get_Omegas_full(M_tot):
-
     """
     Calculates the minimum Omega parameter value for each dark matter particle mass using all available constraints.
 

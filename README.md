@@ -5,7 +5,7 @@
 
 [tadeodaguilar](https://www.linkedin.com/in/tadeodaguilar/) & [Luis E. Padilla](https://www.linkedin.com/in/luis-enrique-padilla-albores-052087199/) 
 
-[![Build Status](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta.svg?branch=main)](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta) [![Documentation Status](https://readthedocs.org/projects/pbhbeta/badge/?version=latest)](https://pbhbeta.readthedocs.io/en/latest/?badge=latest) [![arXiv]()](https://arxiv.org/abs/) [![PyPI version]()]()
+[![Documentation Status](https://readthedocs.org/projects/pbhbeta/badge/?version=latest)](https://pbhbeta.readthedocs.io/en/latest/?badge=latest) [![arXiv]()](https://arxiv.org/abs/) [![PyPI version]()]()
 
 ## Prerequisites
 

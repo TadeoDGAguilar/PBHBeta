@@ -44,7 +44,7 @@ def get_betas_reh_tot(N_re, omega, gam_reh):
     """
     M_tot = np.array(constraints.M_tot)# define M_tot
     betas_full = np.array(constraints.betas_full)# define betas_full
-    Omegas_full = np.array(constraints.data_Omegas_full)# define Omegas_full
+    Omegas_full = np.array(constraints.Omegas_full)# define Omegas_full
 
 
     # Calculate k_end_over_k_reh and rho_form_reh

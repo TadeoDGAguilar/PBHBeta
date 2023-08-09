@@ -1,65 +1,44 @@
-# PBH-Beta
-## Warning this project is a beta version
+# PBH-{math}`\beta`, a code to explore the constraints on PBH abundances and power spectrum.
 
-### Authors
+**Authors:** [Tadeo D. Gómez](https://www.linkedin.com/in/tadeodaguilar/) & [Luis E. Padilla](https://www.linkedin.com/in/luis-enrique-padilla-albores-052087199/)
 
-[tadeodaguilar](https://www.linkedin.com/in/tadeodaguilar/) & [Luis E. Padilla](https://www.linkedin.com/in/luis-enrique-padilla-albores-052087199/) 
+**Source:** [Source code at GitHub](https://github.com/TadeoDGAguilar/PBHBeta)
 
-[![Documentation Status](https://readthedocs.org/projects/pbhbeta/badge/?version=latest)](https://pbhbeta.readthedocs.io/en/latest/?badge=latest) [![arXiv]()](https://arxiv.org/abs/) [![PyPI version]()]()
-
-## Prerequisites
-
-The betaPBH library requires Python 3.10 or later to be installed on your system.
-
-[Python 3](https://www.python.org/downloads/)
-
-[pip package manager](https://pypi.org/project/pip/): The pip package manager is used to install betaPBH and its dependencies. It should be included with your Python installation by default.
-
-In general, when you install `betaPBH`, the `setup.py` will install all dependences: `matplotlib` (v-3.7.1), `numpy` (v-1.22.4), `scipy` (v-1.10.1).
-If this not happend, you need install manually to use `betaPBH`
-
-  1. [Matplotlib](https://matplotlib.org/stable/users/installing/index.html)
-
-  2. [NumPy](https://numpy.org/install/)
-
-  3. [SciPy](https://scipy.org/install/)
+**Licence:** [GNU General Public License v2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html). The documentation is licensed under the [GFDL](https://www.gnu.org/licenses/fdl-1.3.en.html).
 
 
-**Note:** `betaPBH` runs both in `Python` 2.x and 3.x. However, we highly recommend Python 3.x
+[![Build Status](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta.svg?branch=main)](https://app.travis-ci.com/TadeoDGAguilar/PBHBeta) [![Documentation Status](https://readthedocs.org/projects/pbhbeta/badge/?version=latest)](https://pbhbeta.readthedocs.io/en/latest/?badge=latest) [![arXiv](https://img.shields.io/badge/arXiv-1234.56789-f9f107.svg)](https://arxiv.org/abs/1234.56789) [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
-# Example 
-## Abundances of PBHs with Number of e-folds
-```{code}
-  from betaPBH import functions, constants, constraints, BfN, BfS
-  import matplotlib.pyplot as plt
-  import numpy as np
-```
-```{code}
-  functions.put_M_array()
-  M_tot = np.array(constraints.M_tot)
-```
-```{code}
-  plt.loglog(M_tot,BfN.get_betas_reh_tot(10,0,1),label = r"$N_{\rm reh}=10$")
-  plt.loglog(M_tot,BfN.get_betas_reh_tot(20,0,1),label = r"$N_{\rm reh}=20$")
-  plt.loglog(M_tot,BfN.get_betas_reh_tot(30,0,1),label = r"$N_{\rm reh}=30$")
-  plt.ylim([1e-30,1])
-  plt.xlim([1,1e20])
-  plt.xlabel(r"$M_{\rm PBH}~[\rm{g}]$")
-  plt.ylabel(r"$\beta$")
-  plt.legend(ncol=2,bbox_to_anchor=(0.85, 1.5))
-  plt.show()
+---
+
+The `PBHBeta` library is a computational tool designed to calculate constraints on the abundance of Primordial Black Holes (PBHs) and the power spectrum (PS) in cosmological scenarios featuring a non-standard evolution phase between the end of inflation and Big Bang Nucleosynthesis (BBN). 
+
+```{warning}
+This project is under development.
 ```
 
-![Descripción de la imagen](https://pbhbeta.readthedocs.io/en/latest/_images/BfN.png)
+```{note}
+This code has been tested exclusively with Python version 3.9, and we strongly recommend using it with versions higher than this (Python 3.x and above).
+```
+
+The GitHub repository and PyPI package for `PBHBeta` include the essential libraries necessary to run `PBHBeta`. However, these dependencies must be imported into the notebook or console for the functions to become accesible. Refer to the [requeriments](../Requeriments.md) and [installation](../Installation.md) sections.
 
 # How to cite us
 
-If you use $\beta$-PBH, please cite its pre-print, arXiv:.
+If you use PBH-{math}`\beta`, please cite arXiv:.
 
-## Regards
 
-We would also like to extend our appreciation to [Encieh Erfani](https://globalyoungacademy.net/eerfani/) and [Juan Carlos Hidalgo](https://www.fis.unam.mx/directorio/540/juan-carlos-strong-hidalgo-strong-cuellar) for their collaboration and valuable contributions to the project. Furthermore, we would like to thanks our colleagues for their assistance, suggestions, and encouragement during the development of the PBHbeta library, with a special mention to [Isidro Gomez](https://igomezv.github.io/).
-Lastly, we are grateful to the institutions that have supported this research, enabling us to pursue our scientific investigations and contribute to the field of cosmology. We would like to extend our appreciation to the Universidad Nacional Autónoma de México (UNAM), Instituto de Ciencias Físicas (ICF), International Centre For Theoretical Physics (ICTP), and the Consejo Nacional de Humanidades, Ciencias y Tecnologías (CONAHCYT) for their invaluable support and resources, which have been crucial in carrying out this research.
+# Changelog
+### Versions:
+
+- **1.0 (05/08/2023)** Initial version.
+
+
+# TO-Do
+- Complete the description to modules and components
+
+
+---
 
 ![UNAM](docs/img/UNAM.png){.bg-warning w=100px h=130px}
 ![ICF](docs/img/ICF.png){.bg-warning w=250px h=130px}

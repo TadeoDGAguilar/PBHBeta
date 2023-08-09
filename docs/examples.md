@@ -90,6 +90,26 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
+Abundance of PBHs as function of their mass, where NSD is the total number of $e$-folds that the stiff era lasted
+
+`out`
+```{figure} img/Beta_SFD_note2.png
+:alt: Pofk_emd
+:class: bg-primary
+:width: 500px
+:align: center
+```
+
+Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for the extended SD scenario.
+
+`out`
+```{figure} img/PofK_SFD_note2.png
+:alt: Pofk_emd
+:class: bg-primary
+:width: 500px
+:align: center
+```
+
 **Downloadable Notebook with this example:** 
 
 

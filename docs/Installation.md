@@ -2,9 +2,9 @@
 
 You can install `PBHBeta` using one of the following methods:
 
-*1. Using `PBHBeta` in Google Colab:* For guidance on using PBHBeta within the Google Colab environment, refer to the [Using Google Colab](https://pbhbeta.readthedocs.io/en/latest/Requeriments.html#using-google-colab) section in the Requirements documentation.
+**1. Using `PBHBeta` in Google Colab:** For guidance on using PBHBeta within the Google Colab environment, refer to the [Using Google Colab](https://pbhbeta.readthedocs.io/en/latest/Requeriments.html#using-google-colab) section in the Requirements documentation.
 
-*2. Cloning the GitHub Repository:* To clone the GitHub repository, run the following command:
+**2. Cloning the GitHub Repository:** To clone the GitHub repository, run the following command:
 ```{code-block}
 ---
 emphasize-lines: 1
@@ -22,7 +22,7 @@ Then, install `PBHBeta` using pip:
 pip3 install -e .
 ```
 
-*3. Installation via pip:* For a straightforward installation from PyPI, use the following command:
+**3. Installation via pip:** For a straightforward installation from PyPI, use the following command:
 
 ```{code-block}
 ---
@@ -33,7 +33,7 @@ pip3 install PBHBeta
 &nbsp; This will install the latest version of `PBHBeta` from PyPI.
 
 
-*4. Installation without cloning:* Alternatively, you can install `PBHBeta` directly from the GitHub repository:
+**4. Installation without cloning:** Alternatively, you can install `PBHBeta` directly from the GitHub repository:
 
 ```{code-block}
 ---

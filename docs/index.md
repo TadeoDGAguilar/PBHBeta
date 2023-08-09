@@ -11,7 +11,7 @@
 
 ---
 
-`PBHBeta` library is a computational tool designed for studying the constraints on the abundance of Primordial Black Holes (PBHs) and the power spectrum (PS) in cosmological scenarios with a non-standard evolution phase between the end of inflation and the Standard Big Bang (SBB). 
+`PBHBeta` library is a computational tool designed for studying the constraints on the abundance of Primordial Black Holes (PBHs) and the power spectrum (PS) in cosmological scenarios with a non-standard evolution phase between the end of inflation and Big Bang Nucleosynthesis (BBN). 
 
 ```{warning}
 This project is under development.

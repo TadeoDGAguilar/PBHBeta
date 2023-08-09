@@ -2,7 +2,7 @@
 
 You can install `PBHBeta` using one of the following methods:
 
-**1. Using `PBHBeta` in Google Colab:** For guidance on using PBHBeta within the Google Colab environment, refer to the [Using Google Colab](https://pbhbeta.readthedocs.io/en/latest/Requeriments.html#using-google-colab) section in the Requirements documentation.
+**1. Using `PBHBeta` in Google Colab:** For guidance on using `PBHBeta` within the Google Colab environment, refer to the [Using Google Colab](https://pbhbeta.readthedocs.io/en/latest/Requeriments.html#using-google-colab) section in the [Requirements](../Requeriments.md) documentation.
 
 **2. Cloning the GitHub Repository:** To clone the GitHub repository, run the following command:
 ```{code-block}

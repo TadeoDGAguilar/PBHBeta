@@ -2,21 +2,72 @@
 
 ## Primordial Black Holes in non-standard cosmology
 
-
-### Early matter dominated scenario
-
 ```{code-block} python
-:lineno-start: 1
 from PBHBeta import *
 import matplotlib.pyplot as plt
 import numpy as np
 ```
 
 ```{code-block} python
+#functions.put_M_array(constants.M_pl_g, 1e20)
+constraints.M_tot = constraints.data_M_tot
+M_tot = np.array(constraints.M_tot)
+omega = 1/3
+```
+
+```{code-block} python
+M_n, betas, M_relic, betas_relic = functions.Betas_DM(M_tot)
+betas_bbn = functions.Betas_BBN(M_tot,omega)[1]
+betas_sd = functions.Betas_SD(M_tot,omega)[1]
+betas_an = functions.Betas_CMB_AN(M_tot,omega)[1]
+betas_grb1 = functions.Betas_GRB(M_tot,omega)[2]
+betas_grb2 = functions.Betas_GRB(M_tot,omega)[3]
+betas_reio = functions.Betas_Reio(M_tot,omega)[1]
+betas_lsp = functions.Betas_LSP(M_tot,omega)[1]
+betas_full = functions.get_Betas_full(M_tot)
+```
+
+```{code-block} python
+M_bbn = functions.Betas_BBN(M_tot,omega)[0]
+M_an = functions.Betas_CMB_AN(M_tot,omega)[0]
+M_grb1 = functions.Betas_GRB(M_tot,omega)[0]
+M_grb2 = functions.Betas_GRB(M_tot,omega)[1]
+M_reio = functions.Betas_Reio(M_tot,omega)[0]
+M_lsp = functions.Betas_LSP(M_tot,omega)[0]
+```
+
+```{code-block} python
+omegas_dm = functions.Omegas_DM(M_tot)
+omega_bbn = constraints.Omega_BBN_tot
+omega_sd = constraints.Omega_SD_tot
+omega_an = constraints.Omega_CMB_AN_tot
+omega_grb = constraints.Omega_GRB_tot
+omega_reio = constraints.Omega_Reio_tot
+omega_lsp = constraints.Omega_LSP_tot
+functions.get_Omegas_full(M_tot)
+```
+
+```{code-block}
+delta_c = 0.41
+sigma = np.array(functions.inverse_error(betas,delta_c))
+sigma_relic = np.array(functions.inverse_error(betas_relic,delta_c))
+sigma_bbn = np.array(functions.inverse_error(betas_bbn,delta_c))
+sigma_sd = np.array(functions.inverse_error(betas_sd,delta_c))
+sigma_an = np.array(functions.inverse_error(betas_an,delta_c))
+sigma_grb1 = np.array(functions.inverse_error(betas_grb1,delta_c))
+sigma_grb2 = np.array(functions.inverse_error(betas_grb2,delta_c))
+sigma_reio = np.array(functions.inverse_error(betas_reio,delta_c))
+sigma_lsp = np.array(functions.inverse_error(betas_lsp,delta_c))
+sigma_tot = np.array(functions.inverse_error(betas_full,delta_c))
+```
+
+### Early matter dominated scenario
+
+```{code-block} python
 k_md = KfN.k_MD(M_tot)
-sigma_10k, k_10s, beta_10 = KfN.get_k_Nreh(M_tot,10,0,1)
-sigma_20k, k_20s, beta_20 = KfN.get_k_Nreh(M_tot,20,0,1)
-sigma_30k, k_30s, beta_30 = KfN.get_k_Nreh(M_tot,30,0,1)
+sigma_10k, k_10s, beta_10 = KfN.get_P_k_MD(M_tot,10,0,1)
+sigma_20k, k_20s, beta_20 = KfN.get_P_k_MD(M_tot,20,0,1)
+sigma_30k, k_30s, beta_30 = KfN.get_P_k_MD(M_tot,30,0,1)
 ```
 
 ```{code-block} python
@@ -34,8 +85,7 @@ plt.legend(ncol=2,bbox_to_anchor=(0.85, 1.23))
 plt.show()
 ```
 
-Constraints on the abundance of PBHs as a function of their mass.
-$N_{MD}$ is the total number of e-folds that the MD epoch lasted.
+#### Constraints on the abundance of PBHs as a function of their mass. $N_{MD}$ is the total number of e-folds that the MD epoch lasted.
 
 `out`
 ```{figure} /img/Beta_EMD_note1.png
@@ -68,7 +118,7 @@ plt.legend(ncol=2,bbox_to_anchor=(0.85, 1.23))
 plt.show()
 ```
 
-Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for different values of $N_{MD}$.
+#### Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for different values of $N_{MD}$.
 
 `out`
 ```{figure} img/PofK_EMD_note1.png
@@ -80,17 +130,31 @@ Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for different value
 
 **Downloadable Notebook with this example:** 
 
-
+---
 ### Stiff fluid dominated scenario
 
 ```{code-block} python
-:lineno-start: 1
-from PBHBeta import *
-import matplotlib.pyplot as plt
-import numpy as np
+k_phys_rad = np.array(KfS.k_rad(M_tot))
+sigma_5st, k_5st, beta_s5 = KfS.get_P_k_SD(M_tot,5,1,1)
+sigma_10st, k_10st, beta_s10  = KfS.get_P_k_SD(M_tot,10,1,1)
+sigma_15st, k_15st, beta_s15 = KfS.get_P_k_SD(M_tot,15,1,1)
 ```
 
-Abundance of PBHs as function of their mass, where NSD is the total number of $e$-folds that the stiff era lasted
+```{code-block}
+plt.loglog(M_tot,betas_full,"k", color='black',label = "SBB")
+plt.loglog(M_tot,betas_s5,"k",label = r"$N_{\rm SFD} = 5$", color='red')
+plt.loglog(M_tot,betas_s10,"k",label = r"$N_{\rm SFD} = 10$", color='green')
+plt.loglog(M_tot,betas_s15,"k",label = r"$N_{\rm SFD} = 15$", color='blue')
+plt.loglog(M_tot,betas_full,"k", color ='black')
+plt.xlabel(r"$M_{\rm PBH}~[\rm{g}]$")
+plt.ylabel(r"$\beta$")
+plt.ylim([1e-40,1e-5])
+plt.xlim([1,1e20])
+plt.legend(ncol=2,bbox_to_anchor=(0.85, 1.25))
+plt.show()
+```
+
+#### Abundance of PBHs as function of their mass, where NSD is the total number of $e$-folds that the stiff era lasted
 
 `out`
 ```{figure} img/Beta_SFD_note2.png
@@ -100,7 +164,39 @@ Abundance of PBHs as function of their mass, where NSD is the total number of $e
 :align: center
 ```
 
-Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for the extended SD scenario.
+
+
+```{code-block}
+C = (8/2)**2/4
+
+plt.loglog(k_phys_rad, A*sigma_tot**2, "k", color='black', label = "SBB")
+plt.fill_between(k_phys_rad, A*sigma_tot**2, [10]*len(A*sigma_tot**2), color='black',alpha=0.2)
+
+plt.loglog(k_5st[:567],(C*sigma_5st**2)[:567],"r", color='red', label = r"$N_{\rm SD}=5$")
+plt.fill_between(k_5st[:567], (C*sigma_5st**2)[:567], (C*sigma_5st**2)[:567]*0+10, color='red',alpha=0.2)
+
+plt.loglog(k_10st[:818],(C*sigma_10st**2)[:818],"g", color='green',label = r"$N_{\rm SD}=10$")
+plt.fill_between(k_10st[:820], (C*sigma_10st**2)[:820], (C*sigma_10st**2)[:820]*0+10, color='green',alpha=0.2)
+
+plt.loglog(k_15st[:1320],(C*sigma_15st**2)[:1320],"b", color='blue',label = r"$N_{\rm SD}=15$")
+plt.fill_between(k_15st[:1320], (C*sigma_15st**2)[:1320], (C*sigma_15st**2)[:1320]*0+10, color='blue',alpha=0.2)
+
+plt.loglog(k_5st[:567],(C*sigma_5st**2)[:567],"r", color='red')
+plt.loglog(k_10st[:819],(C*sigma_10st**2)[:819],"g", color='green')
+plt.loglog(k_phys_rad, A*sigma_tot**2, "k", color='black')
+
+plt.xlabel(r"$k~[\rm{Mpc}^{-1}]$")
+plt.ylabel(r"$\mathcal{P}_\zeta(k)$")
+plt.ylim([6.5e-3,2e-2])
+plt.xlim([4.3e12,1e26])
+plt.ylabel(r"$\mathcal{P}_\zeta(k)$")
+plt.legend(ncol=2,bbox_to_anchor=(0.85, 1.25))
+
+plt.show()
+```
+
+
+#### Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for the extended SD scenario.
 
 `out`
 ```{figure} img/PofK_SFD_note2.png

@@ -145,8 +145,6 @@ def rho_f(Mpbh, omega):
 
     return rho
 
-####calcular betas es una funcion que unicamente debe
-####depender de la masa
 
 ln_den_end = np.log(constants.rho_end)
 
@@ -262,23 +260,6 @@ def Omegas_DM(M_tot):
 def Betas_BBN(M_tot, omega):
     """
     Calculates the abundance of PBHs for Big Bang Nucleosynthesis constraints.
-
-
-    Parameters:
-        - M_tot (array-like): Array of masses in grams.
-        - omega (float): The baryon-to-photon ratio.
-
-    Returns:
-        - M_bbn (numpy.ndarray): The masses of dark matter particles formed during BBN, in solar masses.
-        - betas_bbn (numpy.ndarray): The corresponding beta parameter values for the dark matter particles formed during BBN.
-        - M_bbn_bbn (numpy.ndarray): The masses of dark matter particles formed only during BBN, in solar masses.
-        - M_bbn_pbbn (numpy.ndarray): The masses of dark matter particles formed both during and after BBN, in solar masses.
-        - Omegas_bbn (numpy.ndarray): The relic abundances of dark matter particles formed only during BBN.
-        - Omegas_bbn_pbbn (numpy.ndarray): The relic abundances of dark matter particles formed both during and after BBN.
-
-    Notes:
-        - The function assumes that the total mass of dark matter consists of only one type of particle.
-        - The returned arrays are sorted in increasing order of mass.
     """
 
     betas_bbn = []
@@ -349,26 +330,7 @@ def Betas_BBN(M_tot, omega):
 
 
 def Betas_SD(M_tot, omega):
-    """
-    Calculates the beta parameters and relic abundances for self-destructive dark matter particles.
 
-    Parameters:
-        - M_tot (array-like): The total mass of dark matter, in units of solar masses.
-        - omega (float): The baryon-to-photon ratio.
-
-    Returns:
-        - M_sd (numpy.ndarray): The masses of self-destructive dark matter particles, in solar masses.
-        - betas_sd (numpy.ndarray): The corresponding beta parameter values for the self-destructive dark matter particles.
-        - M_sd_bbn (numpy.ndarray): The masses of self-destructive dark matter particles formed during BBN, in solar masses.
-        - Omegas_sd (numpy.ndarray): The relic abundances of self-destructive dark matter particles formed during BBN.
-
-    Notes:
-        - The function assumes that the total mass of dark matter consists of only one type of particle.
-        - The returned arrays are sorted in increasing order of mass.
-        - The self-destruction process is assumed to be due to radiative decay, with a decay constant of 10^(-21)/gamma_rad^(1/2).
-        - The function only considers self-destructive dark matter particles with masses between 10^11 and 10^13 solar masses.
-        - The relic abundances are calculated using the DOP853 solver from the Scipy library.
-    """
     
     betas_sd = []
     M_sd = []
@@ -408,25 +370,7 @@ def Betas_SD(M_tot, omega):
 
 
 def Betas_CMB_AN(M_tot, omega):
-    """
-    Calculates the beta parameters and relic abundances for dark matter particles formed during CMB-era annihilation.
 
-    Parameters:
-        - M_tot (array-like): The total mass of dark matter, in units of solar masses.
-        - omega (float): The present-day density of baryons relative to the critical density.
-
-    Returns:
-        - M_an (numpy.ndarray): The masses of dark matter particles formed during CMB-era annihilation, in solar masses.
-        - betas_an (numpy.ndarray): The corresponding beta parameter values for the dark matter particles formed during CMB-era annihilation.
-        - M_an_bbn (numpy.ndarray): The masses of dark matter particles formed during CMB-era annihilation and BBN, in solar masses.
-        - Omegas_an (numpy.ndarray): The relic abundances of dark matter particles formed during CMB-era annihilation.
-
-    Notes:
-        - The function assumes that the total mass of dark matter consists of only one type of particle.
-        - The returned arrays are sorted in increasing order of mass.
-        - This function assumes that dark matter annihilation began during the CMB era, and ignores any effects from earlier times.
-        - The beta parameter values and relic abundances are calculated assuming the "slow-rollover" approximation for freeze-out.
-    """
 
     betas_an = []
     M_an = []
@@ -465,29 +409,7 @@ def Betas_CMB_AN(M_tot, omega):
 
 
 def Betas_GRB(M_tot, omega):
-    """
-    Calculates the beta parameters and relic abundances for dark matter particles formed during the GRB epoch.
 
-    Parameters:
-        - M_tot (array-like): The total mass of dark matter, in units of solar masses.
-        - omega (float): The baryon-to-photon ratio.
-    
-    Returns:
-        - M_grb1 (numpy.ndarray): The masses of dark matter particles formed during the first GRB epoch, in solar masses.
-        - M_grb2 (numpy.ndarray): The masses of dark matter particles formed during the second GRB epoch, in solar masses.
-        - betas_grb1 (numpy.ndarray): The corresponding beta parameter values for the dark matter particles formed during the first GRB epoch.
-        - betas_grb2 (numpy.ndarray): The corresponding beta parameter values for the dark matter particles formed during the second GRB epoch.
-        - M_grb1_bbn (numpy.ndarray): The masses of dark matter particles formed during the first GRB epoch and BBN, in solar masses.
-        - M_grb2_bbn (numpy.ndarray): The masses of dark matter particles formed during the second GRB epoch and BBN, in solar masses.
-        - Omegas_grb1 (numpy.ndarray): The relic abundances of dark matter particles formed during the first GRB epoch.
-        - Omegas_grb2 (numpy.ndarray): The relic abundances of dark matter particles formed during the second GRB epoch.
-
-    Notes:
-        - The function assumes that the total mass of dark matter consists of only one type of particle.
-        - The returned arrays are sorted in increasing order of mass.
-        - The function uses numerical integration to calculate the relic abundances.
-        - The values for beta and relic abundance for M_tot outside the range (3e13, 7e16) solar masses are set to constants.ev1 and constants.ev2 respectively.
-    """
 
     betas_grb1 = []
     M_grb1 = []
@@ -551,25 +473,7 @@ def Betas_GRB(M_tot, omega):
 
 def Betas_Reio(M_tot, omega):
 
-    """
-    Calculates the beta parameters and relic abundances for dark matter particles formed during reionization epoch.
 
-    Parameters:
-        - M_tot (array-like): The total mass of dark matter, in units of solar masses.
-        - omega (float): The baryon-to-photon ratio.
-
-    Returns:
-        - M_reio (numpy.ndarray): The masses of dark matter particles formed during reionization epoch, in solar masses.
-        - betas_reio (numpy.ndarray): The corresponding beta parameter values for the dark matter particles formed during reionization epoch.
-        - M_reio_bbn (numpy.ndarray): The masses of dark matter particles formed during reionization epoch and BBN, in solar masses.
-        - Omegas_reio (numpy.ndarray): The relic abundances of dark matter particles formed during reionization epoch.
-
-    Notes:
-        - The function assumes that the total mass of dark matter consists of only one type of particle.
-        - The returned arrays are sorted in increasing order of mass.
-        - The function uses numerical integration to calculate the relic abundances.
-        - The values for beta and relic abundance for M_tot outside the range (1e15, 1e17) solar masses are set to constants.ev1 and constants.ev2 respectively.
-    """
     betas_reio = []
     M_reio = []
 
@@ -732,18 +636,7 @@ def Betas_LSP(M_tot, w):
 
 def get_Betas_full(M_tot):
 
-    """
-    Calculates the minimum beta parameter value for each dark matter particle mass using all available constraints.
 
-    Parameters:
-        - M_tot (array-like): The total mass of dark matter, in units of solar masses.
-
-    Returns:
-        - betas_full (numpy.ndarray): The minimum beta parameter value for each dark matter particle mass.
-
-    Notes:
-        - The function calculates the minimum beta parameter value for each dark matter particle mass by comparing the beta parameter values obtained from different astrophysical constraints: DM halos, BBN, self-interaction, CMB, GRBs, reionization, and LSP.
-    """
     DM_tot = np.array(constraints.betas_DM_tot)
     BBN_tot = np.array(constraints.betas_BBN_tot)
     SD_tot = np.array(constraints.betas_SD_tot)
@@ -758,18 +651,7 @@ def get_Betas_full(M_tot):
 
 
 def get_Omegas_full(M_tot):
-    """
-    Calculates the minimum Omega parameter value for each dark matter particle mass using all available constraints.
 
-    Parameters:
-        - M_tot (array-like): The total mass of dark matter, in units of solar masses.
-
-    Returns:
-        - Omegas_full (numpy.ndarray): The minimum beta parameter value for each dark matter particle mass.
-
-    Notes:
-        - The function calculates the minimum Omega parameter value for each dark matter particle mass by comparing the beta parameter values obtained from different astrophysical constraints: DM halos, BBN, self-interaction, CMB, GRBs, reionization, and LSP.
-    """
     DM_tot = np.array(constraints.Omega_DM_tot)
     BBN_tot = np.array(constraints.Omega_BBN_tot)
     SD_tot = np.array(constraints.Omega_SD_tot)

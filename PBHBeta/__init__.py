@@ -43,6 +43,13 @@ from .constraints import betas_GRB_tot
 from .constraints import betas_CMB_AN_tot
 from .constraints import betas_Reio_tot
 from .constraints import betas_LSP_tot
+from .constraints import Omega_DM_tot
+from .constraints import Omega_BBN_tot
+from .constraints import Omega_SD_tot
+from .constraints import Omega_GRB_tot
+from .constraints import Omega_CMB_AN_tot
+from .constraints import Omega_Reio_tot
+from .constraints import Omega_LSP_tot
 from .constraints import betas_full
 from .constraints import Omegas_full
 from .constraints import M_tot

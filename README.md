@@ -35,7 +35,7 @@ If you use PBH-{math}`\beta`, please cite arXiv:.
 
 
 # TO-Do
-- Complete the description to modules and components
+- Complete the description into documentation to modules and components.
 
 
 ---

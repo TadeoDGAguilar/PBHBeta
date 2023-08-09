@@ -85,14 +85,13 @@ plt.legend(ncol=2,bbox_to_anchor=(0.85, 1.23))
 plt.show()
 ```
 
-#### Constraints on the abundance of PBHs as a function of their mass. $N_{MD}$ is the total number of e-folds that the MD epoch lasted.
-
 `out`
 ```{figure} /img/Beta_EMD_note1.png
 :alt: Beta_emd
 :class: bg-primary
 :width: 500px
 :align: center
+:caption: Constraints on the abundance of PBHs as a function of their mass. $N_{MD}$ is the total number of e-folds that the MD epoch lasted.
 ```
 
 ```{code-block} python

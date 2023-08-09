@@ -1,4 +1,4 @@
-# PBH-{math}`\beta`, a code to explore PBHs abundance and power spectrum constraints.
+# PBH-{math}`\beta`, a code to explore the constraints on PBH abundances and power spectrum.
 
 **Authors:** [Tadeo D. Gómez](https://www.linkedin.com/in/tadeodaguilar/) & [Luis E. Padilla](https://www.linkedin.com/in/luis-enrique-padilla-albores-052087199/)
 
@@ -11,18 +11,17 @@
 
 ---
 
-`PBHBeta` library is a computational tool designed for studying the constraints on the abundance of Primordial Black Holes (PBHs) and the power spectrum (PS) in cosmological scenarios with a non-standard evolution phase between the end of inflation and Big Bang Nucleosynthesis (BBN). 
+The `PBHBeta` library is a computational tool designed to calculate constraints on the abundance of Primordial Black Holes (PBHs) and the power spectrum (PS) in cosmological scenarios featuring a non-standard evolution phase between the end of inflation and Big Bang Nucleosynthesis (BBN). 
 
 ```{warning}
 This project is under development.
 ```
 
 ```{note}
-This code has only been tested in Python version 3.9, and we highly recommend testing it in versions higher than this (Python 3.x and above).
+This code has been tested exclusively with Python version 3.9, and we strongly recommend using it with versions higher than this (Python 3.x and above).
 ```
 
-The GitHub repository and PyPI package for PBHBeta contain the basic libraries required to run `PBHBeta`. However, these dependencies need to be imported into the notebook or console for the functions to be available, see the [requeriments](../Requeriments.md) and [installation](../Installation.md) sections.
-
+The GitHub repository and PyPI package for `PBHBeta` include the essential libraries necessary to run `PBHBeta`. However, these dependencies must be imported into the notebook or console for the functions to become accesible. Refer to the [requeriments](../Requeriments.md) and [installation](../Installation.md) sections.
 
 # How to cite us
 
@@ -41,7 +40,7 @@ If you use PBH-{math}`\beta`, please cite arXiv:.
 
 
 # Acknowledgements
-We would also like to extend our appreciation to [Encieh Erfani](https://globalyoungacademy.net/eerfani/) and [Juan Carlos Hidalgo](https://www.fis.unam.mx/directorio/540/juan-carlos-strong-hidalgo-strong-cuellar) for their collaboration and valuable contributions to the project. Furthermore, we would like to thanks our colleagues for their assistance, suggestions, and encouragement during the development of the PBHbeta library, with a special mention to [Isidro Gomez](https://igomezv.github.io/).
+We would like to extend our appreciation to [Encieh Erfani](https://globalyoungacademy.net/eerfani/) and [Juan Carlos Hidalgo](https://www.fis.unam.mx/directorio/540/juan-carlos-strong-hidalgo-strong-cuellar) for their collaboration and valuable contributions to the project. Furthermore, we would like to thanks our colleagues for their assistance, suggestions, and encouragement during the development of the PBHbeta library, with a special mention to [Isidro Gomez](https://igomezv.github.io/).
 Lastly, we are grateful to the institutions that have supported this research, enabling us to pursue our scientific investigations and contribute to the field of cosmology. We would like to extend our appreciation to the Universidad Nacional Autónoma de México (UNAM), Instituto de Ciencias Físicas (ICF), International Centre For Theoretical Physics (ICTP), and the Consejo Nacional de Humanidades, Ciencias y Tecnologías (CONAHCYT) for their invaluable support and resources, which have been crucial in carrying out this research.
 
 ---

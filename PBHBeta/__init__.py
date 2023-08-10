@@ -55,12 +55,14 @@ from .constraints import betas_full
 from .constraints import Omegas_full
 from .constraints import M_tot
 
-from .BfN import get_betas_reh_tot
+from .BfM import get_betas_reh_tot
 
 from .BfS import get_betas_stiff_tot
 
-from .KfN import get_P_k_MD
-from .KfN import k_MD
+from .PfM import get_P_k_MD
+from .PfM import k_MD
 
-from .KfS import k_rad
-from .KfS import get_P_k_SD
+from .PfS import k_rad
+from .PfS import get_P_k_SD
+
+from .PfR import get_P_k_RD

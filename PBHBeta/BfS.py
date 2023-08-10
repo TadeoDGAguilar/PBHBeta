@@ -42,7 +42,7 @@ def get_betas_stiff_tot(N_stiff, omega, gam_stiff):
 
     """
     M_tot = np.array(constraints.M_tot)
-    Omegas_full = np.array(constraints.Omegas_full)# define Omegas_full
+    Omegas_full = np.array(constraints.Omegas_full)
     betas_full = np.array(constraints.betas_full)
     
     rho_end_stiff = rho_end_inf*np.exp(-6*N_stiff)

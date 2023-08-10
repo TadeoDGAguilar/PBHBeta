@@ -1,6 +1,10 @@
 # Jupyter notebooks
 
+The following examples are based on the calculations that were performed to obtain our results.
+
 ## Primordial Black Holes in non-standard cosmology
+
+First step is import the PBHBeta library and necessary modules, our library containts the following modules: `constanst.py`, `classes.py`, `functions.py` and `constants.py`
 
 ```{code-block} python
 from PBHBeta import *
@@ -8,12 +12,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
+Generate an array of masses using the put_M_array function: The initial function to execute is PBHBeta.functions.put_M_array(), which generates an array of masses from a specified minimum and maximum mass value in grams.
+
 ```{code-block} python
 #functions.put_M_array(constants.M_pl_g, 1e20)
 constraints.M_tot = constraints.data_M_tot
 M_tot = np.array(constraints.M_tot)
 omega = 1/3
 ```
+
+Once our array of masses in grams has been defined, we can now calculate the constraints for the masses and abundances. Here, we will use all the main functions: `PBHBeta.functions.Betas_BBN`, `PBHBeta.functions.Betas_SD`, `PBHBeta.functions.CMB_AN`, `PBHBeta.functions.Betas_GRB`, `PBHBeta.functions.Betas_Reio`, and `PBHBeta.functions.Betas_LSP`.
+
+
 
 ```{code-block} python
 M_n, betas, M_relic, betas_relic = functions.Betas_DM(M_tot)
@@ -27,6 +37,8 @@ betas_lsp = functions.Betas_LSP(M_tot,omega)[1]
 betas_full = functions.get_Betas_full(M_tot)
 ```
 
+
+
 ```{code-block} python
 M_bbn = functions.Betas_BBN(M_tot,omega)[0]
 M_an = functions.Betas_CMB_AN(M_tot,omega)[0]
@@ -37,7 +49,7 @@ M_lsp = functions.Betas_LSP(M_tot,omega)[0]
 ```
 
 ```{code-block} python
-omegas_dm = functions.Omegas_DM(M_tot)
+omega_dm = functions.Omegas_DM(M_tot)
 omega_bbn = constraints.Omega_BBN_tot
 omega_sd = constraints.Omega_SD_tot
 omega_an = constraints.Omega_CMB_AN_tot
@@ -46,6 +58,8 @@ omega_reio = constraints.Omega_Reio_tot
 omega_lsp = constraints.Omega_LSP_tot
 functions.get_Omegas_full(M_tot)
 ```
+
+
 
 ```{code-block}
 delta_c = 0.41
@@ -62,6 +76,8 @@ sigma_tot = np.array(functions.inverse_error(betas_full,delta_c))
 ```
 
 ### Early matter dominated scenario
+
+
 
 ```{code-block} python
 k_md = KfN.k_MD(M_tot)

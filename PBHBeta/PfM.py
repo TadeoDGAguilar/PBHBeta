@@ -16,6 +16,9 @@ def k_MD(M):
   k = np.array(k)
   return k
 
+def a_endre(rho_r0, rho_end_re):
+  return (rho_r0 / rho_end_re) ** (1. / 4)
+
 def a_endinf(a_end_re, rho_end_re, rho_end_inf):
   return a_end_re * (rho_end_re / rho_end_inf) ** (1. / 3)
 

@@ -106,6 +106,7 @@ def end_evol(ln_rho,initial,M,beta0):
     return Mass_end - constants.M_pl_g
 
 
+
 def k_end_over_k(Mpbh, omega):
     """
     Calculates the ratio of k_end/k for a given PBH mass and radiation energy density parameter.
@@ -117,13 +118,13 @@ def k_end_over_k(Mpbh, omega):
     Returns:
         - ratio (float): The ratio of k_end/k for the given PBH mass and radiation energy density parameter.
     """
-    # Calculate the exponent for the ratio of k_end/k
-    exp = (1 + 3 * omega) / (3 * (1 + omega))
-
-    # Calculate the ratio of k_end/k using the given formula
-    ratio = (Mpbh * constants.H_end / (constants.gam_rad * 3 * constants.M_pl)) ** exp
-
-    return ratio
+    if omega==1/3:
+        res = (Mpbh/(7.1*10**-2*constants.gam_rad*(1.8*10**15/constants.H_end)))**(1/2)
+    else:
+        z = (1+3*omega)/(3*(1 + omega))
+        ratio = (Mpbh*constants.H_end/(3*constants.gam_rad*(constants.M_pl**2.)))**z
+        res = np.array(ratio)
+    return res
 
 
 def rho_f(Mpbh, omega):
@@ -137,21 +138,23 @@ def rho_f(Mpbh, omega):
     Returns:
         - rho (float): The final density of black holes, in grams per cubic centimeter.
     """
-    # Calculate the exponent for the final density
-    exp = (6 * (1 + omega)) / (1 + (3 * omega))
+    if omega==1/3:
+        k_end_over_k_rad = (Mpbh/(7.1*10**-2*constants.gam_rad*(1.8*10**15/constants.H_end)))**(1/2)
+        rho_f = constants.rho_end_inf/(k_end_over_k_rad)**4
+    else:
+        z = (1+3*omega)/(3*(1 + omega))
+        ratio = (Mpbh*constants.H_end/(3*constants.gam_rad*(constants.M_pl**2.)))**z
+        res = np.array(ratio)
+        i = (6*(1 + omega))/(1+(3*omega))
+        rho_f = constants.rho_end_inf/(res)**i
+    return rho_f
 
-    # Calculate the final density using the given formula and the k_end_over_k function
-    rho = constants.rho_end_inf / (k_end_over_k(Mpbh,omega)) ** exp
-
-    return rho
 
 
 ln_den_end = np.log(constants.rho_end)
 
 
-		
-def Betas_DM(M_tot):
-
+def Betas_DM(M_tot, omega):
     """
     Calculates the abundance of PBHs for dark matter constraints. See equations (13) and (19).
 
@@ -170,71 +173,65 @@ def Betas_DM(M_tot):
     betas_prim = []
     M_relic = []
     betas_relic_prim = []
-
-    for i in range(len(M_tot)):
-        if M_tot[i] > 4.1*10**14:
-            M_n.append(M_tot[i])
-            beta = 1.86*10**-18*(M_tot[i]/(10**15))**(1/2)
-            betas_prim.append(beta)
-        elif M_tot[i] < 10**11*constants.M_pl_g:
-            M_relic.append(M_tot[i])
-            beta = 2*10**-28*(M_tot[i]/constants.M_pl_g)**(3/2)
-            betas_relic_prim.append(beta)
-        else:
-            beta = constants.ev1
-        constraints.betas_DM_tot.append(beta/constants.gam_rad**(1/2))
-    
-    betas_prim = np.array(betas_prim)
-    betas_relic_prim = np.array(betas_relic_prim)
-    M_n = np.array(M_n)
-    M_relic = np.array(M_relic)
-    betas = betas_prim/constants.gam_rad**(1/2)
-    betas_relic = betas_relic_prim/constants.gam_rad**(1/2)
-
-    return M_n, betas, M_relic, betas_relic
-
-
-def Omegas_DM(M_tot):
-
+    betas_tot = []
     Omegas_tot = []
     Omegas = []
     Omegas_relic_pbbn = []
     Omegas_relic = []
-
     M_dm = []
     M_dm_rel_pbbn = []
     M_dm_rel = []
 
-    ev1 = 1e-5
-    ev2 = 1e-2
-    M_pl = 1.22089*10**19
+    M_pl = 1.22089 * 10 ** 19
     M_pl_g = 2.17645e-5
-
-    t_pl_s = 5.39 * 10**-44
-    s_to_evm1 = (1./6.5823) * 10**25
+    t_pl_s = 5.39 * 10 ** -44
+    s_to_evm1 = (1. / 6.5823) * 10 ** 25
     t_pl = t_pl_s * s_to_evm1
 
-    gam_rad = (1./3)**(3./2)
-    H_end = 4.44 * 10**13.
-    rho_end_inf = 3. * M_pl**2. * H_end**2
+    gam_rad = (1. / 3) ** (3. / 2)
+    H_end = 4.44 * 10 ** 13.
+    rho_end_inf = 3. * M_pl ** 2. * H_end ** 2
 
-    k_end_over_k_rad = (M_tot/(7.1*10**-2*gam_rad*(1.8*10**15/H_end)))**(1/2)
-    rho_form_rad = rho_end_inf/(k_end_over_k_rad)**4
-    rho_end = (1e-2)**4
+    rho_form_rad = rho_f(M_tot, omega)
+
+    # k_end_over_k_rad = (M_tot * H_end / (gam_rad * 3 * M_pl))**(1 + 3 * w) / (3 * (1 + w))
+    # rho_form_rad = rho_end_inf / (k_end_over_k_rad)**((6 * (1 + w)) / (1 + (3 * w)))
+    rho_end = (1e-2) ** 4
+    ln_den_end = np.log(rho_end)
+    rho_end = (1e-2) ** 4
     ln_den_end = np.log(rho_end)
 
-    betas_tot = constraints.betas_DM_tot
-
     for i in range(len(M_tot)):
+        if M_tot[i] > 4.1 * 10 ** 14:
+            M_n.append(M_tot[i])
+            beta = 1.86 * 10 ** -18 * (M_tot[i] / (10 ** 15)) ** (1 / 2)
+            betas_prim.append(beta)
+        elif M_tot[i] < 10 ** 11 * constants.M_pl_g:
+            M_relic.append(M_tot[i])
+            beta = 2 * 10 ** -28 * (M_tot[i] / constants.M_pl_g) ** (3 / 2)
+            betas_relic_prim.append(beta)
+        else:
+            beta = constants.ev1
+        betas_tot.append(beta / gam_rad ** (1 / 2))
+    betas_prim = np.array(betas_prim)
+    betas_relic_prim = np.array(betas_relic_prim)
+    betas_tot = np.array(betas_tot)
+    constraints.betas_DM_tot = betas_tot
+
+    M_n = np.array(M_n)
+    M_relic = np.array(M_relic)
+    betas = betas_prim / constants.gam_rad ** (1 / 2)
+    betas_relic = betas_relic_prim / constants.gam_rad ** (1 / 2)
+    for i in range(len(constraints.betas_DM_tot)):
         ln_den_f = np.log(rho_form_rad[i])
         if ln_den_f <= ln_den_end:
             continue
         ln_den = np.linspace(ln_den_f, ln_den_end, 10000)
-
-        sol_try = solve_ivp(diff_rad, (ln_den_f, ln_den_end), np.array([1., 0.]), events=end_evol, t_eval=ln_den, args=(M_tot[i], betas_tot[i]), method="DOP853")
-
+        sol_try = solve_ivp(diff_rad, (ln_den_f, ln_den_end), np.array([1., 0.]), events=end_evol, t_eval=ln_den,
+                            args=(M_tot[i], betas_tot[i]), method="DOP853")
         if sol_try.t[-1] > ln_den_end:
-            sol_try = solve_ivp(diff_rad_rel, (ln_den_f, ln_den_end), np.array([1.]), t_eval=ln_den, args=(M_tot[i], betas_tot[i]), method="DOP853")
+            sol_try = solve_ivp(diff_rad_rel, (ln_den_f, ln_den_end), np.array([1.]), t_eval=ln_den,
+                                args=(M_tot[i], betas_tot[i]), method="DOP853")
             y = betas_tot[i] * sol_try.y[0][-1] * (M_pl_g / M_tot[i])
             if M_tot[i] < 10 ** 11 * M_pl_g:
                 Omegas_relic_pbbn.append(y)
@@ -250,9 +247,16 @@ def Omegas_DM(M_tot):
                 M_dm_rel.append(M_tot[i])
         Omegas_tot.append(y)
 
-    constraints.Omega_DM_tot = np.array(Omegas_tot)
-    return Omegas_tot
+    Omegas_tot = np.array(Omegas_tot)
+    constraints.Omega_DM_tot = Omegas_tot
+    Omegas = np.array(Omegas)
+    Omegas_relic_pbbn = np.array(Omegas_relic_pbbn)
+    Omegas_relic = np.array(Omegas_relic)
+    M_dm = np.array(M_dm)
+    M_dm_rel_pbbn = np.array(M_dm_rel_pbbn)
+    M_dm_rel = np.array(M_dm_rel)
 
+    return M_n, betas, M_relic, betas_relic, Omegas_tot
 
 
 
@@ -552,8 +556,9 @@ def Betas_LSP(M_tot, w):
     Omegas_lsp_pbbn = []
     Omegas_lsp_tot = []
 
-    k_end_over_k_rad = (M_tot * H_end / (gam_rad * 3 * M_pl))**(1 + 3 * w) / (3 * (1 + w))
-    rho_form_rad = rho_end_inf / (k_end_over_k_rad)**((6 * (1 + w)) / (1 + (3 * w)))
+    #k_end_over_k_rad = (M_tot * H_end / (gam_rad * 3 * M_pl))**(1 + 3 * w) / (3 * (1 + w))
+    #rho_form_rad = rho_end_inf / (k_end_over_k_rad)**((6 * (1 + w)) / (1 + (3 * w)))
+    rho_form_rad = rho_f(M_tot, w)
     rho_end = (1e-2)**4
     ln_den_end = np.log(rho_end)
 
@@ -583,8 +588,8 @@ def Betas_LSP(M_tot, w):
             y = ev2
         constraints.betas_LSP_tot.append(beta)
         constraints.Omega_LSP_tot.append(y)
-        #betas_lsp_tot.append(beta)
-        #Omegas_lsp_tot.append(y)
+        betas_lsp_tot.append(beta)
+        Omegas_lsp_tot.append(y)
 
     betas_lsp = np.array(betas_lsp)
     betas_lsp_tot = np.array(betas_lsp_tot)
@@ -596,43 +601,6 @@ def Betas_LSP(M_tot, w):
 
     return M_lsp, betas_lsp, betas_lsp_tot, Omegas_lsp, Omegas_lsp_tot, M_lsp_bbn, Omegas_lsp_pbbn, M_lsp_pbbn
 
-#def Omegas_LSP_try(M_tot, omega):
-#    M_lsp_bbn = []
-#    Omegas_lsp = []
-#    M_lsp_pbbn = []
-#    Omegas_lsp_pbbn = []
-#    M_tot = np.array(M_tot)
-#    ln_den_end = np.log(constants.rho_end)
-
-#    rho_form_rad = rho_f(M_tot, omega)
-
-#    for i in range(len(M_tot)):
-#        if M_tot[i]<1e11:
-#            beta = 1e-18*(M_tot[i]/1e11)**(-1/2)/constants.gam_rad**(1/2)
-#            ln_den_f = np.log(rho_form_rad[i])
-#            if ln_den_f <= ln_den_end:
-#                continue
-#            ln_den = np.linspace(ln_den_f,ln_den_end,10000)
-#            sol_try = solve_ivp(diff_rad,(ln_den_f,ln_den_end),np.array([1.,0.]),events=end_evol,t_eval=ln_den,args=(M_tot[i],beta),method = "DOP853")
-#            if sol_try.t[-1] > ln_den_end:
-#                sol_try = solve_ivp(diff_rad_rel,(ln_den_f,ln_den_end),np.array([1.]),t_eval=ln_den,args=(M_tot[i],beta),method = "DOP853")
-#                y = beta*sol_try.y[0][-1]*(constants.M_pl_g/M_tot[i])
-#               Omegas_lsp_pbbn.append(y)
-#                M_lsp_pbbn.append(M_tot[i])
-#            else:
-#                Delta_t = constants.t_pl*(M_tot[i]/constants.M_pl_g)**3
-#                y = beta*sol_try.y[0][-1]*(1.-sol_try.y[1][-1]/Delta_t)**(1./3)
-#                Omegas_lsp.append(y)
-#                M_lsp_bbn.append(M_tot[i])
-#        else:
-#            y = constants.ev2
-#            constraints.Omega_LSP_tot.append(y)
-
-#    M_lsp_bbn = np.array(M_lsp_bbn)
-#    Omegas_lsp = np.array(Omegas_lsp)
-#    M_lsp_pbbn = np.array(M_lsp_pbbn)
-#    Omegas_lsp_pbbn = np.array(Omegas_lsp_pbbn)
-#    return M_lsp_bbn, Omegas_lsp, M_lsp_pbbn, Omegas_lsp_pbbn
 
 def get_Betas_full(M_tot):
 
@@ -664,14 +632,17 @@ def get_Omegas_full(M_tot):
         constraints.Omegas_full[i] = min(DM_tot[i], BBN_tot[i], SD_tot[i], CMB_tot[i], GRB_tot[i], Reio_tot[i], LSP_tot[i])
     return constraints.Omegas_full
 
+
 def inverse_error(betas, delta_c):
     aux = []
     for i in range(len(betas)):
         aux.append(delta_c/(np.sqrt(2)*special.erfcinv(betas[i])))
     return aux
 
+
 def a_endre(rho_r0, rho_end_re):
     return (rho_r0 / rho_end_re) ** (1. / 4)
+
 
 def k_rad(M):
     a_end_inf_rad = (constants.rho_r0 / constants.rho_end_inf) ** (1. / 4)

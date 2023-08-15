@@ -60,9 +60,12 @@ functions.get_Omegas_full(M_tot)
 ```
 
 Now, we calculate the constraints in the PPS by assuming that
-\begin{equation}
+
+\begin{equation*}
 \beta = Erfc\left(\frac{\delta_c}{\sqrt{2}\sigma}\right), \ \ \ \ \Rightarrow \ \ \ \ \sigma = \frac{\delta_c}{\sqrt{2}Erfc^{-1}(\beta)},
-\end{equation} with $\sigma^2\sim P(k)$ and $\delta_c = 0.41$ in the radiation case.
+\end{equation*}
+
+with $\sigma^2\sim P(k)$ and $\delta_c = 0.41$ in the radiation case.
 
 ```{code-block}
 delta_c = 0.41

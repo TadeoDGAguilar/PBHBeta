@@ -1,4 +1,4 @@
-_# Jupyter Notebook
+# Jupyter Notebook
 
 The following examples are based on the calculations that were performed to obtain the results in our reference paper [Constraints on primordial black holes for nonstandard cosmologies, Tadeo D. Gomez-Aguilar, Luis E. Padilla, Encieh Erfani, Juan Carlos Hidalgo, arXiv:2308.04642](https://inspirehep.net/literature/2686719).
 
@@ -128,9 +128,9 @@ This visual representation illustrates the constraints on PBH abundance for vari
 k = \left(\frac{7.1 \times 10^{2} \cdot \gamma^{RD} \cdot 1.5\times^{15} \cdot H_{end}}{M_{PBH}}\right)^{1/2}\left(\frac{\rho_{0}^{RD}}{\rho_{end}^{inf}}\right)^{1/4},
 \end{equation*}
 \begin{equation*}
-\beta = \erfc\left(\frac{\delta_c}{\sqrt{2}\sigma}\right), \ \ \ \ \Rightarrow \ \ \ \ \sigma = \frac{\delta_c}{\sqrt{2}\erfc^{-1}(\beta)},
+\beta = erfc\left(\frac{\delta_c}{\sqrt{2}\sigma}\right), \ \ \ \ \Rightarrow \ \ \ \ \sigma = \frac{\delta_c}{\sqrt{2}erfc^{-1}(\beta)},
 \end{equation*}
-where $\erfc(x) = 1-\erf(x)$ is the complementary error function, $\sigma^2\sim P(k)$ and $\delta_c = 0.41$ in the radiation case. 
+where $erfc(x) = 1-erf(x)$ is the complementary error function, $\sigma^2\sim P(k)$ and $\delta_c = 0.41$ in the radiation case. 
 
 Subsequently, we utilize the special function (class) {py:func}`PBHBeta.PfR.get_P_k_RD`, which takes parameters such as an array of masses, an array of PBH abundances, and the value of $\delta_{c}$. This function returns two arrays: one containing the wave number $k$ and the other containing the constraints in the Power Spectrum for each $k$ value.
 

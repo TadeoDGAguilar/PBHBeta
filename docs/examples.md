@@ -333,7 +333,7 @@ k_{\rm SD} = \left(\frac{\rho_{r0}}{\rho_{\rm end}}\right)^{1/4}\left(\frac{(\ga
 
 Similarly, the class `PfM.get_P_k_SD` contains its instruction for the calculation of abundances:
 
-begin{equation*}
+\begin{equation*}
 \beta_{\rm SD} = \beta_{\rm SD}\left(N_{\rm SD}, \omega, \gamma^{\rm SD}\right)
 \end{equation*}
 

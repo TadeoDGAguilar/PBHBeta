@@ -232,7 +232,7 @@ In other words, the determination of $k$ relies on the values of `M_tot`, `N_md`
 
 Additionally, the {py:func}`PBHBeta.PfM.get_P_k_MD` function includes a special calculation method for the abundances
 in such a way that after the formation of Primordial Black Holes (PBHs), the evolution of the density parameter, 
-\Omega_{\rm PBH}, and its relation to $\beta$ are altered compared to the standard cosmological model.
+$\Omega_{\rm PBH}$, and its relation to $\beta$ are altered compared to the standard cosmological model.
 
 \begin{equation*}
 \beta_{\rm MD} = \beta_{\rm MD}\left(N_{\rm reh}, \omega, γ^{\rm MD}\right)

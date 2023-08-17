@@ -331,14 +331,32 @@ To perform this calculation, the procedure is similar to the one used in the [Ea
 k_{\rm SD} = \left(\frac{\rho_{r0}}{\rho_{\rm end}}\right)^{1/4}\left(\frac{(\gamma^{\rm MD})(7.1\times 10^{-2})(1.8\times 10^{15})}{M_{\rm PBH}}\right)^{2/3}H_{end}^{1/3}\exp^{-\frac{1}{2}N_{\rm SD}}
 \end{equation*}
 
+Similarly, the class `PfM.get_P_k_SD` contains its instruction for the calculation of abundances:
 
 begin{equation*}
-\beta_{\rm SD} = \beta_{\rm SD}\left(N_{\rm SD}, \omega, γ^{\rm SD}\right)
+\beta_{\rm SD} = \beta_{\rm SD}\left(N_{\rm SD}, \omega, \gamma^{\rm SD}\right)
 \end{equation*}
+
+This includes the system of equations that describe the evolution of the population of PBHs after their formation.
 
 ```{note}
 Certainly, if you prefer, you can utilize this function individually by importing the `BfS.py` module. The function is named `get_betas_reh_tot`, and you can find more detailed information in the documentation of the {py:func}`PBHBeta.BfM.get_betas_reh_tot` function.
 ```
+
+```{important}
+In a SD scenario, we replacing $\gamma^{SD}$ with $\gamma^{SD}$. The particular value of $\gamma^{SD}$ is not well known we shall take $\gamma^{SD} = 1$.
+In another hand the equation of state in the early universe becomes stiffer, the threshold value for PBH formation increase because, since pressure is higher, it is harder to collapse and form PBHs. In the limiting case of an equation of state, $\omega = 1$ and we will take $\delta^{SD}_{c} = 0.52$. 
+```
+
+On the other hand, to find the constraints on the power spectrum, the definition is used:
+
+\begin{equation*}
+\sigma = \frac{\delta_c}{\sqrt{2}\text{erfc}^{-1}(\beta)}
+\end{equation*}
+
+assuming that $\delta_{c} = \delta^{SD}_{c} = 0.52$.
+
+
 
 ```python
 k_5st, P_k_5s, beta_s5 = PfS.get_P_k_SD(M_tot,5,1,1)

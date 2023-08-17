@@ -125,7 +125,7 @@ This visual representation illustrates the constraints on PBH abundance for vari
 **Calculating Constraints in Power Spectrum:** To obtain values of $k$ and constraints in the power spectrum, $\mathcal{P}_{\zeta}(k)$, we utilize the function (class) {py:func}`PBHBeta.PfR.get_P_k_RD`. This function performs the following operations:
 
 \begin{equation*}
-k = \left(\frac{7.1 \times 10^{2} \cdot \gamma^{RD} \cdot 1.5\times^{15} \cdot H_{end}}{M_{PBH}}\right)^{1/2}\left(\frac{\rho_{0}^{RD}}{\rho_{end}^{inf}}\right)^{1/4},
+k = \left(\frac{7.1 \times 10^{-2} \cdot \gamma^{RD} \cdot 1.5\times 10^{15} \cdot H_{end}}{M_{PBH}}\right)^{1/2}\left(\frac{\rho_{0}^{RD}}{\rho_{end}^{inf}}\right)^{1/4},
 \end{equation*}
 \begin{equation*}
 \beta = erfc\left(\frac{\delta_c}{\sqrt{2}\sigma}\right), \ \ \ \ \Rightarrow \ \ \ \ \sigma = \frac{\delta_c}{\sqrt{2}erfc^{-1}(\beta)},
@@ -216,14 +216,14 @@ k_rd, P_k_rd = PfR.get_P_k_RD(M_tot, betas_full, delta_c)
 ### Early Matter Dominated (MD) scenario
 
 Now we analyze how this early MD epoch will modify the constraints on
-the abundance of $\beta_{\rm PBH} and PS. For this purpose, we will utilize the {py:func}`PBHBeta.PfM.get_P_k_MD` 
+the abundance of $\beta_{\rm PBH}$ and PS. For this purpose, we will utilize the {py:func}`PBHBeta.PfM.get_P_k_MD` 
 function. This will allow us to obtain, through its parameters: `M_tot`, `N_md`, `omega`, and `gamma_md`, 
 the wavenumber $k$, the constraints on the PS and the abundance of PBHs.
 
 The {py:func}`PBHBeta.PfM.get_P_k_MD` function is configured in such a way that the determination of k is carried out using the following instructions:
 
 \begin{equation*}
-k_{\rm MD} = \left(\frac{\rho_{r0}}{\rho_{\rm end}}\right)^{1/4}\exp{-4N_{\rm MD}}\left(\frac{H_{end}^{2}(\gamma^{\rm MD})(7.1\times^{-2})(1.8\times^15)}{M_{\rm PBH}}\right)^(1/3)
+k_{\rm MD} = \left(\frac{\rho_{r0}}{\rho_{\rm end}}\right)^{1/4}\exp^{-4N_{\rm MD}}\left(\frac{H_{end}^{2}(\gamma^{\rm MD})(7.1\times 10^{-2})(1.8\times 10^15)}{M_{\rm PBH}}\right)^{1/3}
 \end{equation*}
 
 It is important to mention that most of the variables (except for the parameters) within this initial instruction 
@@ -250,7 +250,7 @@ the relationship between `beta` and `sigma`.
 \beta \simeq 0.05556\,\sigma^5,\quad \text{for} \quad 0.005\lesssim \sigma\lesssim 0.2\,.
 \end{equation*}
 
-```note
+```{note}
 The particular value of $\gamma(MD)$ is not well known and we thus adopt $\gamma^(MD) = 1$
 ```
 
@@ -284,7 +284,7 @@ plt.show()
     
 #### Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for different values of $N_{MD}$.
 
-Analogously we use again `k_rd` and `P_k_rd`
+Analogously we use again `k_rd` and `P_k_rd` to SBB
 
 ```python
 plt.loglog(k_rd, P_k_rd,label = "SBB",color='black')

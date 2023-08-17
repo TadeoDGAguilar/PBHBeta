@@ -223,7 +223,7 @@ the wavenumber $k$, the constraints on the PS and the abundance of PBHs.
 The {py:func}`PBHBeta.PfM.get_P_k_MD` function is configured in such a way that the determination of k is carried out using the following instructions:
 
 \begin{equation*}
-k_{\rm MD} = \left(\frac{\rho_{r0}}{\rho_{\rm end}}\right)^{1/4}\exp^{-4N_{\rm MD}}\left(\frac{H_{end}^{2}(\gamma^{\rm MD})(7.1\times 10^{-2})(1.8\times 10^15)}{M_{\rm PBH}}\right)^{1/3}
+k_{\rm MD} = \left(\frac{\rho_{r0}}{\rho_{\rm end}}\right)^{1/4}\exp^{-\frac{1}{4}N_{\rm MD}}\left(\frac{H_{end}^{2}(\gamma^{\rm MD})(7.1\times 10^{-2})(1.8\times 10^{15})}{M_{\rm PBH}}\right)^{1/3}
 \end{equation*}
 
 It is important to mention that most of the variables (except for the parameters) within this initial instruction 

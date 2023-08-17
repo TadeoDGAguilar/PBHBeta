@@ -31,7 +31,7 @@ omega=1/3
 
 Since several main functions return tuples, we adopt the following syntax to assign each output to distinct variables (further information on return values for each main function is available in the [Main functions](https://pbhbeta.readthedocs.io/en/latest/Module_1.html#main-functions) section).
 
-```hint
+```{hint}
 To disregard or not store the output of a main function, use an underscore (_).
 ```
 
@@ -39,7 +39,7 @@ To disregard or not store the output of a main function, use an underscore (_).
 M_dm, betas_dm, M_relic, betas_relic ,_  = functions.Betas_DM(M_tot,omega)
 ```
 
-```attention
+```{attention}
 To implement the above hint, the count of variables should match the number of outputs from each main function. Otherwise, refer to the notation described in the [Using Main Functions](https://pbhbeta.readthedocs.io/en/latest/Quickstart.html#using-main-functions) section.
 ```
 

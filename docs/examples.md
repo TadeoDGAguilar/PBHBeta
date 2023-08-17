@@ -251,7 +251,7 @@ the relationship between `beta` and `sigma`.
 \end{equation*}
 
 ```{note}
-The particular value of $\gamma(MD)$ is not well known and we thus adopt $\gamma^(MD) = 1$
+The particular value of $\gamma^{\rm (MD)}$ is not well known and we thus adopt $\gamma^{\rm (MD)} = 1$
 ```
 
 ```python
@@ -262,7 +262,7 @@ k_30s, P_k_30, beta_30 = PfM.get_P_k_MD(M_tot,30,0,1)
 
 #### Abundance of PBHs ($\beta_{PBH}$) as function of their mass, where $N_{MD}$ is the total number of $e$-folds that the the MD epoch lasted.
 
-To compare with SBB, we use again `betas_full`
+To compare with SBB, we use again `betas_full`.
 
 ```python
 plt.loglog(M_tot,betas_full, label = "SBB", color='black')
@@ -284,7 +284,7 @@ plt.show()
     
 #### Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for different values of $N_{MD}$.
 
-Analogously we use again `k_rd` and `P_k_rd` to SBB
+Analogously we use again `k_rd` and `P_k_rd` to SBB.
 
 ```python
 plt.loglog(k_rd, P_k_rd,label = "SBB",color='black')

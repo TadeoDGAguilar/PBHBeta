@@ -1,17 +1,14 @@
-# Jupyter Notebook
+_# Jupyter Notebook
 
-The following examples are based on the calculations that were performed to obtain our results.
+The following examples are based on the calculations that were performed to obtain the results in our reference paper [Constraints on primordial black holes for nonstandard cosmologies, Tadeo D. Gomez-Aguilar, Luis E. Padilla, Encieh Erfani, Juan Carlos Hidalgo, arXiv:2308.04642](https://inspirehep.net/literature/2686719).
 
 ---
 
 ## Primordial Black Holes in Standard Cosmology
 
-First step is import the PBHBeta library and necessary modules, 
-our library containts the following basic modules: `constanst.py`, `constraints.py`, `functions.py`,
-`constants.py`, `BfM.py`, `BfS.py`, `PfR.py`, `PfM.py` and `PfS.py`. You can find more
-information about these modules in the [CLASS REFERENCE](../Classes.md), [MODULES AND COMPONENTS](../Module_1.md) sections.
+**Importing `PBHBeta` Library and Modules:** The initial step involves importing the `PBHBeta` library and its essential modules. This library encompasses the following foundational modules: `constanst.py`, `constraints.py`, `functions.py`, `BfM.py`, `BfS.py`, `PfR.py`, `PfM.py`, and `PfS.py`. For further details about these modules, refer to the [CLASS REFERENCE](../Classes.md) and [MODULES AND COMPONENTS](../Module_1.md) sections.
 
-On the other hand, it's necessary to import the dependencies (to more information see [Installing dependencies in python](https://pbhbeta.readthedocs.io/en/latest/Requeriments.html#installing-dependencies-in-python))
+Furthermore, it's essential to bring in the required dependencies. For additional information, see [Installing dependencies in python](https://pbhbeta.readthedocs.io/en/latest/Requeriments.html#installing-dependencies-in-python).
 
 ```python
 from PBHBeta import *
@@ -19,10 +16,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-Generate an array of masses using the put_M_array function: The initial function to execute is {py:func}`PBHBeta.functions.put_M_array`,
-which generates an array of masses from a specified minimum and maximum mass value in grams.
+**Generating Mass Array Using `put_M_array` Function:** We initiate the process by generating an array of masses using the `put_M_array` function. The primary function to execute is {py:func}`PBHBeta.functions.put_M_array`, which produces an array of masses within specified minimum and maximum mass values, measured in grams. 
 
-**Note:** If you wanna run with our array data masses, you could import `constraints.data_M_tot`
+**Note:** If you wish to utilize our predefined mass array, consider importing `constraints.data_M_tot`.
 
 ```python
 functions.put_M_array(2.17645e-5, 1e20)
@@ -31,17 +27,12 @@ M_tot = np.array(constraints.M_tot)
 omega=1/3
 ```
 
-Once our array of masses in grams has been defined, we can now calculate the constraints for the masses and abundances.
-Here, we will use all the main functions: {py:func}`PBHBeta.functions.Betas_BBN`, {py:func}`PBHBeta.functions.Betas_SD`,
-{py:func}`PBHBeta.functions.CMB_AN`, {py:func}`PBHBeta.functions.Betas_GRB`, {py:func}`PBHBeta.functions.Betas_Reio`, 
-and {py:func}`PBHBeta.functions.Betas_LSP`.
+**Calculating Constraints for Masses and Abundances:** With the mass array in grams established, we proceed to compute constraints on the abundances of PBH for various masses. This involves employing the key functions: {py:func}`PBHBeta.functions.Betas_BBN`, {py:func}`PBHBeta.functions.Betas_SD`, {py:func}`PBHBeta.functions.CMB_AN`, {py:func}`PBHBeta.functions.Betas_GRB`, {py:func}`PBHBeta.functions.Betas_Reio`, and {py:func}`PBHBeta.functions.Betas_LSP`.
 
-As most of the main functions return tuples, we can use the following syntax to assign each output to a variable 
-(more information about the returns of each main function in the [Main functions](https://pbhbeta.readthedocs.io/en/latest/Module_1.html#main-functions) section.)
-
+Since several main functions return tuples, we adopt the following syntax to assign each output to distinct variables (further information on return values for each main function is available in the [Main functions](https://pbhbeta.readthedocs.io/en/latest/Module_1.html#main-functions) section).
 
 ```hint
-To ignore or not save the output of a main function, simply use an underscore (_).
+To disregard or not store the output of a main function, use an underscore (_).
 ```
 
 ```python
@@ -49,14 +40,10 @@ M_dm, betas_dm, M_relic, betas_relic ,_  = functions.Betas_DM(M_tot,omega)
 ```
 
 ```attention
-To use the aforementioned hint, the number of variables must be equal to the number of outputs of each main function. 
-Otherwise, you can use the notation described in the [Using Main Functions](https://pbhbeta.readthedocs.io/en/latest/Quickstart.html#using-main-functions) section.
+To implement the above hint, the count of variables should match the number of outputs from each main function. Otherwise, refer to the notation described in the [Using Main Functions](https://pbhbeta.readthedocs.io/en/latest/Quickstart.html#using-main-functions) section.
 ```
 
-Given the above, we execute all the main functions with the parameters `M_tot` and `omega`:
-
-We save the results of masses and PBH abundances with constraints for: Dark Matter, Big Bang Nucleosynthesis,
-CMB Anisotropies, Extragalactic Gamma-ray Background, Reionization, Lightest Supersymmetric Particles, and Planck Mass Relics, respectively.
+Taking the above into account, we execute all main functions with the parameters `M_tot` and `omega`. We save the resulting masses and PBH abundance constraints for Dark Matter, Big Bang Nucleosynthesis, CMB Anisotropies, Extragalactic Gamma-ray Background, Reionization, Lightest Supersymmetric Particles, and Planck Mass Relics, respectively.
 
 ```python
 M_bbn = functions.Betas_BBN(M_tot,omega)[0]
@@ -78,17 +65,9 @@ betas_lsp = functions.Betas_LSP(M_tot,omega)[1]
 betas_full = functions.get_Betas_full(M_tot)
 ```
 
-The final instruction involves another main function called {py:func}`PBHBeta.functions.get_Betas_full`. The function calculates
-a set of composite constraint values based on different scenarios involving PBHs, using the provided `M_tot`
-parameter and pre-defined constraint arrays. The composite constraints represent the strongest constraints across different scenarios
-for each specific mass value.
+**Composite Constraints using `get_Betas_full`:** The final instruction entails employing another main function, {py:func}`PBHBeta.functions.get_Betas_full`. This function calculates composite constraint values derived from various PBH constraints. It utilizes the provided `M_tot` parameter and predefined constraint arrays. These composite constraints represent the most robust constraints across diverse scenarios for each specific mass value.
 
-
-Within each main function, there are instructions to obtain the PBH abundance during BBN. 
-At this epoch, PBHs with masses $M_{PBH} \leq 10^{9}$ g have already evaporated, and their constraints are imposed 
-by following the evolution of the Planck mass remnants from their evaporation. 
-This total abundance across various scenarios is stored within the `constraints.py` module to be used if needed. 
-You can use them as follows:
+Inside each main function, instructions exist for obtaining PBH abundances during BBN. During this epoch, PBHs with masses $M_{PBH} \leq 10^{9}$ g have already evaporated, and their constraints result from tracing the evolution of the Planck mass remnants left post-evaporation. These abundances are stored within the `constraints.py` module for potential usage. Here's how you can utilize them:
 
 ```python
 omegas_dm = constraints.Omega_DM_tot
@@ -101,11 +80,9 @@ omega_lsp = constraints.Omega_LSP_tot
 omegas_full = functions.get_Omegas_full(M_tot)
 ```
 
-Al igual que la función `functions.get_Betas_full(M_tot)` de la celda anterior, 
-la main-function {py:func}`PBHBeta.functions.get_Omegas_full` obtiene the most strongest constraints of PBHs.
+**Note:** Similarly to the function `functions.get_Betas_full`, the main function {py:func}`PBHBeta.functions.get_Omegas_full` captures the strongest PBH constraints.
 
-
-Once the basic calculations have been performed, we can proceed to create the plot.
+**Creating Plots:** After the basic calculations have been performed, we proceed to generate plots. Here's an example of how to plot constraints on the abundance of monochromatic PBHs as a function of mass in the standard Big Bang scenario.
 
 ```python
 plt.loglog(M_dm, betas_dm, "k:",label=r"$\Omega_{DM}$")
@@ -140,41 +117,22 @@ plt.legend(ncol=2,bbox_to_anchor=(1, 1.5))
 plt.show()
 ```
 
-Constraints on the abundance of monochromatic PBHs as a function of mass in the standard Big Bang scenario. The shaded
-colored regions are excluded by observations.
+This visual representation illustrates the constraints on PBH abundance for various scenarios. Shaded regions indicate observations that exclude specific ranges.
 
 ![png](img/output_9_0.png)
 
 
-To obtain the values of $k$ and the constraints in the power spectrum, $\mathcal{P}_{\zeta}(k)$, the function (class) {py:func}`PBHBeta.PfR.get_P_k_RD` will be used,
-which performs the following operations:
+**Calculating Constraints in Power Spectrum:** To obtain values of $k$ and constraints in the power spectrum, $\mathcal{P}_{\zeta}(k)$, we utilize the function (class) {py:func}`PBHBeta.PfR.get_P_k_RD`. This function performs the following operations:
 
 \begin{equation*}
-k = \left(\frac{7.1 \times 10^{2} * \gamma^{RD} * 1.5\times^{15} * H_{end}}{M_{PBH}}\right)**(1/2)\left(\frac{\rho_{0}^{RD}}{\rho_{end}^{inf}}\right)**(1/4)
+k = \left(\frac{7.1 \times 10^{2} \cdot \gamma^{RD} \cdot 1.5\times^{15} \cdot H_{end}}{M_{PBH}}\right)^{1/2}\left(\frac{\rho_{0}^{RD}}{\rho_{end}^{inf}}\right)^{1/4},
 \end{equation*}
-
-Now, to calculate the constraints in the PPS by assuming that
-
 \begin{equation*}
-\beta = Erfc\left(\frac{\delta_c}{\sqrt{2}\sigma}\right), \ \ \ \ \Rightarrow \ \ \ \ \sigma = \frac{\delta_c}{\sqrt{2}Erfc^{-1}(\beta)},
+\beta = \erfc\left(\frac{\delta_c}{\sqrt{2}\sigma}\right), \ \ \ \ \Rightarrow \ \ \ \ \sigma = \frac{\delta_c}{\sqrt{2}\erfc^{-1}(\beta)},
 \end{equation*}
+where $\erfc(x) = 1-\erf(x)$ is the complementary error function, $\sigma^2\sim P(k)$ and $\delta_c = 0.41$ in the radiation case. 
 
-with $\sigma^2\sim P(k)$ and $\delta_c = 0.41$ in the radiation case. 
-
-Then, we will utilize the special function (class) {py:func}`PBHBeta.PfR.get_P_k_RD`, which takes the following parameters: an array of masses, 
-an array of PBH abundances, and the value of $\delta_{c}$. This function returns two arrays: one containing the wave number $k$ 
-and the other containing the constraints in the Power Spectrum for each $k$ value.
-
-```{Important}
-It is necessary for the arrays of mass and abundances to have the same dimensional size or number of elements.
-```
-
-```{note}
-For a future version of `PBHBeta`, we might remove the dependency on the abundance array and solely use an array of masses.
-```
-
-We then proceed to utilize all the previously calculated and assigned values for each of the variables, 
-including constrained masses and abundances of PBHs, assuming the standard evolution of the universe.
+Subsequently, we utilize the special function (class) {py:func}`PBHBeta.PfR.get_P_k_RD`, which takes parameters such as an array of masses, an array of PBH abundances, and the value of $\delta_{c}$. This function returns two arrays: one containing the wave number $k$ and the other containing the constraints in the Power Spectrum for each $k$ value.
 
 ```python
 delta_c = 0.41
@@ -187,8 +145,17 @@ k_GRB2, P_k_GRB2 = PfR.get_P_k_RD(M_grb2, betas_grb2, delta_c)
 k_Reio, P_k_Reio = PfR.get_P_k_RD(M_reio, betas_reio, delta_c)
 k_LSP, P_k_LSP = PfR.get_P_k_RD(M_lsp, betas_lsp, delta_c)
 k_DM_relic, P_k_DM_relic = PfR.get_P_k_RD(M_relic, betas_relic, delta_c)
-
 ```
+
+```{Important}
+The arrays of masses and abundances must have the same dimensional size or number of elements.
+```
+
+```{note}
+For a future version of `PBHBeta`, we might remove the dependency on the abundance array and solely use an array of masses.
+```
+
+**Plotting Constraints on Power Spectrum:** Plotting these values generates constraints imposed on the power spectrum, $\mathcal{P}_{\zeta}(k)$, by PBHs in the standard Big Bang scenario.
 
 ```python
 plt.loglog(k_DM, P_k_DM, "k:",label=r"$\Omega_{DM}$")
@@ -223,11 +190,12 @@ plt.show()
 
 ```
 
-Plotting these values yields constraints imposed on the power spectrum, $\mathcal{P}_{\zeta}(k)$, 
-by PBHs in the standard Big Bang scenario.
-    
+This visualization showcases constraints on the power spectrum by PBHs, indicating regions where PBHs have an impact.
+
 ![png](img/output_11_0.png)
 
+
+Feel free to adjust any part of the rewritten content to match your style or specifications.
 
 ---
 

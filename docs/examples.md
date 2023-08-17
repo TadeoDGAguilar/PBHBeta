@@ -199,20 +199,70 @@ Feel free to adjust any part of the rewritten content to match your style or spe
 
 ---
 
+Before proceeding to the examples in non-standard cosmology, it is necessary to execute once again the special function
+(class) {py:func}`PBHBeta.PfR.get_P_k_RD`, evaluating it with the parameters: `M_tot`, which represents our array of PBH masses,
+`betas_full`, which contains the array of the most restrictive data points in PBH abundance, and the threshold value `delta_c`.
+The generated outputs will be saved in the variables: `k_rd`, which will hold the array of data for different values of $k$ 
+in the standard Big Bang scenario (SBB), and consequently, `P_k_rd` will correspond to the array of data for the Power Spectrum (PS) in the SBB.
+
+```python
+k_rd, P_k_rd = PfR.get_P_k_RD(M_tot, betas_full, delta_c)
+```
+
+---
 
 ## Primordial Black Holes in non-standard cosmology
 
 ### Early Matter Dominated (MD) scenario
 
-```python
-k_rd, P_k_rd = PfR.get_P_k_RD(M_tot, betas_full, delta_c)
+Now we analyze how this early MD epoch will modify the constraints on
+the abundance of $\beta_{\rm PBH} and PS. For this purpose, we will utilize the {py:func}`PBHBeta.PfM.get_P_k_MD` 
+function. This will allow us to obtain, through its parameters: `M_tot`, `N_md`, `omega`, and `gamma_md`, 
+the wavenumber $k$, the constraints on the PS and the abundance of PBHs.
 
+The {py:func}`PBHBeta.PfM.get_P_k_MD` function is configured in such a way that the determination of k is carried out using the following instructions:
+
+\begin{equation*}
+k_{\rm MD} = \left(\frac{\rho_{r0}}{\rho_{\rm end}}\right)^{1/4}\exp{-4N_{\rm MD}}\left(\frac{H_{end}^{2}(\gamma^{\rm MD})(7.1\times^{-2})(1.8\times^15)}{M_{\rm PBH}}\right)^(1/3)
+\end{equation*}
+
+It is important to mention that most of the variables (except for the parameters) within this initial instruction 
+already have assigned values and are located within the `constraints.py` module.
+In other words, the determination of $k$ relies on the values of `M_tot`, `N_md`, and `gamma_md`.
+
+Additionally, the {py:func}`PBHBeta.PfM.get_P_k_MD` function includes a special calculation method for the abundances
+in such a way that after the formation of Primordial Black Holes (PBHs), the evolution of the density parameter, 
+\Omega_{\rm PBH}, and its relation to $\beta$ are altered compared to the standard cosmological model.
+
+\begin{equation*}
+\beta_{\rm MD} = \beta_{\rm MD}\left(N_{\rm reh}, \omega, γ^{\rm MD}\right)
+\end{equation*}
+
+In other words, this last instruction contains a system of differential equations 
+(for more information, refer to the [Basic Functions](https://pbhbeta.readthedocs.io/en/latest/Module_1.html#basic-functions) section,
+which is solved under the conditions in which the background universe behaves effectively like a matter-dominated (MD) universe with `omega = 0`.
+
+To derive such constraints, we based this from the Press-Schechter formalism and instead consider that the physical 
+limitations concerning the initial fluctuation's sphericity and conservation of angular momentum determine 
+the relationship between `beta` and `sigma`.
+
+\begin{equation*}
+\beta \simeq 0.05556\,\sigma^5,\quad \text{for} \quad 0.005\lesssim \sigma\lesssim 0.2\,.
+\end{equation*}
+
+```note
+The particular value of $\gamma(MD)$ is not well known and we thus adopt $\gamma^(MD) = 1$
+```
+
+```python
 k_10s, P_k_10, beta_10 = PfM.get_P_k_MD(M_tot,10,0,1)
 k_20s, P_k_20, beta_20 = PfM.get_P_k_MD(M_tot,20,0,1)
 k_30s, P_k_30, beta_30 = PfM.get_P_k_MD(M_tot,30,0,1)
 ```
 
 #### Abundance of PBHs ($\beta_{PBH}$) as function of their mass, where $N_{MD}$ is the total number of $e$-folds that the the MD epoch lasted.
+
+To compare with SBB, we use again `betas_full`
 
 ```python
 plt.loglog(M_tot,betas_full, label = "SBB", color='black')
@@ -233,6 +283,8 @@ plt.show()
 ![png](img/output_13_0.png)
     
 #### Constraints on $\mathcal{P}_{\zeta}(k)$ as a function of $k$ for different values of $N_{MD}$.
+
+Analogously we use again `k_rd` and `P_k_rd`
 
 ```python
 plt.loglog(k_rd, P_k_rd,label = "SBB",color='black')
@@ -262,7 +314,7 @@ plt.show()
 ![png](img/output_14_0.png)
 
 
----    
+---
 
 
 ### Stiff fluid Dominated (SD) Scenario

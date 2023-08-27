@@ -25,12 +25,13 @@ The GitHub repository and PyPI package for `PBHBeta` include the essential libra
 
 # How to cite us
 
-If you use PBH-{math}`\beta`, please cite arXiv:.
+If you use PBH-{math}`\beta`, please cite: [2308.04642](https://inspirehep.net/literature/2686719)
 
 
 # Changelog
 ### Versions:
 
+- **1.0.1 (27/08/2023)** Add some description to modules and components.
 - **1.0 (05/08/2023)** Initial version.
 
 

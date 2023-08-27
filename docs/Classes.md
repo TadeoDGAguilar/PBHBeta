@@ -1,9 +1,9 @@
 # Classes
 
-## Beta from Number of Reheating (BfN)
+## Beta from early Matter Domination (BfM)
 
 ```{eval-rst}
-.. autofunction:: PBHBeta.BfN.get_betas_reh_tot
+.. autofunction:: PBHBeta.BfM.get_betas_reh_tot
 ```
 
 

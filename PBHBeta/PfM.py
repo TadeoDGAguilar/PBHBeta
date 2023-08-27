@@ -29,16 +29,16 @@ def get_P_k_MD(M, N_md, omega, gam_md):
 
   Parameters:
 
-      M (numpy.ndarray): Corresponds to masses of PBHs, constrained and computed from any main functions.
-      N_md (float): is the total number of e-folds that the stiff era lasted.
-      omega (float): This value is to assign the equation of state
-      gam_md: . The particular value of \gamma^{MD} is not well known and we thus adopt \gamma^{MD} = 1
+      - M (numpy.ndarray): Corresponds to masses of PBHs, constrained and computed from any main functions.
+      - N_md (float): This is the total number of e−folds of MD.
+      - omega (float): This value is to assign the equation of state
+      - gam_md: . The particular value of \gamma^{MD} is not well known and we thus adopt \gamma^{MD} = 1
 
   Returns:
 
-      k (numpy.ndarray): Wave number values in MD.
-      P_k (numpy.ndarray): Power Spectrum values in MD.
-      betas_reh (numpy.ndarray): Abundances of PBHs in MD.
+      - k (numpy.ndarray): Wave number values in MD.
+      - P_k (numpy.ndarray): Power Spectrum values in MD.
+      - betas_reh (numpy.ndarray): Abundances of PBHs in MD.
 
   """
 

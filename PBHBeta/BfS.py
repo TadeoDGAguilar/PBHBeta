@@ -32,13 +32,16 @@ ln_den_end = np.log(rho_end)
 
 def get_betas_stiff_tot(N_stiff, omega, gam_stiff):
     """
+    This function contains compute the abundance of PBHs in a Stiff-fluid Domination (SD) era. This includes the system of equations that describe the evolution of the population of PBHs after their formation.
+    Eqs. (35) to (40) from the article.
+
     Parameters:
-        - N_stiff (float):
-        - omega (float):
-        - gam_stiff (float):
+        - N_stiff (float): Is the total number of e-folds that the stiff era lasted.
+        - omega (float): This value is to assign the equation of state
+        - gam_sd: It is a constant that encrypts the efficiency of the collapse and for a Stiff Fluid Domination era. The particular value of \gamma^{SD} is not well known and we thus adopt \gamma^{SD} = 1
 
     Returns:
-        - betas_stiff (list):
+        - betas_stiff (list): Contain the total abundances of PBHs in SD.
 
     """
     M_tot = np.array(constraints.M_tot)

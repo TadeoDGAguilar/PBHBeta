@@ -28,15 +28,18 @@ ln_den_end = np.log(rho_end)
 
 def get_betas_reh_tot(N_re, omega, gam_reh):
     """
+    This function contains compute the abundance of PBHs in a Early Matter Domination (MD) era. This includes the system of equations that describe the evolution of the population of PBHs after their formation.
+    Eqs. (22) to (25) from the article.
+
     Parameters:
-        - N_re (float): .
-        - omega (float):
-        - gam_reh (float):
+        - N_re (float): Is the total number of e-folds needed for the MD era lasted.
+        - omega (float): This value is to assign the equation of state
+        - gam_reh: It is a constant that encrypts the efficiency of the collapse into a MD era. The particular value of \gamma^{MD} is not well known and we thus adopt \gamma^{MD} = 1
+
     Returns:
-        - betas_reh_tot (list): A list of values of betas_reh_tot.
-    Raises:
-        - ValueError: If the end of reheating happens after BBN.
+        - betas_reh_tot (list): Contain the total abundances of PBHs in MD era.
     """
+
     M_tot = np.array(constraints.M_tot)# define M_tot
     betas_full = np.array(constraints.betas_full)# define betas_full
     Omegas_full = np.array(constraints.Omegas_full)# define Omegas_full

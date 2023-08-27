@@ -21,17 +21,16 @@ def get_P_k_SD(M, N_stiff, omega, gam_sd):
     This functions obtain the Power Spectrum (PS) constraint in a Stiff fluid dominated (SD) scenario
 
     Parameters:
-
-        M (numpy.ndarray): Corresponds to masses of PBHs, constrained and computed from any main functions.
-        N_stiff (float): Is the total number of e-folds that the stiff era lasted.
-        omega (float): This value is to assign the equation of state
-        gam_sd: The particular value of \gamma^{SD} is not well known and we thus adopt \gamma^{SD} = 1
+        - M (numpy.ndarray): Corresponds to masses of PBHs, constrained and computed from any main functions.
+        - N_stiff (float): Is the total number of e-folds that the stiff era lasted.
+        - omega (float): This value is to assign the equation of state
+        - gam_sd: The particular value of \gamma^{SD} is not well known and we thus adopt \gamma^{SD} = 1
 
     Returns:
 
-        k (numpy.ndarray): Wave number values in SD.
-        P_k (numpy.ndarray): Power Spectrum values in SD.
-        betas_stiff (numpy.ndarray): Abundances of PBHs in SD.
+        - k (numpy.ndarray): Wave number values in SD.
+        - P_k (numpy.ndarray): Power Spectrum values in SD.
+        - betas_stiff (numpy.ndarray): Abundances of PBHs in SD.
 
     """
 

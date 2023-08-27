@@ -268,7 +268,7 @@ def Betas_BBN(M_tot, omega):
     """
     Calculates the abundance of PBHs for Big Bang Nucleosynthesis constraints.
 
-        Parameters:
+    Parameters:
         - M_tot (array-like): Array of masses in grams.
         - omega (float): This value is to assign the equation of state.
 
@@ -351,7 +351,7 @@ def Betas_SD(M_tot, omega):
     """
     Calculates the abundance of PBHs for Spectral Distortion (SD) constraints.
 
-        Parameters:
+    Parameters:
         - M_tot (array-like): Array of masses in grams.
         - omega (float): This value is to assign the equation of state.
 
@@ -405,9 +405,9 @@ def Betas_CMB_AN(M_tot, omega):
     """
     Calculates the abundance of PBHs for CMB Anisotropies (CMB_AN) constraints.
 
-        Parameters:
-        - M_tot (array-like): Array of masses in grams.
-        - omega (float): This value is to assign the equation of state.
+    Parameters:
+            - M_tot (array-like): Array of masses in grams.
+            - omega (float): This value is to assign the equation of state.
 
     Returns:
         A tuple containing three numpy arrays:
@@ -459,17 +459,17 @@ def Betas_GRB(M_tot, omega):
     Calculates the abundance of PBHs could contribute to the diffuse x-ray and γ-ray background (GRB).
 
         Parameters:
-        - M_tot (array-like): Array of masses in grams.
-        - omega (float): This value is to assign the equation of state.
+                - M_tot (array-like): Array of masses in grams.
+                - omega (float): This value is to assign the equation of state.
 
-    Returns:
-        A tuple containing six numpy arrays:
-            - M_grb1 (numpy.ndarray): Represents the masses of PBHs in the range [3x10^(13), 5.1x10^(14)].
-            - M_grb2 (numpy.ndarray): Represents the masses of PBHs in the range [5.1x10^(14), 7x10^(16)].
-            - betas_grb1 (numpy.ndarray): Corresponds to the abundance obtained from M_grb1.
-            - betas_grb2 (numpy.ndarray): Corresponds to the abundance obtained from M_grb2.
-            - Omegas_grb1 (numpy.ndarray): Corresponds to evolution of abundance of betas_grb1.
-            - Omegas_grb2 (numpy.ndarray): Corresponds to evolution of abundance of betas_grb2.
+        Returns:
+            A tuple containing six numpy arrays:
+                - M_grb1 (numpy.ndarray): Represents the masses of PBHs in the range [3x10^(13), 5.1x10^(14)].
+                - M_grb2 (numpy.ndarray): Represents the masses of PBHs in the range [5.1x10^(14), 7x10^(16)].
+                - betas_grb1 (numpy.ndarray): Corresponds to the abundance obtained from M_grb1.
+                - betas_grb2 (numpy.ndarray): Corresponds to the abundance obtained from M_grb2.
+                - Omegas_grb1 (numpy.ndarray): Corresponds to evolution of abundance of betas_grb1.
+                - Omegas_grb2 (numpy.ndarray): Corresponds to evolution of abundance of betas_grb2.
     """
 
     betas_grb1 = []
@@ -536,9 +536,9 @@ def Betas_Reio(M_tot, omega):
     """
     Calculates the abundance of PBHs with a lifetime greater than the age of the universe leaves an imprint on the CMB through modifications of the ionization history and the damping of CMB anisotropies.
 
-        Parameters:
-        - M_tot (array-like): Array of masses in grams.
-        - omega (float): This value is to assign the equation of state.
+    Parameters:
+            - M_tot (array-like): Array of masses in grams.
+            - omega (float): This value is to assign the equation of state.
 
     Returns:
         A tuple containing three numpy arrays:
@@ -607,8 +607,8 @@ def Betas_LSP(M_tot, w):
     Calculates the abundance of PBHs that may produce the lightest supersymmetric particles (LSP), predicted in supersymmetry and supergravity models, which are stable and may contribute to the totality of the DM in the universe.
 
         Parameters:
-        - M_tot (array-like): Array of masses in grams.
-        - w (omega) (float): This value is to assign the equation of state.
+            - M_tot (array-like): Array of masses in grams.
+            - w (omega) (float): This value is to assign the equation of state.
 
     Returns:
         A tuple containing three numpy arrays:

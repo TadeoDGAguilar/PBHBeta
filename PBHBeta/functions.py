@@ -160,6 +160,8 @@ def Betas_DM(M_tot, omega):
 
     Parameters:
         - M_tot (array-like): Array of masses in grams.
+        - omega (float): This value is to assign the equation of state
+
 
     Returns:
         A tuple containing four numpy arrays:
@@ -167,6 +169,7 @@ def Betas_DM(M_tot, omega):
             - beta (numpy.ndarray): Corresponds to the abundance obtained from M_n.
             - M_relic (numpy.ndarray): Masses of the relic dark matter components.
             - beta_relic_prim (numpy.ndarray): Corresponds to abundance obtained from M_relic.
+            - Omegas_tot (numpy.ndarray): Correspond to evolution of abundance of PBHs (with DM constraint) after their formation.
     """
 
     M_n = []
@@ -264,6 +267,16 @@ def Betas_DM(M_tot, omega):
 def Betas_BBN(M_tot, omega):
     """
     Calculates the abundance of PBHs for Big Bang Nucleosynthesis constraints.
+
+        Parameters:
+        - M_tot (array-like): Array of masses in grams.
+        - omega (float): This value is to assign the equation of state.
+
+    Returns:
+        A tuple containing three numpy arrays:
+            - M_bbn (numpy.ndarray): Represents the masses of PBHs leading to an injection of particles that can impact the predictions of BBN.
+            - betas_bbn (numpy.ndarray): Corresponds to the abundance obtained from M_bbn.
+            - Omegas_bbn_tot (numpy.ndarray): Corresponds to evolution of abundance of PBHs with BBN constraint.
     """
 
     betas_bbn = []
@@ -329,11 +342,25 @@ def Betas_BBN(M_tot, omega):
     Omegas_bbn_pbbn = np.array(Omegas_bbn_pbbn)
     constraints.Omega_BBN_tot = Omegas_bbn_tot
     
-    return M_bbn, betas_bbn, M_bbn_bbn, M_bbn_pbbn, Omegas_bbn, Omegas_bbn_pbbn, Omegas_bbn_tot
+    return M_bbn, betas_bbn, Omegas_bbn_tot
 
 
 
 def Betas_SD(M_tot, omega):
+
+    """
+    Calculates the abundance of PBHs for Spectral Distortion (SD) constraints.
+
+        Parameters:
+        - M_tot (array-like): Array of masses in grams.
+        - omega (float): This value is to assign the equation of state.
+
+    Returns:
+        A tuple containing three numpy arrays:
+            - M_sd (numpy.ndarray): Represents the masses of PBHs consider the constraints from SD
+            - betas_sd (numpy.ndarray): Corresponds to the abundance obtained from M_sd.
+            - Omegas_sd (numpy.ndarray): Corresponds to evolution of abundance of PBHs with SD constraint.
+    """
 
     
     betas_sd = []
@@ -369,11 +396,25 @@ def Betas_SD(M_tot, omega):
     M_sd_bbn = np.array(M_sd_bbn)
     Omegas_sd = np.array(Omegas_sd)
     
-    return M_sd, betas_sd, M_sd_bbn, Omegas_sd
+    return M_sd, betas_sd, Omegas_sd
 
 
 
 def Betas_CMB_AN(M_tot, omega):
+
+    """
+    Calculates the abundance of PBHs for CMB Anisotropies (CMB_AN) constraints.
+
+        Parameters:
+        - M_tot (array-like): Array of masses in grams.
+        - omega (float): This value is to assign the equation of state.
+
+    Returns:
+        A tuple containing three numpy arrays:
+            - M_an (numpy.ndarray): Represents the masses of PBHs consider the constraints from CMB_AN.
+            - betas_an (numpy.ndarray): Corresponds to the abundance obtained from M_an.
+            - Omegas_an (numpy.ndarray): Corresponds to evolution of abundance of PBHs with CMB_AN constraint.
+    """
 
 
     betas_an = []
@@ -409,11 +450,27 @@ def Betas_CMB_AN(M_tot, omega):
     M_an_bbn = np.array(M_an_bbn)
     Omegas_an = np.array(Omegas_an)
     
-    return M_an, betas_an, M_an_bbn, Omegas_an
+    return M_an, betas_an, Omegas_an
 
 
 def Betas_GRB(M_tot, omega):
 
+    """
+    Calculates the abundance of PBHs could contribute to the diffuse x-ray and γ-ray background (GRB).
+
+        Parameters:
+        - M_tot (array-like): Array of masses in grams.
+        - omega (float): This value is to assign the equation of state.
+
+    Returns:
+        A tuple containing six numpy arrays:
+            - M_grb1 (numpy.ndarray): Represents the masses of PBHs in the range [3x10^(13), 5.1x10^(14)].
+            - M_grb2 (numpy.ndarray): Represents the masses of PBHs in the range [5.1x10^(14), 7x10^(16)].
+            - betas_grb1 (numpy.ndarray): Corresponds to the abundance obtained from M_grb1.
+            - betas_grb2 (numpy.ndarray): Corresponds to the abundance obtained from M_grb2.
+            - Omegas_grb1 (numpy.ndarray): Corresponds to evolution of abundance of betas_grb1.
+            - Omegas_grb2 (numpy.ndarray): Corresponds to evolution of abundance of betas_grb2.
+    """
 
     betas_grb1 = []
     M_grb1 = []
@@ -466,18 +523,29 @@ def Betas_GRB(M_tot, omega):
     betas_grb1 = np.array(betas_grb1)
     M_grb1 = np.array(M_grb1)
     betas_grb2 = np.array(betas_grb2)
-    M_grn2 = np.array(M_grb2)
+    M_grb2 = np.array(M_grb2)
     M_grb1_bbn = np.array(M_grb1_bbn)
     Omegas_grb1 = np.array(Omegas_grb1)
     M_grb2_bbn = np.array(M_grb2_bbn)
     Omegas_grb2 = np.array(Omegas_grb2)
 
     
-    return M_grb1, M_grb2, betas_grb1, betas_grb2, M_grb1_bbn, M_grb2_bbn, Omegas_grb1, Omegas_grb2
+    return M_grb1, M_grb2, betas_grb1, betas_grb2, Omegas_grb1, Omegas_grb2
 
 def Betas_Reio(M_tot, omega):
+    """
+    Calculates the abundance of PBHs with a lifetime greater than the age of the universe leaves an imprint on the CMB through modifications of the ionization history and the damping of CMB anisotropies.
 
+        Parameters:
+        - M_tot (array-like): Array of masses in grams.
+        - omega (float): This value is to assign the equation of state.
 
+    Returns:
+        A tuple containing three numpy arrays:
+            -  M_reio (numpy.ndarray): Represents the masses of PBHs in the interval ( 1e15 , 1e17) grams.
+            -  betas_reio (numpy.ndarray): Corresponds to the abundance obtained from M_reio.
+            -  Omegas_reio (numpy.ndarray): Corresponds to evolution of abundance of betas_reio.
+    """
     betas_reio = []
     M_reio = []
 
@@ -512,7 +580,7 @@ def Betas_Reio(M_tot, omega):
     M_reio_bbn = np.array(M_reio_bbn)
     Omegas_reio = np.array(Omegas_reio)
     
-    return M_reio, betas_reio, M_reio_bbn, Omegas_reio
+    return M_reio, betas_reio, Omegas_reio
 
 #def Betas_LSP(M_tot):
 
@@ -535,6 +603,20 @@ def Betas_Reio(M_tot, omega):
 
 
 def Betas_LSP(M_tot, w):
+    """
+    Calculates the abundance of PBHs that may produce the lightest supersymmetric particles (LSP), predicted in supersymmetry and supergravity models, which are stable and may contribute to the totality of the DM in the universe.
+
+        Parameters:
+        - M_tot (array-like): Array of masses in grams.
+        - w (omega) (float): This value is to assign the equation of state.
+
+    Returns:
+        A tuple containing three numpy arrays:
+            -  M_lsp (numpy.ndarray): Represents the masses of PBHs < 1e11( m_lsp / 100 GeV)^(-1) grams.
+            -  betas_lsp (numpy.ndarray): Corresponds to the abundance obtained from M_lsp.
+            -  Omegas_lsp_tot (numpy.ndarray): Corresponds to evolution of abundance of betas_lsp.
+    """
+
     ev1 = 1e-5
     ev2 = 1e-2
     M_pl = 1.22089*10**19
@@ -599,10 +681,19 @@ def Betas_LSP(M_tot, w):
     M_lsp_pbbn = np.array(M_lsp_pbbn)
     Omegas_lsp_pbbn = np.array(Omegas_lsp_pbbn)
 
-    return M_lsp, betas_lsp, betas_lsp_tot, Omegas_lsp, Omegas_lsp_tot, M_lsp_bbn, Omegas_lsp_pbbn, M_lsp_pbbn
+    return M_lsp, betas_lsp, Omegas_lsp_tot
 
 
 def get_Betas_full(M_tot):
+
+    """
+    This function calculates composite constraint values derived from various PBH constraints.
+        Parameters:
+                - M_tot (array-like): Array of masses in grams.
+
+        Returns:
+                - betas_full (numpy.ndarray): Represent the most robust constraints across diverse scenarios for each specific mass value. This output is saved in the module called constraints into variable named betas_full.
+    """
 
 
     DM_tot = np.array(constraints.betas_DM_tot)
@@ -619,6 +710,16 @@ def get_Betas_full(M_tot):
 
 
 def get_Omegas_full(M_tot):
+
+    """
+    This function calculates composite constraint values derived from various PBH constraints.
+        Parameters:
+                - M_tot (array-like): Array of masses in grams.
+
+        Returns:
+                - Omegas_full (numpy.ndarray): Represent the most robust constraints across diverse scenarios for each specific mass value. This output is saved in the module called constraints into variable named Omegas_full.
+    """
+
 
     DM_tot = np.array(constraints.Omega_DM_tot)
     BBN_tot = np.array(constraints.Omega_BBN_tot)

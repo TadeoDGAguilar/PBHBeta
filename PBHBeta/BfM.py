@@ -6,6 +6,8 @@ from scipy.optimize import fsolve
 from scipy.integrate import solve_ivp
 from PBHBeta import constants
 from PBHBeta import constraints
+from PBHBeta.functions import get_Betas_full
+from PBHBeta.functions import get_Omegas_full
 import numpy as np
 
 # Set the values of the variables
@@ -26,12 +28,13 @@ log10_M_tot = np.linspace(0,20,1000)
 ln_den_end = np.log(rho_end)
 
 
-def get_betas_reh_tot(N_re, omega, gam_reh):
+def get_betas_reh_tot(M, N_re, omega, gam_reh):
     """
     This function contains compute the abundance of PBHs in a Early Matter Domination (MD) era. This includes the system of equations that describe the evolution of the population of PBHs after their formation.
     Eqs. (22) to (25) from the article.
 
     Parameters:
+        - M (array): Range of Mass from PBHs
         - N_re (float): Is the total number of e-folds needed for the MD era lasted.
         - omega (float): This value is to assign the equation of state
         - gam_reh: It is a constant that encrypts the efficiency of the collapse into a MD era. The particular value of \gamma^{MD} is not well known and we thus adopt \gamma^{MD} = 1
@@ -40,9 +43,11 @@ def get_betas_reh_tot(N_re, omega, gam_reh):
         - betas_reh_tot (list): Contain the total abundances of PBHs in MD era.
     """
 
-    M_tot = np.array(constraints.M_tot)# define M_tot
-    betas_full = np.array(constraints.betas_full)# define betas_full
-    Omegas_full = np.array(constraints.Omegas_full)# define Omegas_full
+    M_tot = np.array(M)# define M_tot
+    Omegas_full = get_Omegas_full(M)#np.array(constraints.Omegas_full)
+    betas_full = get_Betas_full(M)#np.array(constraints.betas_full)
+    #betas_full = np.array(constraints.betas_full)# define betas_full
+    #Omegas_full = np.array(constraints.Omegas_full)# define Omegas_full
     k_end_over_k_reh = (M_tot/(7.1*10**-2*gam_reh*(1.8*10**15/H_end)))**(1/3)
     rho_form_reh = rho_end_inf/k_end_over_k_reh**6
     rho_end_reh = rho_end_inf*np.exp(-3*N_re)

@@ -10,6 +10,8 @@ import sys
 from scipy import special
 from PBHBeta import constants
 from PBHBeta import constraints
+from PBHBeta.functions import get_Betas_full
+from PBHBeta.functions import get_Omegas_full
 import numpy as np
 
 # Set the values of the variables
@@ -30,12 +32,13 @@ log10_M_tot = np.linspace(0,20,1000)
 ln_den_end = np.log(rho_end)
 
 
-def get_betas_stiff_tot(N_stiff, omega, gam_stiff):
+def get_betas_stiff_tot(M, N_stiff, omega, gam_stiff):
     """
     This function contains compute the abundance of PBHs in a Stiff-fluid Domination (SD) era. This includes the system of equations that describe the evolution of the population of PBHs after their formation.
     Eqs. (35) to (40) from the article.
 
     Parameters:
+        - M (array): Range of Mass from PBHs
         - N_stiff (float): Is the total number of e-folds that the stiff era lasted.
         - omega (float): This value is to assign the equation of state
         - gam_sd: It is a constant that encrypts the efficiency of the collapse and for a Stiff Fluid Domination era. The particular value of \gamma^{SD} is not well known and we thus adopt \gamma^{SD} = 1
@@ -44,9 +47,9 @@ def get_betas_stiff_tot(N_stiff, omega, gam_stiff):
         - betas_stiff (list): Contain the total abundances of PBHs in SD.
 
     """
-    M_tot = np.array(constraints.M_tot)
-    Omegas_full = np.array(constraints.Omegas_full)
-    betas_full = np.array(constraints.betas_full)
+    M_tot = np.array(M)
+    Omegas_full = get_Omegas_full(M)#np.array(constraints.Omegas_full)
+    betas_full = get_Betas_full(M)#np.array(constraints.betas_full)
     
     rho_end_stiff = rho_end_inf*np.exp(-6*N_stiff)
     if rho_end_stiff <= rho_end:

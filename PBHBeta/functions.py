@@ -685,7 +685,6 @@ def Betas_LSP(M_tot, w):
 
 
 def get_Betas_full(M_tot):
-
     """
     This function calculates composite constraint values derived from various PBH constraints.
         Parameters:
@@ -695,7 +694,6 @@ def get_Betas_full(M_tot):
                 - betas_full (numpy.ndarray): Represent the most robust constraints across diverse scenarios for each specific mass value. This output is saved in the module called constraints into variable named betas_full.
     """
 
-
     DM_tot = np.array(constraints.betas_DM_tot)
     BBN_tot = np.array(constraints.betas_BBN_tot)
     SD_tot = np.array(constraints.betas_SD_tot)
@@ -703,14 +701,27 @@ def get_Betas_full(M_tot):
     GRB_tot = np.array(constraints.betas_GRB_tot)
     Reio_tot = np.array(constraints.betas_Reio_tot)
     LSP_tot = np.array(constraints.betas_LSP_tot)
-    constraints.betas_full = M_tot*0
+
+    constraints.betas_full = M_tot * 0
+
     for i in range(len(M_tot)):
-        constraints.betas_full[i] = min(DM_tot[i], BBN_tot[i], SD_tot[i], CMB_tot[i], GRB_tot[i], Reio_tot[i], LSP_tot[i])
+        # Collect only the non-empty arrays
+        values = []
+        if DM_tot.size: values.append(DM_tot[i])
+        if BBN_tot.size: values.append(BBN_tot[i])
+        if SD_tot.size: values.append(SD_tot[i])
+        if CMB_tot.size: values.append(CMB_tot[i])
+        if GRB_tot.size: values.append(GRB_tot[i])
+        if Reio_tot.size: values.append(Reio_tot[i])
+        if LSP_tot.size: values.append(LSP_tot[i])
+
+        if values:  # Ensure there are values to calculate the minimum
+            constraints.betas_full[i] = min(values)
+
     return constraints.betas_full
 
 
 def get_Omegas_full(M_tot):
-
     """
     This function calculates composite constraint values derived from various PBH constraints.
         Parameters:
@@ -720,7 +731,6 @@ def get_Omegas_full(M_tot):
                 - Omegas_full (numpy.ndarray): Represent the most robust constraints across diverse scenarios for each specific mass value. This output is saved in the module called constraints into variable named Omegas_full.
     """
 
-
     DM_tot = np.array(constraints.Omega_DM_tot)
     BBN_tot = np.array(constraints.Omega_BBN_tot)
     SD_tot = np.array(constraints.Omega_SD_tot)
@@ -728,10 +738,25 @@ def get_Omegas_full(M_tot):
     GRB_tot = np.array(constraints.Omega_GRB_tot)
     Reio_tot = np.array(constraints.Omega_Reio_tot)
     LSP_tot = np.array(constraints.Omega_LSP_tot)
-    constraints.Omegas_full = M_tot*0
+
+    constraints.Omegas_full = M_tot * 0
+
     for i in range(len(M_tot)):
-        constraints.Omegas_full[i] = min(DM_tot[i], BBN_tot[i], SD_tot[i], CMB_tot[i], GRB_tot[i], Reio_tot[i], LSP_tot[i])
+        # Collect only the non-empty arrays
+        values = []
+        if DM_tot.size: values.append(DM_tot[i])
+        if BBN_tot.size: values.append(BBN_tot[i])
+        if SD_tot.size: values.append(SD_tot[i])
+        if CMB_tot.size: values.append(CMB_tot[i])
+        if GRB_tot.size: values.append(GRB_tot[i])
+        if Reio_tot.size: values.append(Reio_tot[i])
+        if LSP_tot.size: values.append(LSP_tot[i])
+
+        if values:  # Ensure there are values to calculate the minimum
+            constraints.Omegas_full[i] = min(values)
+
     return constraints.Omegas_full
+
 
 
 def inverse_error(betas, delta_c):

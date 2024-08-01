@@ -48,7 +48,7 @@ def get_P_k_MD(M, N_md, omega, gam_md):
 
   rho_end_inf = constants.rho_end_inf
   k_md = np.array(k_MD(M))
-  betas_reh = BfM.get_betas_reh_tot(N_md, omega, gam_md)
+  betas_reh = BfM.get_betas_reh_tot(M, N_md, omega, gam_md)
   k_end_over_k_reh = (M/(7.1*10**-2*gam_md*(1.8*10**15/constants.H_end)))**(1/3)
   betas_full = functions.get_Betas_full(M)
   sigma_tot = np.array(functions.inverse_error(betas_full, 0.41))

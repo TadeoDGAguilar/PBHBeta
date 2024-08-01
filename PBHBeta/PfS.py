@@ -36,7 +36,7 @@ def get_P_k_SD(M, N_stiff, omega, gam_sd):
 
     C = (8/2)**(2/4)
     A = (5+3/3)**2/(4*(1+1/3)**2)
-    betas_stiff = BfS.get_betas_stiff_tot(N_stiff, omega, gam_sd)
+    betas_stiff = BfS.get_betas_stiff_tot(M, N_stiff, omega, gam_sd)
     betas_full = functions.get_Betas_full(M)
     k_end_over_k_stiff = (M/(7.1*10**-2*gam_sd*(1.8*10**15/constants.H_end)))**(2/3)
     sigma_tot = np.array(functions.inverse_error(betas_full, 0.41))

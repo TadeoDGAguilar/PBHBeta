@@ -7,6 +7,11 @@
 **Licence:** [GNU General Public License v2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html). The documentation is licensed under the [GFDL](https://www.gnu.org/licenses/fdl-1.3.en.html).
 
 
+
+[Notebook Colab](https://colab.research.google.com/drive/1MoVDjTKOQ34pCSzUpC7g-qcygUQ0atUQ?usp=sharing)
+
+
+
 [![PyPI version](https://badge.fury.io/py/PBHBeta.svg)](https://badge.fury.io/py/PBHBeta) [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) [![Documentation Status](https://readthedocs.org/projects/pbhbeta/badge/?version=latest)](https://pbhbeta.readthedocs.io/en/latest/?badge=latest) [![arXiv](https://img.shields.io/badge/arXiv-2308.04642v1-f9f107.svg)](https://arxiv.org/pdf/2308.04642.pdf) 
 
 ---

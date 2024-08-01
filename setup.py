@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 HERE = pathlib.Path(__file__).parent
 
-VERSION = '1.0.1'
+VERSION = '1.0.5'
 PACKAGE_NAME = 'PBHBeta'
 URL = 'https://github.com/TadeoDGAguilar/PBHBeta'
 LICENSE = 'GNU GPL'
